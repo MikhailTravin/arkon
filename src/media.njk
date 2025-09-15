@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Медиа</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="breadcrumbs breadcrumbs-media">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Медиа</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <section data-container="tab1" class="block-media">
+                <div class="container">
+                    <div class="block-media__content">
+                        <div class="tabs-nav1">
+                            <button data-action="showTab1" data-tab="news" class="btn-corner1 btn-corner1_active"
+                                type="button">
+                                <span class="btn-corner1__inner">Новости</span>
+                            </button>
+                            <button data-action="showTab1" data-tab="media" class="btn-corner1 btn-corner2"
+                                type="button">
+                                <span class="btn-corner1__inner">Медиа</span>
+                            </button>
+                        </div>
+                        <div data-tab-content="news">
+                            <div class="block-media__cards">
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Итоги "Большого приза Тольятти 2025" и 3 этапа
+                                            Кубка
+                                            России по спортинг-компакту</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Семинары ARKON в России: когда технология
+                                            встречается с практикой</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Видео-обзор тепловизионных монокуляров Arkon Ovis
+                                        </div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Оптика ARKON на фестивале «Дикая утка 2025»: рядом
+                                            с вами, в любом регионе</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Итоги "Большого приза Тольятти 2025" и 3 этапа
+                                            Кубка
+                                            России по спортинг-компакту</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Семинары ARKON в России: когда технология
+                                            встречается с практикой</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Видео-обзор тепловизионных монокуляров Arkon Ovis
+                                        </div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Оптика ARKON на фестивале «Дикая утка 2025»: рядом
+                                            с вами, в любом регионе</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Итоги "Большого приза Тольятти 2025" и 3 этапа
+                                            Кубка
+                                            России по спортинг-компакту</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Семинары ARKON в России: когда технология
+                                            встречается с практикой</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Видео-обзор тепловизионных монокуляров Arkon Ovis
+                                        </div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Оптика ARKON на фестивале «Дикая утка 2025»: рядом
+                                            с вами, в любом регионе</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Итоги "Большого приза Тольятти 2025" и 3 этапа
+                                            Кубка
+                                            России по спортинг-компакту</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Семинары ARKON в России: когда технология
+                                            встречается с практикой</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Видео-обзор тепловизионных монокуляров Arkon Ovis
+                                        </div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Новости</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Оптика ARKON на фестивале «Дикая утка 2025»: рядом
+                                            с вами, в любом регионе</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий +" в Тольятти состоялся один из ключевых турниров спортивного сезона
+                                            на базе стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div data-tab-content="media" style="display: none;">
+                            <div class="block-media__cards">
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                                <a href="media-detail.html" class="card-pub">
+                                    <div class="card-pub__photo">
+                                        <img src="img/photo.jpg" alt="">
+                                    </div>
+                                    <div class="card-pub__bar">
+                                        <div class="card-pub__date badge1 badge1_accent">
+                                            <span>02 июня 2025</span>
+                                        </div>
+                                        <div class="card-pub__type badge1 badge1_white badge1_hollow">
+                                            <span>Медиа</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-pub__bottom">
+                                        <div class="card-pub__title">Горячая новинка этого года – новые приборы Arkon
+                                            серии Alfa!</div>
+                                        <div class="card-pub__preview">С 25 по 27 апреля на базе стрелкового клуба
+                                            "Ловчий
+                                            +" в Тольятти состоялся один из ключевых турниров спортивного сезона на базе
+                                            стрелкового клуба "Ловчий +"</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% include 'blocks/pagging.njk' %}
+                </div>
+                </ы>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

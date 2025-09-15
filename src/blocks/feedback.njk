@@ -1,0 +1,41 @@
+<section class="block-feedback">
+  <div class="container">
+    <div class="block-feedback__heading">
+      <h2 class="title1">Мы готовы ответить <span>на все Ваши вопросы</span></h2>
+      <div class="title3 corners1">Заполните форму обратной связи и мы свяжемся с Вами в ближайшее время!</div>
+    </div>
+    <div class="corners1 block-feedback__inner">
+      <div class="corners1__inner">
+        <form data-validate action="feedback.php">
+          <div class="block-feedback__grid">
+            <div>
+              <div class="form-group1">
+                <input id="feedback_name" class="field-input1 form-group__field" type="text" name="feedback_name" required="" placeholder=" ">
+                <label class="form-group1__label" for="feedback_name">Ваше имя</label>
+              </div>
+            </div>
+            <div>
+              <div class="form-group1">
+                <input id="feedback_phone" class="field-input1 form-group__field" data-mask="phone" data-type="phone" type="text" name="feedback_phone" required="" placeholder=" ">
+                <label class="form-group1__label form-group1__label_hidden" for="feedback_phone">Номер телефона</label>
+                <span class="form-group1__placeholder1"><span>+7</span> (999) 999-99-99</span>
+              </div>
+            </div>
+            <div>
+              <div class="form-group1">
+                <input id="feedback_email" class="field-input1 form-group__field" data-type="email" type="text" name="feedback_email" required="" placeholder=" ">
+                <label class="form-group1__label" for="feedback_email">E-mail</label>
+              </div>
+            </div>
+            <div>
+              <button class="btn-fancy" type="submit">
+                <span>Отправить заявку</span>
+              </button>
+            </div>
+            <div class="form-text1">Нажав на кнопку «Отправить заявку», соглашаюсь на обработку <a href="#">персональных данных</a></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

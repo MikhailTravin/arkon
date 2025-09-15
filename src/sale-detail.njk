@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Акции</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="breadcrumbs breadcrumbs-sale-detail">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="sale.html">
+                                Акции
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Ваша оптика — это Ваше зрение! Выбирайте лучшее!</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-sale-detail">
+                <div class="container">
+                    <div class="block-sale-detail__content">
+                        <a href="sale.html" class="back">
+                            <svg aria-hidden="true" width="21" height="18">
+                                <use xlink:href="img/sprite.svg#arrow4"></use>
+                            </svg>
+                            <span>Назад к акциям</span>
+                        </a>
+                        <div class="block-sale-detail__body">
+                            <div class="card-teaser3">
+                                <div class="card-teaser3__title title3">
+                                    Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!
+                                </div>
+                                <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до 10%</span>
+                                    на все монокуляры ARKON</div>
+                                <div class="card-teaser3__bg">
+                                    <div class="card-teaser3__bg-pic">
+                                        <img src="img/teaser3-bg1.webp" alt="">
+                                    </div>
+                                </div>
+                                <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                                <span class="card-teaser3__arrow">
+                                    <svg aria-hidden="true" width="24" height="24">
+                                        <use xlink:href="img/sprite.svg#arrow2"></use>
+                                    </svg>
+                                </span>
+                                <div class="card-teaser3__bottom">
+                                    <div class="special-offer-timer">
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="days" class="special-offer-timer__value">03</span>
+                                            <span class="special-offer-timer__key">дн.</span>
+                                        </div>
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="hours" class="special-offer-timer__value">12</span>
+                                            <span class="special-offer-timer__key">час.</span>
+                                        </div>
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="minutes" class="special-offer-timer__value">15</span>
+                                            <span class="special-offer-timer__key">мин.</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-fancy">
+                                        <span>Добавить в корзину</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="corners1">
+                            <div class="corners1__inner block-sale-detail__descr">
+                                <p>
+                                    Поиск тепловизионного прицела, качество которого соответствует стоимости,
+                                    затруднителен. Большинство моделей на рынке или не обосновано дорогие, или низкого
+                                    качества. Компания Arkon разработала и выпускает модель Alfa LT35, которая подойдет
+                                    пользователям с любым уровнем подготовки, при охоте на любую дичь, гарантирует
+                                    комфортное использование и простое обслуживание оптики.
+                                </p>
+                                <p>
+                                    Прицел Arkon Alfa LT35 – разработка российской группы компаний ЦЭК. Мы
+                                    спроектировали прибор простой конструкции, но с оптимальным функционалом: ничего
+                                    лишнего и дорогостоящего, только самое необходимое, но высокого качества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="block-recommend block-recommend-sale ">
+                <div class="container">
+                    <div class="heading-cols1">
+                        <h2 class="title2">Товары принимающие участие в акции</h2>
+                    </div>
+                    <div data-tab-content="hit">
+                        <div class="swiper swiper-recommend swiper-recommend2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    {% include 'blocks/card-product-price.njk' %}
+                                </div>
+                                <div class="swiper-slide">
+                                    {% include 'blocks/card-product-timer.njk' %}
+                                </div>
+                                <div class="swiper-slide">
+                                    {% include 'blocks/card-product-noprice.njk' %}
+                                </div>
+                                <div class="swiper-slide">
+                                    {% include 'blocks/card-product-timer.njk' %}
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-navs">
+                                <button class="swiper-nav swiper-nav_prev" type="button">
+                                    <svg aria-hidden="true" width="42" height="22">
+                                        <use xlink:href="img/sprite.svg#arrow1"></use>
+                                    </svg>
+                                </button>
+                                <button class="swiper-nav swiper-nav_next" type="button">
+                                    <svg aria-hidden="true" width="42" height="22">
+                                        <use xlink:href="img/sprite.svg#arrow1"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="block-other-sale">
+                <div class="container">
+                    <h2 class="title2">Другие акции</h2>
+                    <div class="swiper swiper-teasers3">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span>
+                                        на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg1.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                    <div class="special-offer-timer">
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="days" class="special-offer-timer__value">03</span>
+                                            <span class="special-offer-timer__key">дн.</span>
+                                        </div>
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="hours" class="special-offer-timer__value">12</span>
+                                            <span class="special-offer-timer__key">час.</span>
+                                        </div>
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="minutes" class="special-offer-timer__value">15</span>
+                                            <span class="special-offer-timer__key">мин.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">ARKON серия <span>Alfa II</span> и серия <span>OVis II</span> Новое
+                                            поколение — новые возможности!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span>
+                                        на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg2.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo2.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span>
+                                        на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg1.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">ARKON серия <span>Alfa II</span> и серия <span>OVis II</span> Новое
+                                            поколение — новые возможности!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span>
+                                        на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg2.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo2.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-navs">
+                            <button class="swiper-nav swiper-nav_prev" type="button">
+                                <svg aria-hidden="true" width="42" height="22">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
+                            <button class="swiper-nav swiper-nav_next" type="button">
+                                <svg aria-hidden="true" width="42" height="22">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

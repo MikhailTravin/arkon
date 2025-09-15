@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Каталог - детальная</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="breadcrumbs breadcrumbs-catalog-detail">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="catalog.html">
+                                Каталог
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Тепловизионные прицелы</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-catalog-detail">
+                <div class="top-catalog-detail">
+                    <div class="container">
+                        <div class="top-catalog-detail__content">
+                            <div class="top-catalog-detail__left">
+                                <a href="catalog.html" class="back">
+                                    <svg aria-hidden="true" width="21" height="18">
+                                        <use xlink:href="img/sprite.svg#arrow4"></use>
+                                    </svg>
+                                    <span>Назад в каталог</span>
+                                </a>
+                            </div>
+                            <div class="top-catalog-detail__right">
+                                <h1 class="title2">Тепловизионные прицелы</h1>
+                                <div class="top-catalog-detail__buttons">
+                                    <div class="top-catalog-detail__filter-mob">
+                                        <span>Фильтры</span>
+                                    </div>
+                                    <div class="top-catalog-detail__sorting">
+                                        <div class="top-catalog-detail__sorting-title">
+                                            По популярности <span>(убывание)</span>
+                                        </div>
+                                        <div class="top-catalog-detail__arrows">
+                                            <button class="sort-arrow up _active"
+                                                aria-label="Сортировка по возрастанию">
+                                                <svg aria-hidden="true" width="11" height="18">
+                                                    <use xlink:href="img/sprite.svg#arrow3"></use>
+                                                </svg>
+                                            </button>
+                                            <button class="sort-arrow down" aria-label="Сортировка по убыванию">
+                                                <svg aria-hidden="true" width="11" height="18">
+                                                    <use xlink:href="img/sprite.svg#arrow3"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="block-catalog-detail__content">
+                        <div class="block-catalog-detail__filter filter-catalog-detail">
+                            <div class="filter-catalog-detail__title">
+                                фильтры
+                                <button class="filter-catalog-detail__close">
+                                    <svg aria-hidden="true" width="24" height="24">
+                                        <use xlink:href="img/sprite.svg#close2"></use>
+                                    </svg>
+                                    <span class="v-h">Закрыть</span>
+                                </button>
+                            </div>
+                            <div data-spollers class="filter-catalog-detail__content">
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Цена, USD</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <div class="filter-catalog-detail__rating">
+                                            <div class="filter-catalog-detail__values">
+                                                <div class="filter-catalog-detail__input">
+                                                    <label for="price-start" class="price-lbl">от</label>
+                                                    <input id="price-start" placeholder="0" value="0" type="text">
+                                                </div>
+                                                <div class="filter-catalog-detail__input">
+                                                    <label for="price-end" class="price-lbl">до</label>
+                                                    <input id="price-end" placeholder="0" value="22 000" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="filter-catalog-detail__range"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Серия</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <ul class="checklist">
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb2">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">ARMA <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb2">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">ALFA <span>[21]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb2">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">ALFA II <span>[24]</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Диаметр объектива</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <ul class="checklist">
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">19 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">25 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">35 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">50 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Оптическое увеличение</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <ul class="checklist">
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">19 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">25 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">35 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">50 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Разрешение детектора</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <ul class="checklist">
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">19 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">25 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">35 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">50 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Встроеная память</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <ul class="checklist">
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">19 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">25 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">35 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="checkbox">
+                                                        <input class="checkbox__input" type="checkbox" name="chb3">
+                                                        <span class="checkbox__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">50 мм <span>[11]</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div data-spoller class="filter-catalog-detail__name">
+                                        <span>Фильтр с радиокнопкой</span>
+                                        <svg aria-hidden="true" width="9" height="16">
+                                            <use xlink:href="img/sprite.svg#chevron1"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <ul class="checklist">
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="radio">
+                                                        <input class="radio__input" type="radio" name="rad1">
+                                                        <span class="radio__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">Вариант 1
+                                                        <span>[11]</span></span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="radio">
+                                                        <input class="radio__input" type="radio" name="rad1">
+                                                        <span class="radio__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">Вариант 2
+                                                        <span>[11]</span></span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="radio">
+                                                        <input class="radio__input" type="radio" name="rad1">
+                                                        <span class="radio__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">Вариант 3
+                                                        <span>[11]</span></span>
+                                                </label>
+                                            </li>
+                                            <li class="checklist__item">
+                                                <label class="checkbox-text">
+                                                    <span class="radio">
+                                                        <input class="radio__input" type="radio" name="rad1">
+                                                        <span class="radio__visual"></span>
+                                                    </span>
+                                                    <span class="checkbox-text__label">Вариант 4
+                                                        <span>[11]</span></span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-catalog-detail__item">
+                                    <div class="filter-catalog-detail__name">
+                                        <span>Выпадающий список</span>
+                                    </div>
+                                    <div class="filter-catalog-detail__body">
+                                        <select data-select1 class="select" autocomplete="off" tabindex="-1">
+                                            <option value="1" selected>Выпадающий список</option>
+                                            <option value="2">Выпадающий список2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-catalog-detail__floating-btn">
+                                <div class="speech-bubble">
+                                    <span>Подобрано товаров: 22</span>
+                                    <button type="button" class="badge1 badge1_white badge1_hollow">Показать</button>
+                                </div>
+                            </div>
+                            <div class="filter-catalog-detail__buttons">
+                                <button type="button" class="btn-apply badge1 badge1_accent">Показать [22]</button>
+                                <button type="button"
+                                    class="btn-reset badge1 badge1_white badge1_hollow">Сбросить</button>
+                            </div>
+                        </div>
+                        <div class="block-catalog-detail__body">
+                            <div class="block-catalog-detail__cards">
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-price.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-price.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-price.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                                {% include 'blocks/card-product-price.njk' %}
+                                {% include 'blocks/card-product-timer.njk' %}
+                            </div>
+                            <div class="block-catalog-detail__pagging">
+                                {% include 'blocks/pagging.njk' %}
+                            </div>
+                            <div class="block-catalog-detail__descr">
+                                <div class="block-descr__content">
+                                    <h3 class="title3">
+                                        Arkon technologies: делаем охотничьи технологии доступными
+                                    </h3>
+                                    <p>
+                                        Бренд Arkon - это гарантия качества и первоклассная сервисная поддержка,
+                                        осуществляемая специалистами
+                                        высокого уровня с опытом производства оптических приборов более 10 лет на
+                                        собственной производственной
+                                        площадке в Москве, при поддержке профессиональной команды экспертов и
+                                        менеджеров.
+                                        Наша сила – современные доступные решения в охоте. Мы – это команда инженеров,
+                                        которые знают потребности
+                                        российских охотников и создают тепловизионные приборы с использованием новейших
+                                        технологий: матрица VOx,
+                                        высокая температурная чувствительность, ударопрочный корпус с влагозащитой IP67,
+                                        собственное программное
+                                        обеспечение.
+                                    </p>
+                                    <p>
+                                        Матрица на основе оксида ванадия повышает чувствительность и стабильность
+                                        изображения, уменьшает шумы на
+                                        изображении. Тепловизоры с матрицей VOx работают в широком температурном
+                                        диапазоне.
+                                    </p>
+                                    <p>
+                                        Все приборы проходят обязательное тестирование в лабораторных условиях:
+                                        проверяем
+                                        точность, стабильность
+                                        работы электроники, точность введения поправок, ударопрочность и степень
+                                        влагозащиты. В полевых условиях
+                                        испытываем на стабильность, стойкость к отдаче мелких и крупных калибров,
+                                        устойчивость к различным
+                                        погодным условиям и удобство использования.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-teasers3 block-teasers3-catalog">
+                <div class="container">
+                    <div class="swiper swiper-teasers3">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span> на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg1.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                    <div class="special-offer-timer">
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="days" class="special-offer-timer__value">03</span>
+                                            <span class="special-offer-timer__key">дн.</span>
+                                        </div>
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="hours" class="special-offer-timer__value">12</span>
+                                            <span class="special-offer-timer__key">час.</span>
+                                        </div>
+                                        <div class="special-offer-timer__item">
+                                            <span data-offer="minutes" class="special-offer-timer__value">15</span>
+                                            <span class="special-offer-timer__key">мин.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">ARKON серия <span>Alfa II</span> и серия <span>OVis II</span> Новое
+                                            поколение — новые возможности!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span> на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg2.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo2.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span> на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg1.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card-teaser3">
+                                    <div class="card-teaser3__title title3">
+                                        <a href="#">ARKON серия <span>Alfa II</span> и серия <span>OVis II</span> Новое
+                                            поколение — новые возможности!</a>
+                                    </div>
+                                    <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до
+                                            10%</span> на все монокуляры ARKON</div>
+                                    <div class="card-teaser3__bg">
+                                        <div class="card-teaser3__bg-pic">
+                                            <img src="img/teaser3-bg2.webp" alt="">
+                                        </div>
+                                    </div>
+                                    <img class="card-teaser3__photo" src="img/teaser3-photo2.webp" alt="">
+                                    <span class="card-teaser3__arrow">
+                                        <svg aria-hidden="true" width="24" height="24">
+                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-navs">
+                            <button class="swiper-nav swiper-nav_prev" type="button">
+                                <svg aria-hidden="true" width="42" height="22">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
+                            <button class="swiper-nav swiper-nav_next" type="button">
+                                <svg aria-hidden="true" width="42" height="22">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

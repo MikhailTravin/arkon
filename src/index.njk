@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Главная страница</title>
+  {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+  <div class="main-wrapper-outer">
+    {% include 'blocks/header.njk' %}
+    <main class="main">
+
+      <div class="block-teaser1 preload">
+        <img class="block-teaser1__bg" src="img/block-teasers1-bg.webp" alt="">
+        <div class="container">
+          <div class="block-teaser1__inner">
+            <div class="block-teaser1__inner1">
+              <div class="block-teaser1__content1">
+                <h1 class="title1">Мы создаем <span>доступные технологии</span> для успешной охоты</h1>
+                <a class="btn-fancy" href="catalog.html">
+                  <span>Перейти в каталог</span>
+                </a>
+              </div>
+              <div class="block-teaser1__content2">
+                <div class="block-teaser1__text1">Российский производитель с широким ассортиментом тепловизионных и
+                  цифровых приборов</div>
+              </div>
+            </div>
+            <div class="swiper swiper-teasers1">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="photo-corner1">
+                    <a href="#" class="corners1 corners1_hovered">
+                      <span class="corners1__inner">
+                        <img src="img/product3.webp" alt="">
+                        <span class="btn-arrow1">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                          </svg>
+                        </span>
+                        <span class="photo-corner1__badge-logo badge3 badge3_grey1">
+                          <span style="mask-image: url(img/arkon-alfa.svg);">
+                            <img src="img/arkon-alfa.svg" alt="">
+                          </span>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="photo-corner1">
+                    <a href="#" class="corners1 corners1_hovered">
+                      <span class="corners1__inner">
+                        <img src="img/product3.webp" alt="">
+                        <span class="btn-arrow1">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                          </svg>
+                        </span>
+                        <span class="photo-corner1__badge-logo badge3 badge3_grey1">
+                          <span style="mask-image: url(img/arkon-ovis.svg);">
+                            <img src="img/arkon-ovis.svg" alt="">
+                          </span>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="photo-corner1">
+                    <a href="#" class="corners1 corners1_hovered">
+                      <span class="corners1__inner">
+                        <img src="img/product3.webp" alt="">
+                        <span class="btn-arrow1">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                          </svg>
+                        </span>
+                        <span class="photo-corner1__badge-logo badge3 badge3_grey1">
+                          <span style="mask-image: url(img/arkon-alfa.svg);">
+                            <img src="img/arkon-alfa.svg" alt="">
+                          </span>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-navs">
+                <button class="swiper-nav swiper-nav_prev" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+                <button class="swiper-nav swiper-nav_next" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-categories">
+        <div class="container">
+          <div class="block-categories__grid">
+            <div class="block-categories__heading">
+              <img src="img/category-bg.webp" srcset="img/category-bg@2x.webp 2x" alt="">
+              <h2 class="title2">Популярные категории</h2>
+              <a class="btn-text btn-text_1" href="#">
+                <span>Весь каталог</span>
+              </a>
+            </div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category1.svg);">
+                  <img src="img/category1.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Тепловизионные прицелы</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category2.svg);">
+                  <img src="img/category2.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Тепловизионные монокуляры</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category3.svg);">
+                  <img src="img/category3.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Цифровые прицелы</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category4.svg);">
+                  <img src="img/category4.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Приборы ночного видения</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category5.svg);">
+                  <img src="img/category5.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Лазерные дальномеры</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category6.svg);">
+                  <img src="img/category6.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Кронштейны</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-category-empty"></div>
+            <div class="card-category">
+              <div class="card-category__inner">
+                <div class="card-category__pic" style="mask-image: url(img/category7.svg);">
+                  <img src="img/category7.svg" alt="">
+                </div>
+                <div class="card-category__name">
+                  <a href="#">Аксессуары</a>
+                </div>
+                <svg class="card-category__icon" aria-hidden="true" width="48" height="48">
+                  <use xlink:href="img/sprite.svg#crosshair1"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-advantages">
+        <div class="container">
+          <h2 class="title2">Команда инженеров Arkon Technologies — это специалисты высокого уровня с опытом
+            производства оптических приборов <span>более 10 лет на собственной производственной площадке в
+              Москве</span>, при поддержке профессиональной команды экспертов и менеджеров</h2>
+          <div class="block-advantages__grid1">
+            <div class="card-advantage corners1">
+              <div class="corners1__inner">
+                <div class="card-advantage__text">Лет опыта работы с крупными федеральными заказчиками</div>
+                <div class="card-advantage__value">10</div>
+              </div>
+            </div>
+            <div class="card-advantage corners1">
+              <div class="corners1__inner">
+                <div class="card-advantage__text">Довольных клиентов среди профессиональных стрелков и охотников</div>
+                <div class="card-advantage__value">5000+</div>
+              </div>
+            </div>
+            <div class="card-advantage corners1">
+              <div class="corners1__inner">
+                <div class="card-advantage__text">Точность всех производимых оптических приборов</div>
+                <div class="card-advantage__value">95%</div>
+              </div>
+            </div>
+            <div class="card-advantage corners1">
+              <div class="corners1__inner">
+                <div class="card-advantage__text">Лет службы наших прицелов при регулярном использовании в экстремальных
+                  условиях</div>
+                <div class="card-advantage__value">15</div>
+              </div>
+            </div>
+          </div>
+          <div class="block-advantages__grid2">
+            <div class="block-advantages__grid2-cell1">
+              <div class="block-advantages__text1">
+                Перед тем, как приборы выходят на рынок, они тщательно тестируются не только в лабораторных условиях, но
+                и обязательно в реальных. При проведении практических отстрелов мы всегда используем винтовки в самых
+                мощных калибрах и стараемся воссоздать самые сложные условия, которые могут возникнуть на охоте
+              </div>
+              <img class="block-advantages__decor1" src="img/advantages-decor1.svg" alt="">
+            </div>
+            <div class="block-advantages__grid2-cell2">
+              <img class="block-advantages__photo" src="img/photo-company.webp" srcset="img/photo-company@2x.webp"
+                alt="">
+            </div>
+            <div class="block-advantages__grid2-cell3">
+              <a class="btn-fancy" href="#">
+                <span>Подробнее о компании</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section data-container="tab1" class="block-recommend">
+        <div class="container">
+          <div class="heading-cols1">
+            <h2 class="title2">Рекомендуем</h2>
+            <div class="tabs-nav1">
+              <button data-action="showTab1" data-tab="hit" class="btn-corner1 btn-corner1_active" type="button">
+                <span class="btn-corner1__inner">Хиты продаж</span>
+              </button>
+              <button data-action="showTab1" data-tab="new" class="btn-corner1" type="button">
+                <span class="btn-corner1__inner">Новинки</span>
+              </button>
+              <button data-action="showTab1" data-tab="special" class="btn-corner1" type="button">
+                <span class="btn-corner1__inner">Акции</span>
+              </button>
+            </div>
+            <a href="catalog.html" class="btn-text btn-text_1">Весь каталог</a>
+          </div>
+          <div data-tab-content="hit">
+            <div class="swiper swiper-recommend">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-price.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-noprice.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-navs">
+                <button class="swiper-nav swiper-nav_prev" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+                <button class="swiper-nav swiper-nav_next" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div data-tab-content="new" style="display: none;">
+            <div class="swiper swiper-recommend">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-noprice.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-navs">
+                <button class="swiper-nav swiper-nav_prev" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+                <button class="swiper-nav swiper-nav_next" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div data-tab-content="special" style="display: none;">
+            <div class="swiper swiper-recommend">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-noprice.njk' %}
+                </div>
+                <div class="swiper-slide">
+                  {% include 'blocks/card-product-timer.njk' %}
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-navs">
+                <button class="swiper-nav swiper-nav_prev" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+                <button class="swiper-nav swiper-nav_next" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="block-teaser2">
+        <span class="block-teaser2__decor1 block-teaser2__decor1_top">
+          <img src="img/decor-grid-top.svg" alt="">
+        </span>
+        <span class="block-teaser2__decor1 block-teaser2__decor1_bottom">
+          <img src="img/decor-grid-top.svg" alt="">
+        </span>
+        <div class="container">
+          <div class="block-teaser2__inner">
+            <img class="block-teaser2__decor2 block-teaser2__decor2_left" src="img/decor2.webp"
+              srcset="img/decor2@2x.webp 2x" alt="">
+            <img class="block-teaser2__decor2 block-teaser2__decor2_right" src="img/decor2.webp"
+              srcset="img/decor2@2x.webp 2x" alt="">
+            <div class="swiper swiper-teasers2">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="swiper-slide__inner1">
+                    <div class="block-teaser2__logo">
+                      <span>серия</span>
+                      <img src="img/alfa.svg" alt="">
+                    </div>
+                    <div class="block-teaser2__info">
+                      <div class="params-list">
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param1"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param2"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param3"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param4"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param5"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <span>Оптимальное соотношение многофункциональности, цены и качества</span>
+                    </div>
+                    <a href="catalog.html" class="btn-text btn-text_1">Весь каталог</a>
+                  </div>
+                  <div class="photo-corner1">
+                    <a href="#" class="corners1 corners1_hovered">
+                      <span class="corners1__inner">
+                        <img src="img/product3.webp" alt="">
+                        <span class="btn-arrow1">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                          </svg>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="swiper-slide__inner1">
+                    <div class="block-teaser2__logo">
+                      <span>серия</span>
+                      <img src="img/alfa.svg" alt="">
+                    </div>
+                    <div class="block-teaser2__info">
+                      <div class="params-list">
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param1"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param2"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param3"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param4"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param5"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <span>Оптимальное соотношение многофункциональности, цены и качества</span>
+                    </div>
+                    <a href="catalog.html" class="btn-text btn-text_1">Весь каталог</a>
+                  </div>
+                  <div class="photo-corner1">
+                    <a href="#" class="corners1 corners1_hovered">
+                      <span class="corners1__inner">
+                        <img src="img/product3.webp" alt="">
+                        <span class="btn-arrow1">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                          </svg>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="swiper-slide__inner1">
+                    <div class="block-teaser2__logo">
+                      <span>серия</span>
+                      <img src="img/alfa.svg" alt="">
+                    </div>
+                    <div class="block-teaser2__info">
+                      <div class="params-list">
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param1"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param2"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param3"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param4"></use>
+                          </svg>
+                        </button>
+                        <button data-tippy-content="Влагостойкость по стандарту защиты IP67" class="btn-param"
+                          type="button">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#param5"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <span>Оптимальное соотношение многофункциональности, цены и качества</span>
+                    </div>
+                    <a href="catalog.html" class="btn-text btn-text_1">Весь каталог</a>
+                  </div>
+                  <div class="photo-corner1">
+                    <a href="#" class="corners1 corners1_hovered">
+                      <span class="corners1__inner">
+                        <img src="img/product3.webp" alt="">
+                        <span class="btn-arrow1">
+                          <svg aria-hidden="true" width="24" height="24">
+                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                          </svg>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-navs">
+                <button class="swiper-nav swiper-nav_prev" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+                <button class="swiper-nav swiper-nav_next" type="button">
+                  <svg aria-hidden="true" width="42" height="22">
+                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-teasers3">
+        <div class="container">
+          <div class="swiper swiper-teasers3">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card-teaser3">
+                  <div class="card-teaser3__title title3">
+                    <a href="#">Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!</a>
+                  </div>
+                  <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до 10%</span> на все
+                    монокуляры ARKON</div>
+                  <div class="card-teaser3__bg">
+                    <div class="card-teaser3__bg-pic">
+                      <img src="img/teaser3-bg1.webp" alt="">
+                    </div>
+                  </div>
+                  <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                  <span class="card-teaser3__arrow">
+                    <svg aria-hidden="true" width="24" height="24">
+                      <use xlink:href="img/sprite.svg#arrow2"></use>
+                    </svg>
+                  </span>
+                  <div class="special-offer-timer">
+                    <div class="special-offer-timer__item">
+                      <span data-offer="days" class="special-offer-timer__value">03</span>
+                      <span class="special-offer-timer__key">дн.</span>
+                    </div>
+                    <div class="special-offer-timer__item">
+                      <span data-offer="hours" class="special-offer-timer__value">12</span>
+                      <span class="special-offer-timer__key">час.</span>
+                    </div>
+                    <div class="special-offer-timer__item">
+                      <span data-offer="minutes" class="special-offer-timer__value">15</span>
+                      <span class="special-offer-timer__key">мин.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-teaser3">
+                  <div class="card-teaser3__title title3">
+                    <a href="#">ARKON серия <span>Alfa II</span> и серия <span>OVis II</span> Новое поколение — новые
+                      возможности!</a>
+                  </div>
+                  <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до 10%</span> на все
+                    монокуляры ARKON</div>
+                  <div class="card-teaser3__bg">
+                    <div class="card-teaser3__bg-pic">
+                      <img src="img/teaser3-bg2.webp" alt="">
+                    </div>
+                  </div>
+                  <img class="card-teaser3__photo" src="img/teaser3-photo2.webp" alt="">
+                  <span class="card-teaser3__arrow">
+                    <svg aria-hidden="true" width="24" height="24">
+                      <use xlink:href="img/sprite.svg#arrow2"></use>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-teaser3">
+                  <div class="card-teaser3__title title3">
+                    <a href="#">Ваша оптика — это Ваше зрение! <br>Выбирайте лучшее!</a>
+                  </div>
+                  <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до 10%</span> на все
+                    монокуляры ARKON</div>
+                  <div class="card-teaser3__bg">
+                    <div class="card-teaser3__bg-pic">
+                      <img src="img/teaser3-bg1.webp" alt="">
+                    </div>
+                  </div>
+                  <img class="card-teaser3__photo" src="img/teaser3-photo1.webp" alt="">
+                  <span class="card-teaser3__arrow">
+                    <svg aria-hidden="true" width="24" height="24">
+                      <use xlink:href="img/sprite.svg#arrow2"></use>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-teaser3">
+                  <div class="card-teaser3__title title3">
+                    <a href="#">ARKON серия <span>Alfa II</span> и серия <span>OVis II</span> Новое поколение — новые
+                      возможности!</a>
+                  </div>
+                  <div class="card-teaser3__text">До конца сентября 2025 года <span>скидка до 10%</span> на все
+                    монокуляры ARKON</div>
+                  <div class="card-teaser3__bg">
+                    <div class="card-teaser3__bg-pic">
+                      <img src="img/teaser3-bg2.webp" alt="">
+                    </div>
+                  </div>
+                  <img class="card-teaser3__photo" src="img/teaser3-photo2.webp" alt="">
+                  <span class="card-teaser3__arrow">
+                    <svg aria-hidden="true" width="24" height="24">
+                      <use xlink:href="img/sprite.svg#arrow2"></use>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-navs">
+              <button class="swiper-nav swiper-nav_prev" type="button">
+                <svg aria-hidden="true" width="42" height="22">
+                  <use xlink:href="img/sprite.svg#arrow1"></use>
+                </svg>
+              </button>
+              <button class="swiper-nav swiper-nav_next" type="button">
+                <svg aria-hidden="true" width="42" height="22">
+                  <use xlink:href="img/sprite.svg#arrow1"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include 'blocks/publications.njk' %}
+      {% include 'blocks/feedback.njk' %}
+
+    </main>
+    {% include 'blocks/footer.njk' %}
+  </div>
+  {% include 'blocks/popups.njk' %}
+  {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

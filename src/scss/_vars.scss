@@ -1,0 +1,18 @@
+:root {
+  --font-primary: 'Play';
+  --font-secondary: 'Xolonium';
+  --container-width: 1640px;
+  --main-outer-width: 1920px;
+  --container-padding: 30px;
+  --calculated-padding: calc((100% - var(--container-width)) / 2);
+  --border-color: #2B2C2D;
+  --theme-color-accent: #C6CE4E;
+  --theme-animation-duration: 200ms;
+  --theme-animation-duration-fast: 100ms;
+
+  @media (max-width: 1024px) {
+    & {
+      --container-padding: 15px;
+    }
+  }
+}
