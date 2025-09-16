@@ -1178,7 +1178,7 @@ function rangeInit() {
       format: wNumb({
         decimals: 0,
         thousand: ' ',
-      })
+      }),
     });
 
     function updateInputWidth(inputElement) {
@@ -1382,99 +1382,53 @@ if (viewButtons.length) {
   window.addEventListener('load', handleViewMode);
 }
 
-//Яндекс карта
-//Функция для создания темной темы
-function createDarkTheme() {
-  return [
-    {
-      "elementType": "geometry",
-      "stylers": [{ "color": "#242f3e" }]
-    },
-    {
-      "elementType": "labels.text.stroke",
-      "stylers": [{ "color": "#242f3e" }]
-    },
-    {
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#746855" }]
-    },
-    {
-      "featureType": "administrative.locality",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#d59563" }]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#d59563" }]
-    },
-    {
-      "featureType": "poi.park",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#263c3f" }]
-    },
-    {
-      "featureType": "poi.park",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#6b9a76" }]
-    },
-    {
-      "featureType": "road",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#38414e" }]
-    },
-    {
-      "featureType": "road",
-      "elementType": "geometry.stroke",
-      "stylers": [{ "color": "#212a37" }]
-    },
-    {
-      "featureType": "road",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#9ca5b3" }]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#746855" }]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry.stroke",
-      "stylers": [{ "color": "#1f2835" }]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#f3d19c" }]
-    },
-    {
-      "featureType": "transit",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#2f3948" }]
-    },
-    {
-      "featureType": "transit.station",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#d59563" }]
-    },
-    {
-      "featureType": "water",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#17263c" }]
-    },
-    {
-      "featureType": "water",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#515c6d" }]
-    },
-    {
-      "featureType": "water",
-      "elementType": "labels.text.stroke",
-      "stylers": [{ "color": "#17263c" }]
-    }
-  ];
+const searchButton = document.querySelector('.search-button');
+const searchBlock = document.querySelector('.map-block-payment__left .search');
+if (searchButton) {
+  searchButton.addEventListener('click', function () {
+    searchBlock.classList.toggle('_active');
+    this.classList.toggle('_active');
+  });
 }
+
+window.removeSimplebarOnMobile = function () {
+  const element = document.querySelector('.map-block-payment__shops');
+  if (!element) return;
+
+  if (window.innerWidth <= 992) {
+    element.removeAttribute('data-simplebar');
+    element.classList.remove('simplebar');
+    element.style.overflow = 'auto';
+    element.style.height = 'auto';
+
+    const wrapper = element.querySelector('.simplebar-wrapper');
+    if (wrapper) {
+      const content = element.querySelector('.simplebar-content');
+      if (content) {
+        while (content.firstChild) {
+          element.appendChild(content.firstChild);
+        }
+      }
+      wrapper.remove();
+    }
+  } else {
+    if (!element.hasAttribute('data-simplebar')) {
+      element.setAttribute('data-simplebar', '');
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof removeSimplebarOnMobile === 'function') {
+    removeSimplebarOnMobile();
+  }
+});
+window.addEventListener('resize', function () {
+  if (typeof removeSimplebarOnMobile === 'function') {
+    removeSimplebarOnMobile();
+  }
+});
+
+//Яндекс карта
 function initYandexMaps() {
   const map1 = document.querySelector('#map1');
   const map2 = document.querySelector('#map2');
@@ -1490,53 +1444,61 @@ function initYandexMaps() {
   ymaps.ready(function () {
     if (map1) {
       var myMap1 = new ymaps.Map('map1', {
-        center: [55.699781, 37.619423],
-        zoom: 9,
+        center: [55.682920, 37.551447],
+        zoom: 10,
         controls: ['zoomControl'],
         behaviors: ['drag']
       }, {
         searchControlProvider: 'yandex#search'
       });
 
-      // Применяем темную тему
-      myMap1.options.set({
-        suppressMapOpenBlock: true
+      // Применяем встроенную темную тему
+      myMap1.options.set('theme', 'dark');
+
+      const placemarks = [
+        {
+          coords: [55.682920, 37.551447],
+          shopId: 'shop-1'
+        },
+        {
+          coords: [55.674337, 37.564862],
+          shopId: 'shop-2'
+        },
+        {
+          coords: [55.809955, 37.568524],
+          shopId: 'shop-3'
+        },
+        {
+          coords: [55.839820, 37.488655],
+          shopId: 'shop-4'
+        }
+      ];
+
+      placemarks.forEach((placemark) => {
+        const mark = new ymaps.Placemark(placemark.coords, {
+          shopId: placemark.shopId
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/map2.svg',
+          iconImageSize: [40, 40],
+          iconImageOffset: [-57, -137],
+        });
+
+        mark.events.add('click', function (e) {
+          const targetPlacemark = e.get('target');
+          const shopId = targetPlacemark.properties.get('shopId');
+
+          if (shopId) {
+            activateShopColumn(shopId);
+
+            myMap1.panTo(targetPlacemark.geometry.getCoordinates(), {
+              duration: 300
+            });
+          }
+        });
+
+        myMap1.geoObjects.add(mark);
       });
-
-      // Устанавливаем темные стили
-      myMap1.options.set('mapStyle', createDarkTheme());
-
-      myMap1.geoObjects
-        .add(new ymaps.Placemark([55.694843, 37.435023], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/icon/map.svg',
-          iconImageSize: [105, 140],
-          iconImageOffset: [-57, -137],
-        }))
-        .add(new ymaps.Placemark([55.831903, 37.411961], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/icon/map.svg',
-          iconImageSize: [105, 140],
-          iconImageOffset: [-57, -137],
-        }))
-        .add(new ymaps.Placemark([55.763338, 37.565466], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/icon/map.svg',
-          iconImageSize: [105, 140],
-          iconImageOffset: [-57, -137],
-        }))
-        .add(new ymaps.Placemark([55.763338, 37.565466], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/icon/map.svg',
-          iconImageSize: [105, 140],
-          iconImageOffset: [-57, -137],
-        }))
-        .add(new ymaps.Placemark([55.744522, 37.616378], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/icon/map.svg',
-          iconImageSize: [105, 140],
-          iconImageOffset: [-57, -137],
-        }));
     }
 
     if (map2) {
@@ -1549,24 +1511,86 @@ function initYandexMaps() {
         searchControlProvider: 'yandex#search'
       });
 
-      // Применяем темную тему
-      myMap2.options.set({
-        suppressMapOpenBlock: true
+      // Применяем встроенную темную тему
+      myMap2.options.set('theme', 'dark');
+
+      // Для второй карты
+      const mark = new ymaps.Placemark([55.694843, 37.435023], {
+        shopId: 'map2-shop-1'
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/map.svg',
+        iconImageSize: [48, 64],
+        iconImageOffset: [0, 0],
       });
 
-      // Устанавливаем темные стили
-      myMap2.options.set('mapStyle', createDarkTheme());
+      mark.events.add('click', function (e) {
+        const targetPlacemark = e.get('target');
+        const shopId = targetPlacemark.properties.get('shopId');
 
-      myMap2.geoObjects
-        .add(new ymaps.Placemark([55.694843, 37.435023], {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/map.svg',
-          iconImageSize: [48, 64],
-          iconImageOffset: [0, 0],
-        }));
+        if (shopId) {
+          activateShopColumn(shopId);
+        }
+      });
+
+      myMap2.geoObjects.add(mark);
     }
+  });
+}
+function activateShopColumn(shopId) {
+  if (window.innerWidth > 992) {
+    return;
+  }
+
+  const shopColumns = document.querySelectorAll('.list-block-shops__column');
+
+  shopColumns.forEach(column => {
+    column.classList.remove('_active');
+  });
+  const targetColumn = document.querySelector(`.list-block-shops__column[data-shop-id="${shopId}"]`);
+  if (targetColumn) {
+    targetColumn.classList.add('_active');
+  }
+}
+function deactivateAllShopColumns() {
+  const shopColumns = document.querySelectorAll('.list-block-shops__column');
+  shopColumns.forEach(column => {
+    column.classList.remove('_active');
+  });
+}
+function initShopMapButtons() {
+  const mapButtons = document.querySelectorAll('.btn-text-map');
+  mapButtons.forEach((button) => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      if (window.innerWidth > 992) {
+        return;
+      }
+
+      const column = this.closest('.list-block-shops__column');
+      if (column) {
+        const shopId = column.getAttribute('data-shop-id');
+        activateShopColumn(shopId);
+      }
+    });
   });
 }
 document.addEventListener('DOMContentLoaded', function () {
   initYandexMaps();
+  initShopMapButtons();
+
+  document.addEventListener('click', function (e) {
+    if (window.innerWidth <= 992 &&
+      !e.target.closest('.map-block-payment__right') &&
+      !e.target.closest('.btn-text-map') &&
+      !e.target.closest('.list-block-shops__column._active')) {
+      deactivateAllShopColumns();
+    }
+  });
+});
+window.addEventListener('resize', function () {
+  if (window.innerWidth > 992) {
+    deactivateAllShopColumns();
+  }
 });
