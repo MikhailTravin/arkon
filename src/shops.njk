@@ -11,7 +11,7 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
-            <div class="breadcrumbs">
+            <div class="breadcrumbs breadcrumbs-shops">
                 <div class="container">
                     <ul class="breadcrumbs__list">
                         <li class="breadcrumbs__item">
@@ -67,8 +67,8 @@
                                         placeholder="Поиск по адресу, названию магазина...">
                                 </div>
                             </div>
-                            <div class="block-payment__bottom">
-                                <h1 class="title3">11 магазинов в Москве</h1>
+                            <div class="block-payment__center">
+                                <h2 class="title3">11 магазинов в Москве</h2>
                                 <div class="block-payment__buttons">
                                     <div class="block-payment__button _active">
                                         <svg aria-hidden="true" width="24" height="20">
@@ -82,303 +82,505 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="list-block-shops">
-                                <div class="list-block-shops__column">
-                                    <a href="#" class="list-block-shops__image corners1">
-                                        <div class="corners1__inner">
-                                            <img loading="lazy" src="img/address/image1.webp" alt="">
-                                        </div>
-                                    </a>
-                                    <div class="list-block-shops__item">
-                                        <a href="#" class="list-block-shops__title">«TUT.RU»</a>
-                                        <div class="list-block-shops__bottom">
-                                            <div class="list-block-shops__left">
-                                                <a href="#" class="list-block-shops__location">
-                                                    <svg aria-hidden="true" width="13" height="16">
-                                                        <use xlink:href="img/sprite.svg#location1"></use>
-                                                    </svg>
-                                                    <span>
-                                                        г. Москва, ул. Вавилова 69/75,
-                                                        Оружейный Молл "Вавилон"
-                                                    </span>
-                                                </a>
-                                                <div class="list-block-shops__contacts">
-                                                    <a href="tel:74956496039" class="phone">+7 (495) 649-60-39</a>
-                                                    <a href="mailto:info@tut.ru" class="mail">info@tut.ru</a>
-                                                    <a href="#" class="mail">tut.ru</a>
+                            <div class="block-payment__bottom">
+                                <div class="list-block-shops">
+                                    <div class="list-block-shops__column">
+                                        <a href="#" class="list-block-shops__image corners1">
+                                            <div class="corners1__inner">
+                                                <img loading="lazy" src="img/address/image1.webp" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="list-block-shops__item">
+                                            <a href="#" class="list-block-shops__title">«TUT.RU»</a>
+                                            <div class="list-block-shops__bottom">
+                                                <div class="list-block-shops__left">
+                                                    <a href="#" class="list-block-shops__location">
+                                                        <svg aria-hidden="true" width="13" height="16">
+                                                            <use xlink:href="img/sprite.svg#location1"></use>
+                                                        </svg>
+                                                        <span>
+                                                            г. Москва, ул. Вавилова 69/75,
+                                                            Оружейный Молл "Вавилон"
+                                                        </span>
+                                                    </a>
+                                                    <div class="list-block-shops__contacts">
+                                                        <a href="tel:74956496039" class="phone">+7 (495) 649-60-39</a>
+                                                        <a href="mailto:info@tut.ru" class="mail">info@tut.ru</a>
+                                                        <a href="#" class="mail">tut.ru</a>
+                                                    </div>
+                                                    <div class="list-block-shops__work">
+                                                        Ежедневно: с 10:00 до 21:00
+                                                    </div>
                                                 </div>
-                                                <div class="list-block-shops__work">
-                                                    Ежедневно: с 10:00 до 21:00
+                                                <div class="list-block-shops__right">
+                                                    <div class="list-block-shops__descr">
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Фирменный магазин</span>
+                                                        </div>
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Официальный дилер</span>
+                                                        </div>
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Сервисный центр</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-text btn-text_1">На карте</div>
+                                                    <span class="btn-arrow1">
+                                                        <svg aria-hidden="true" width="24" height="24">
+                                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                        </svg>
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <div class="list-block-shops__right">
-                                                <div class="list-block-shops__descr">
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Фирменный магазин</span>
+                                        </div>
+                                    </div>
+                                    <div class="list-block-shops__column">
+                                        <a href="#" class="list-block-shops__image corners1">
+                                            <div class="corners1__inner">
+                                                <img loading="lazy" src="img/address/image2.webp" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="list-block-shops__item">
+                                            <a href="#" class="list-block-shops__title">«Премиум Оптикс»</a>
+                                            <div class="list-block-shops__bottom">
+                                                <div class="list-block-shops__left">
+                                                    <a href="#" class="list-block-shops__location">
+                                                        <svg aria-hidden="true" width="13" height="16">
+                                                            <use xlink:href="img/sprite.svg#location1"></use>
+                                                        </svg>
+                                                        <span>
+                                                            г. Москва, ул. Профсоюзная, 25А БЦ 1 эт., оф. 129
+                                                        </span>
+                                                    </a>
+                                                    <div class="list-block-shops__contacts">
+                                                        <a href="tel:78007076820" class="phone">+7 (800) 707-68-20</a>
+                                                        <a href="tel:74955457720" class="phone">+7 (495) 545-77-20</a>
+                                                        <a href="mailto:info@tut.ru"
+                                                            class="mail">info@premium-optics.ru</a>
+                                                        <a href="#" class="mail">premium-optics.ru</a>
                                                     </div>
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Официальный дилер</span>
-                                                    </div>
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Сервисный центр</span>
+                                                    <div class="list-block-shops__work">
+                                                        Пн-пт: с 09:00 до 20:00
                                                     </div>
                                                 </div>
-                                                <div class="btn-text btn-text_1">На карте</div>
-                                                <span class="btn-arrow1">
-                                                    <svg aria-hidden="true" width="24" height="24">
-                                                        <use xlink:href="img/sprite.svg#arrow2"></use>
-                                                    </svg>
-                                                </span>
+                                                <div class="list-block-shops__right">
+                                                    <div class="list-block-shops__descr">
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Фирменный магазин</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-text btn-text_1">На карте</div>
+                                                    <span class="btn-arrow1">
+                                                        <svg aria-hidden="true" width="24" height="24">
+                                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-block-shops__column">
+                                        <a href="#" class="list-block-shops__image corners1">
+                                            <div class="corners1__inner">
+                                                <img loading="lazy" src="img/address/image3.webp" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="list-block-shops__item">
+                                            <a href="#" class="list-block-shops__title">«Артемида»</a>
+                                            <div class="list-block-shops__bottom">
+                                                <div class="list-block-shops__left">
+                                                    <a href="#" class="list-block-shops__location">
+                                                        <svg aria-hidden="true" width="13" height="16">
+                                                            <use xlink:href="img/sprite.svg#location1"></use>
+                                                        </svg>
+                                                        <span>
+                                                            г. Москва, ул. Тимирязевская, дом 11 корпус 1
+                                                        </span>
+                                                    </a>
+                                                    <div class="list-block-shops__contacts">
+                                                        <a href="tel:74956110878" class="phone">+7 (495) 611-08-78</a>
+                                                        <a href="tel:74957923006" class="phone">+7 (495) 792-30-06</a>
+                                                        <a href="mailto:info@tut.ru"
+                                                            class="mail">Info@artemida-hunter.ru</a>
+                                                        <a href="#" class="mail">artemida-hunter.ru</a>
+                                                    </div>
+                                                    <div class="list-block-shops__work">
+                                                        <span>Пн-пт: с 10:00 до 21:00</span>
+                                                        <span>Сб-вс: с 10:00 до 18:00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="list-block-shops__right">
+                                                    <div class="list-block-shops__descr">
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Фирменный магазин</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-text btn-text_1">На карте</div>
+                                                    <span class="btn-arrow1">
+                                                        <svg aria-hidden="true" width="24" height="24">
+                                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-block-shops__column">
+                                        <a href="#" class="list-block-shops__image corners1">
+                                            <div class="corners1__inner">
+                                                <img loading="lazy" src="img/address/image4.webp" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="list-block-shops__item">
+                                            <a href="#" class="list-block-shops__title">«Охотник»</a>
+                                            <div class="list-block-shops__bottom">
+                                                <div class="list-block-shops__left">
+                                                    <a href="#" class="list-block-shops__location">
+                                                        <svg aria-hidden="true" width="13" height="16">
+                                                            <use xlink:href="img/sprite.svg#location1"></use>
+                                                        </svg>
+                                                        <span>
+                                                            г. Москва, Головинское ш,
+                                                            дом № 1
+                                                        </span>
+                                                    </a>
+                                                    <div class="list-block-shops__contacts">
+                                                        <a href="tel:74956456277" class="phone">+7 (495) 645-62-77</a>
+                                                        <a href="tel:74956456278" class="phone">+7 (495) 645-62-78</a>
+                                                        <a href="mailto:info@tut.ru"
+                                                            class="mail">golovinka@ohotnik.com</a>
+                                                        <a href="#" class="mail">ohotnik.com</a>
+                                                    </div>
+                                                    <div class="list-block-shops__work">
+                                                        <span>Пн-пт: с 10:00 до 21:00</span>
+                                                        <span>Сб-вс: с 10:00 до 18:00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="list-block-shops__right">
+                                                    <div class="list-block-shops__descr">
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Фирменный магазин</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-text btn-text_1">На карте</div>
+                                                    <span class="btn-arrow1">
+                                                        <svg aria-hidden="true" width="24" height="24">
+                                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-block-shops__column">
+                                        <a href="#" class="list-block-shops__image corners1">
+                                            <div class="corners1__inner">
+                                                <img loading="lazy" src="img/address/image1.webp" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="list-block-shops__item">
+                                            <a href="#" class="list-block-shops__title">«TUT.RU»</a>
+                                            <div class="list-block-shops__bottom">
+                                                <div class="list-block-shops__left">
+                                                    <a href="#" class="list-block-shops__location">
+                                                        <svg aria-hidden="true" width="13" height="16">
+                                                            <use xlink:href="img/sprite.svg#location1"></use>
+                                                        </svg>
+                                                        <span>
+                                                            г. Москва, ул. Вавилова 69/75,
+                                                            Оружейный Молл "Вавилон"
+                                                        </span>
+                                                    </a>
+                                                    <div class="list-block-shops__contacts">
+                                                        <a href="tel:74956496039" class="phone">+7 (495) 649-60-39</a>
+                                                        <a href="mailto:info@tut.ru" class="mail">info@tut.ru</a>
+                                                        <a href="#" class="mail">tut.ru</a>
+                                                    </div>
+                                                    <div class="list-block-shops__work">
+                                                        Ежедневно: с 10:00 до 21:00
+                                                    </div>
+                                                </div>
+                                                <div class="list-block-shops__right">
+                                                    <div class="list-block-shops__descr">
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Фирменный магазин</span>
+                                                        </div>
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Официальный дилер</span>
+                                                        </div>
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Сервисный центр</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-text btn-text_1">На карте</div>
+                                                    <span class="btn-arrow1">
+                                                        <svg aria-hidden="true" width="24" height="24">
+                                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-block-shops__column">
+                                        <a href="#" class="list-block-shops__image corners1">
+                                            <div class="corners1__inner">
+                                                <img loading="lazy" src="img/address/image2.webp" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="list-block-shops__item">
+                                            <a href="#" class="list-block-shops__title">«Премиум Оптикс»</a>
+                                            <div class="list-block-shops__bottom">
+                                                <div class="list-block-shops__left">
+                                                    <a href="#" class="list-block-shops__location">
+                                                        <svg aria-hidden="true" width="13" height="16">
+                                                            <use xlink:href="img/sprite.svg#location1"></use>
+                                                        </svg>
+                                                        <span>
+                                                            г. Москва, ул. Профсоюзная, 25А БЦ 1 эт., оф. 129
+                                                        </span>
+                                                    </a>
+                                                    <div class="list-block-shops__contacts">
+                                                        <a href="tel:78007076820" class="phone">+7 (800) 707-68-20</a>
+                                                        <a href="tel:74955457720" class="phone">+7 (495) 545-77-20</a>
+                                                        <a href="mailto:info@tut.ru"
+                                                            class="mail">info@premium-optics.ru</a>
+                                                        <a href="#" class="mail">premium-optics.ru</a>
+                                                    </div>
+                                                    <div class="list-block-shops__work">
+                                                        Пн-пт: с 09:00 до 20:00
+                                                    </div>
+                                                </div>
+                                                <div class="list-block-shops__right">
+                                                    <div class="list-block-shops__descr">
+                                                        <div
+                                                            class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                            <span>Фирменный магазин</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-text btn-text_1">На карте</div>
+                                                    <span class="btn-arrow1">
+                                                        <svg aria-hidden="true" width="24" height="24">
+                                                            <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="list-block-shops__column">
-                                    <a href="#" class="list-block-shops__image corners1">
-                                        <div class="corners1__inner">
-                                            <img loading="lazy" src="img/address/image2.webp" alt="">
-                                        </div>
-                                    </a>
-                                    <div class="list-block-shops__item">
-                                        <a href="#" class="list-block-shops__title">«Премиум Оптикс»</a>
-                                        <div class="list-block-shops__bottom">
-                                            <div class="list-block-shops__left">
-                                                <a href="#" class="list-block-shops__location">
-                                                    <svg aria-hidden="true" width="13" height="16">
-                                                        <use xlink:href="img/sprite.svg#location1"></use>
-                                                    </svg>
-                                                    <span>
-                                                        г. Москва, ул. Профсоюзная, 25А БЦ 1 эт., оф. 129
-                                                    </span>
-                                                </a>
-                                                <div class="list-block-shops__contacts">
-                                                    <a href="tel:78007076820" class="phone">+7 (800) 707-68-20</a>
-                                                    <a href="tel:74955457720" class="phone">+7 (495) 545-77-20</a>
-                                                    <a href="mailto:info@tut.ru" class="mail">info@premium-optics.ru</a>
-                                                    <a href="#" class="mail">premium-optics.ru</a>
-                                                </div>
-                                                <div class="list-block-shops__work">
-                                                    Пн-пт: с 09:00 до 20:00
-                                                </div>
-                                            </div>
-                                            <div class="list-block-shops__right">
-                                                <div class="list-block-shops__descr">
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Фирменный магазин</span>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-text btn-text_1">На карте</div>
-                                                <span class="btn-arrow1">
-                                                    <svg aria-hidden="true" width="24" height="24">
-                                                        <use xlink:href="img/sprite.svg#arrow2"></use>
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-block-shops__column">
-                                    <a href="#" class="list-block-shops__image corners1">
-                                        <div class="corners1__inner">
-                                            <img loading="lazy" src="img/address/image3.webp" alt="">
-                                        </div>
-                                    </a>
-                                    <div class="list-block-shops__item">
-                                        <a href="#" class="list-block-shops__title">«Артемида»</a>
-                                        <div class="list-block-shops__bottom">
-                                            <div class="list-block-shops__left">
-                                                <a href="#" class="list-block-shops__location">
-                                                    <svg aria-hidden="true" width="13" height="16">
-                                                        <use xlink:href="img/sprite.svg#location1"></use>
-                                                    </svg>
-                                                    <span>
-                                                        г. Москва, ул. Тимирязевская, дом 11 корпус 1
-                                                    </span>
-                                                </a>
-                                                <div class="list-block-shops__contacts">
-                                                    <a href="tel:74956110878" class="phone">+7 (495) 611-08-78</a>
-                                                    <a href="tel:74957923006" class="phone">+7 (495) 792-30-06</a>
-                                                    <a href="mailto:info@tut.ru"
-                                                        class="mail">Info@artemida-hunter.ru</a>
-                                                    <a href="#" class="mail">artemida-hunter.ru</a>
-                                                </div>
-                                                <div class="list-block-shops__work">
-                                                    <span>Пн-пт: с 10:00 до 21:00</span>
-                                                    <span>Сб-вс: с 10:00 до 18:00</span>
-                                                </div>
-                                            </div>
-                                            <div class="list-block-shops__right">
-                                                <div class="list-block-shops__descr">
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Фирменный магазин</span>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-text btn-text_1">На карте</div>
-                                                <span class="btn-arrow1">
-                                                    <svg aria-hidden="true" width="24" height="24">
-                                                        <use xlink:href="img/sprite.svg#arrow2"></use>
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-block-shops__column">
-                                    <a href="#" class="list-block-shops__image corners1">
-                                        <div class="corners1__inner">
-                                            <img loading="lazy" src="img/address/image4.webp" alt="">
-                                        </div>
-                                    </a>
-                                    <div class="list-block-shops__item">
-                                        <a href="#" class="list-block-shops__title">«Охотник»</a>
-                                        <div class="list-block-shops__bottom">
-                                            <div class="list-block-shops__left">
-                                                <a href="#" class="list-block-shops__location">
-                                                    <svg aria-hidden="true" width="13" height="16">
-                                                        <use xlink:href="img/sprite.svg#location1"></use>
-                                                    </svg>
-                                                    <span>
-                                                        г. Москва, Головинское ш,
-                                                        дом № 1
-                                                    </span>
-                                                </a>
-                                                <div class="list-block-shops__contacts">
-                                                    <a href="tel:74956456277" class="phone">+7 (495) 645-62-77</a>
-                                                    <a href="tel:74956456278" class="phone">+7 (495) 645-62-78</a>
-                                                    <a href="mailto:info@tut.ru" class="mail">golovinka@ohotnik.com</a>
-                                                    <a href="#" class="mail">ohotnik.com</a>
-                                                </div>
-                                                <div class="list-block-shops__work">
-                                                    <span>Пн-пт: с 10:00 до 21:00</span>
-                                                    <span>Сб-вс: с 10:00 до 18:00</span>
-                                                </div>
-                                            </div>
-                                            <div class="list-block-shops__right">
-                                                <div class="list-block-shops__descr">
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Фирменный магазин</span>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-text btn-text_1">На карте</div>
-                                                <span class="btn-arrow1">
-                                                    <svg aria-hidden="true" width="24" height="24">
-                                                        <use xlink:href="img/sprite.svg#arrow2"></use>
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-block-shops__column">
-                                    <a href="#" class="list-block-shops__image corners1">
-                                        <div class="corners1__inner">
-                                            <img loading="lazy" src="img/address/image1.webp" alt="">
-                                        </div>
-                                    </a>
-                                    <div class="list-block-shops__item">
-                                        <a href="#" class="list-block-shops__title">«TUT.RU»</a>
-                                        <div class="list-block-shops__bottom">
-                                            <div class="list-block-shops__left">
-                                                <a href="#" class="list-block-shops__location">
-                                                    <svg aria-hidden="true" width="13" height="16">
-                                                        <use xlink:href="img/sprite.svg#location1"></use>
-                                                    </svg>
-                                                    <span>
-                                                        г. Москва, ул. Вавилова 69/75,
-                                                        Оружейный Молл "Вавилон"
-                                                    </span>
-                                                </a>
-                                                <div class="list-block-shops__contacts">
-                                                    <a href="tel:74956496039" class="phone">+7 (495) 649-60-39</a>
-                                                    <a href="mailto:info@tut.ru" class="mail">info@tut.ru</a>
-                                                    <a href="#" class="mail">tut.ru</a>
-                                                </div>
-                                                <div class="list-block-shops__work">
-                                                    Ежедневно: с 10:00 до 21:00
-                                                </div>
-                                            </div>
-                                            <div class="list-block-shops__right">
-                                                <div class="list-block-shops__descr">
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Фирменный магазин</span>
-                                                    </div>
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Официальный дилер</span>
-                                                    </div>
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Сервисный центр</span>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-text btn-text_1">На карте</div>
-                                                <span class="btn-arrow1">
-                                                    <svg aria-hidden="true" width="24" height="24">
-                                                        <use xlink:href="img/sprite.svg#arrow2"></use>
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-block-shops__column">
-                                    <a href="#" class="list-block-shops__image corners1">
-                                        <div class="corners1__inner">
-                                            <img loading="lazy" src="img/address/image2.webp" alt="">
-                                        </div>
-                                    </a>
-                                    <div class="list-block-shops__item">
-                                        <a href="#" class="list-block-shops__title">«Премиум Оптикс»</a>
-                                        <div class="list-block-shops__bottom">
-                                            <div class="list-block-shops__left">
-                                                <a href="#" class="list-block-shops__location">
-                                                    <svg aria-hidden="true" width="13" height="16">
-                                                        <use xlink:href="img/sprite.svg#location1"></use>
-                                                    </svg>
-                                                    <span>
-                                                        г. Москва, ул. Профсоюзная, 25А БЦ 1 эт., оф. 129
-                                                    </span>
-                                                </a>
-                                                <div class="list-block-shops__contacts">
-                                                    <a href="tel:78007076820" class="phone">+7 (800) 707-68-20</a>
-                                                    <a href="tel:74955457720" class="phone">+7 (495) 545-77-20</a>
-                                                    <a href="mailto:info@tut.ru" class="mail">info@premium-optics.ru</a>
-                                                    <a href="#" class="mail">premium-optics.ru</a>
-                                                </div>
-                                                <div class="list-block-shops__work">
-                                                    Пн-пт: с 09:00 до 20:00
-                                                </div>
-                                            </div>
-                                            <div class="list-block-shops__right">
-                                                <div class="list-block-shops__descr">
-                                                    <div
-                                                        class="list-block-shops__type badge1 badge1_white badge1_hollow">
-                                                        <span>Фирменный магазин</span>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-text btn-text_1">На карте</div>
-                                                <span class="btn-arrow1">
-                                                    <svg aria-hidden="true" width="24" height="24">
-                                                        <use xlink:href="img/sprite.svg#arrow2"></use>
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% include 'blocks/pagging.njk' %}
                             </div>
                         </div>
                         <div data-tab-content="map" style="display: none;">
                             <div class="map-block-payment">
                                 <div class="map-block-payment__left">
-
+                                    <div class="map-block-payment__top">
+                                        <h2 class="title3">Адреса
+                                            <br>
+                                            магазинов
+                                        </h2>
+                                        <div class="map-block-payment__selects">
+                                            <select data-select1 class="select select-block-payment location"
+                                                autocomplete="off" tabindex="-1">
+                                                <option value="1" selected>Москва</option>
+                                                <option value="2">Санкт-Петербург</option>
+                                                <option value="3">Белгород</option>
+                                                <option value="4">Благовещенск</option>
+                                                <option value="5">Вологда</option>
+                                                <option value="6">Воронеж</option>
+                                                <option value="7">Екатеринбург</option>
+                                                <option value="8">Жуковский</option>
+                                                <option value="9">Ижевск</option>
+                                                <option value="10">Иркутск</option>
+                                                <option value="11">Казань</option>
+                                                <option value="12">Киров</option>
+                                                <option value="13">Казань</option>
+                                                <option value="14">Киров</option>
+                                            </select>
+                                            <button type="button" class="search-button">
+                                                <svg aria-hidden="true" width="20" height="20">
+                                                    <use xlink:href="img/sprite.svg#search1"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="search">
+                                        <button type="button" class="search__button">
+                                            <svg aria-hidden="true" width="20" height="20">
+                                                <use xlink:href="img/sprite.svg#search1"></use>
+                                            </svg>
+                                        </button>
+                                        <input autocomplete="off" type="text" name="form[]"
+                                            placeholder="Поиск по адресу, названию магазина...">
+                                    </div>
+                                    <div data-simplebar class="map-block-payment__shops">
+                                        <div class="list-block-shops grid-active">
+                                            <div data-shop-id="shop-1" class="list-block-shops__column">
+                                                <div class="list-block-shops__item">
+                                                    <div class="list-block-shops__titles">
+                                                        <a href="#" class="list-block-shops__title">«TUT.RU»</a>
+                                                        <div class="list-block-shops__descr">
+                                                            <div
+                                                                class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                                <span>Магазин</span>
+                                                            </div>
+                                                            <div
+                                                                class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                                <span>Официальный дилер</span>
+                                                            </div>
+                                                            <div
+                                                                class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                                <span>Сервисный центр</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-block-shops__bottom">
+                                                        <div class="list-block-shops__left">
+                                                            <a href="#" class="list-block-shops__location">
+                                                                <svg aria-hidden="true" width="13" height="16">
+                                                                    <use xlink:href="img/sprite.svg#location1"></use>
+                                                                </svg>
+                                                                <span>
+                                                                    г. Москва, ул. Вавилова 69/75,
+                                                                    Оружейный Молл "Вавилон"
+                                                                </span>
+                                                            </a>
+                                                            <div class="list-block-shops__contacts">
+                                                                <div class="phones">
+                                                                    <a href="tel:74956496039" class="phone">+7 (495)
+                                                                        649-60-39</a>
+                                                                </div>
+                                                                <div class="mails">
+                                                                    <a href="mailto:info@tut.ru"
+                                                                        class="mail">info@tut.ru</a>
+                                                                    <a href="#" class="mail">tut.ru</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-block-shops__right">
+                                                            <div class="list-block-shops__work">
+                                                                Ежедневно: с 10:00 до 21:00
+                                                            </div>
+                                                            <div class="list-block-shops__links">
+                                                                <a href="#" class="btn-text btn-text_1 btn-text-map">На
+                                                                    карте</a>
+                                                                <a href="shops-detail.html"
+                                                                    class="btn-text btn-text_1">Подробнее</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div data-shop-id="shop-2" class="list-block-shops__column">
+                                                <div class="list-block-shops__item">
+                                                    <div class="list-block-shops__titles">
+                                                        <a href="#" class="list-block-shops__title">«Премиум Оптикс»</a>
+                                                        <div class="list-block-shops__descr">
+                                                            <div
+                                                                class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                                <span>Магазин</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-block-shops__bottom">
+                                                        <div class="list-block-shops__left">
+                                                            <a href="#" class="list-block-shops__location">
+                                                                <svg aria-hidden="true" width="13" height="16">
+                                                                    <use xlink:href="img/sprite.svg#location1"></use>
+                                                                </svg>
+                                                                <span>
+                                                                    г. Москва, ул. Профсоюзная, 25А БЦ 1 эт., оф. 129
+                                                                </span>
+                                                            </a>
+                                                            <div class="list-block-shops__contacts">
+                                                                <div class="phones">
+                                                                    <a href="tel:88007076820" class="phone">8 (800)
+                                                                        707-68-20</a>
+                                                                    <a href="tel:84955457720" class="phone">8 (495)
+                                                                        545-77-20</a>
+                                                                </div>
+                                                                <div class="mails">
+                                                                    <a href="mailto:info@tut.ru"
+                                                                        class="mail">info@premium-optics.ru</a>
+                                                                    <a href="#" class="mail">premium-optics.ru</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-block-shops__right">
+                                                            <div class="list-block-shops__work">
+                                                                Пн-пт: с 09:00 до 20:00
+                                                            </div>
+                                                            <div class="list-block-shops__links">
+                                                                <a href="#" class="btn-text btn-text_1 btn-text-map">На
+                                                                    карте</a>
+                                                                <a href="shops-detail.html"
+                                                                    class="btn-text btn-text_1">Подробнее</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div data-shop-id="shop-3" class="list-block-shops__column">
+                                                <div class="list-block-shops__item">
+                                                    <div class="list-block-shops__titles">
+                                                        <a href="#" class="list-block-shops__title">«Артемида»</a>
+                                                        <div class="list-block-shops__descr">
+                                                            <div
+                                                                class="list-block-shops__type badge1 badge1_white badge1_hollow">
+                                                                <span>Магазин</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-block-shops__bottom">
+                                                        <div class="list-block-shops__left">
+                                                            <a href="#" class="list-block-shops__location">
+                                                                <svg aria-hidden="true" width="13" height="16">
+                                                                    <use xlink:href="img/sprite.svg#location1"></use>
+                                                                </svg>
+                                                                <span>
+                                                                    г. Москва, ул. Профсоюзная, 25А БЦ 1 эт., оф. 129
+                                                                </span>
+                                                            </a>
+                                                            <div class="list-block-shops__contacts">
+                                                                <div class="phones">
+                                                                    <a href="tel:88007076820" class="phone">8 (800)
+                                                                        707-68-20</a>
+                                                                    <a href="tel:84955457720" class="phone">8 (495)
+                                                                        545-77-20</a>
+                                                                </div>
+                                                                <div class="mails">
+                                                                    <a href="mailto:info@tut.ru"
+                                                                        class="mail">info@premium-optics.ru</a>
+                                                                    <a href="#" class="mail">premium-optics.ru</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-block-shops__right">
+                                                            <div class="list-block-shops__work">
+                                                                Пн-пт: с 09:00 до 20:00
+                                                            </div>
+                                                            <div class="list-block-shops__links">
+                                                                <a href="#" class="btn-text btn-text_1 btn-text-map">На
+                                                                    карте</a>
+                                                                <a href="shops-detail.html"
+                                                                    class="btn-text btn-text_1">Подробнее</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="map-block-payment__right">
                                     <div id="map1"></div>
@@ -386,15 +588,14 @@
                             </div>
                         </div>
                     </div>
-                    {% include 'blocks/pagging.njk' %}
+
                 </div>
             </div>
 
         </main>
         {% include 'blocks/footer.njk' %}
     </div>
-    <script
-        src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&amp;lang=ru_RU&amp;_v=20240623012845&_v=20250429150847"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=b71f8801-d131-4c34-8869-00b3975108f5&lang=ru_RU"></script>
     {% include 'blocks/popups.njk' %}
     {% include 'blocks/scripts.njk' %}
 </body>

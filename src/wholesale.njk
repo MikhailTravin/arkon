@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Оптовые продажи</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="breadcrumbs breadcrumbs-documentation">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Оптовые продажи</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-support wholesale">
+                <div class="container">
+                    <div class="block-support__heading-complex">
+                        <h1 class="title1">
+                            Оптовые продажи
+                        </h1>
+                        <div class="block-support__subtitle">
+                            Для того чтобы начать работать с нами, необходимо связаться со специалистами оптового отдела
+                            по телефону <a class="phone" href="tel:84952293993">8 (495) 229-39-93</a> или написать на
+                            электронную
+                            почту <a class="mail" href="mailto:info@arkonoptics.ru">info@arkonoptics.ru</a>. Вы так
+                            же можете заполнить форму обратной связи внизу этой страницы.
+                        </div>
+                    </div>
+                    <div class="block-support__content">
+                        <div data-showmore="1100,max" class="block-support__texts">
+                            <div class="block-support__title">
+                                Мы предлагаем:
+                            </div>
+                            <ul data-showmore-content>
+                                <li>
+                                    Выгодные варианты условий оплаты. Мы подберем для вас максимально удобные способы
+                                    оплаты: отгрузка товара с НДС или без НДС. Оплаты можно производить от частного лица
+                                    по карте через наш сайт.
+                                </li>
+                                <li>
+                                    Возможность отсрочки платежа сроком до 3 месяцев. Для крупных магазинов мы
+                                    предоставляем возможность отсрочки платежа до 3 месяцев. Вы сможете зарабатывать,
+                                    получив сразу первый заказ и запустить прибыль в работу.
+                                </li>
+                                <li>
+                                    Прямые поставки без посредников. Мы являемся официальными дистрибьюторами большей
+                                    части самых популярных брендов на рынке охотничьей оптики, за счет чего можем
+                                    предоставлять максимально низкие оптовые цены.
+                                </li>
+                                <li>
+                                    Возможность получать товар на реализацию.
+                                </li>
+                                <li>
+                                    Обучение персонала партнера. Наши специалисты готовы оказать всевозможную помощь
+                                    вашим сотрудникам, в том числе и в форме обучающих лекций и практических семинаров с
+                                    выездом на стрельбище.
+                                </li>
+                                <li>
+                                    Персональный менеджер. За каждым партнером закреплен персональный менеджер, который
+                                    держит вас в курсе всех новинок рынка, обеспечивает оперативные консультации по
+                                    товару: описание, характеристики, подбор кронштейнов.
+                                </li>
+                                <li>
+                                    Склад. Мы поддерживаем постоянное наличие на собственном складе большей части
+                                    ассортимента, что упрощает процесс сборки и отправки заказа партнеру.
+                                </li>
+                                <li>
+                                    Рекламная поддержка. Мы предоставляем нашим партнерам печатные рекламные материалы
+                                    (Полиграфия, сувенирная продукция), POS материалы для оформления торговых залов
+                                    партнера: фирменные подставки под продукцию, видео рамки с проигрываемыми видео
+                                    материалами и стенды для размещения выставочных образцов (поставляются по
+                                    индивидуальной договоренности).
+                                </li>
+                                <li>
+                                    Возможность отгрузки «день в день». Вы работаете без своего склада, зависите от
+                                    склада поставщика, что может вызывать нежелательную задержку. Мы решим эту проблему.
+                                    Заказы отгружаются как с вашего собственного склада, в день поступления заказа или
+                                    на следующий.
+                                </li>
+                            </ul>
+                            <button hidden data-showmore-button type="button" class="more">
+                                <span class="btn-text btn-text_1">Читать полностью</span>
+                                <span class="btn-text btn-text_1">Скрыть</span>
+                            </button>
+                        </div>
+                        <div class="block-support__form">
+                            <form data-validate action="#">
+                                <div class="title1">Заявка для оптовиков</div>
+                                <div class="block-feedback__grid">
+                                    <div class="form-group1">
+                                        <label class="form-group1__label form-group1__label_req"
+                                            for="feedback_company">Компания</label>
+                                        <input id="feedback_company" class="field-input1 form-group__field" type="text"
+                                            name="feedback_company" required placeholder="Компания">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label form-group1__label_req"
+                                            for="feedback_address">Адрес</label>
+                                        <input id="feedback_address" class="field-input1 form-group__field" type="text"
+                                            name="feedback_address" required placeholder=""
+                                            value="Москва, улица Киевская, 22">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label form-group1__label_req"
+                                            for="feedback_fio">Контактное лицо</label>
+                                        <input id="feedback_fio" class="field-input1 form-group__field" type="text"
+                                            name="feedback_fio" required placeholder="" value="Игорь Евгеньевич">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label form-group1__label_req"
+                                            for="feedback_job">Должность </label>
+                                        <input id="feedback_job" class="field-input1 form-group__field" type="text"
+                                            name="feedback_job" required placeholder="Должность ">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label form-group1__label_req"
+                                            for="feedback_phone4">Телефон для связи</label>
+                                        <input id="feedback_phone4" class="field-input1 form-group__field"
+                                            data-mask="phone" data-type="phone" type="text" name="feedback_phone4"
+                                            required="" placeholder=" ">
+                                        <span class="form-group1__placeholder1"><span>+7</span>
+                                            (999)
+                                            999-99-99</span>
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label form-group1__label_req"
+                                            for="feedback_email5">E-mail</label>
+                                        <input id="feedback_email5" class="field-input1 form-group__field"
+                                            data-type="email" type="text" name="feedback_email5" required
+                                            placeholder="Укажите E-mail">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label" for="feedback_sayt">Сайт</label>
+                                        <input id="feedback_sayt" class="field-input1 form-group__field" type="text"
+                                            name="feedback_sayt" placeholder="Укажите сайт">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label" for="feedback_type">Вид
+                                            деятельности</label>
+                                        <input id="feedback_type" class="field-input1 form-group__field" type="text"
+                                            name="feedback_type" placeholder="Укажите вид деятельности">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label" for="feedback_kanal">Канал продаж
+                                        </label>
+                                        <input id="feedback_kanal" class="field-input1 form-group__field" type="text"
+                                            name="feedback_kanal" placeholder="Укажите канал продаж">
+                                    </div>
+                                    <div class="form-group1">
+                                        <label class="form-group1__label" for="feedback_textarea">
+                                            Примечание
+                                        </label>
+                                        <textarea id="feedback_textarea" class="field-input1 form-group__field"
+                                            placeholder="Дополнительная информация, которую вы хотели бы сообщить"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-text1">Нажав на кнопку «Зарегистрироваться», соглашаюсь
+                                    на обработку <a href="#">персональных данных</a></div>
+                                <div class="buttons-forms">
+                                    <button class="btn" type="submit">
+                                        <span>Отправить</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

@@ -108,13 +108,13 @@
  * Giving the connect element a border radius causes issues with using transform: scale
  */
 .noUi-target {
-  background: var(--theme-color-accent);
+  background: #2b2c2d;
 }
 .noUi-connects {
 }
 .noUi-connect {
   height: 2px;
-  background: #2b2c2d;
+  background: var(--theme-color-accent);
 }
 /* Handles and cursors;
  */

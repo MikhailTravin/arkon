@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Документация</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="breadcrumbs breadcrumbs-documentation">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Документация</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-support documentation">
+                <div class="container">
+                    <div class="block-support__heading-complex">
+                        <h1 class="title1">
+                            Документация
+                        </h1>
+                        <p>
+                            Скачайте руководство по эксплуатации
+                            или приложение к прибору
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-documentation">
+                <div class="container">
+                    <div class="block-documentation__content">
+                        <div class="block-documentation__top">
+                            <div class="search">
+                                <button type="button" class="search__button">
+                                    <svg aria-hidden="true" width="20" height="20">
+                                        <use xlink:href="img/sprite.svg#search1"></use>
+                                    </svg>
+                                </button>
+                                <input autocomplete="off" type="text" name="form[]"
+                                    placeholder="Поиск по названию продукта, серии или модели...">
+                            </div>
+                            <div class="block-documentation__search">
+                                <div class="block-documentation__title-search">Найти документацию:</div>
+                                <div class="block-documentation__selects">
+                                    <select data-select1 class="select" autocomplete="off" tabindex="-1">
+                                        <option value="1" selected>Тепловизионные монокуляры</option>
+                                        <option value="2">Тепловизионные монокуляры 2</option>
+                                        <option value="3">Тепловизионные монокуляры 3</option>
+                                    </select>
+                                    <select data-select1 class="select" autocomplete="off" tabindex="-1">
+                                        <option value="1" selected>Nevis</option>
+                                        <option value="2">Nevis 2</option>
+                                        <option value="3">Nevis 3</option>
+                                    </select>
+                                    <select data-select1 class="select" autocomplete="off" tabindex="-1">
+                                        <option value="1" selected>Тепловизионный монокуляр ARKON Nevis HN35</option>
+                                        <option value="2">Тепловизионный монокуляр ARKON Nevis HN35 2</option>
+                                        <option value="3">Тепловизионный монокуляр ARKON Nevis HN35 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-documentation__bottom">
+                            <div class="block-documentation__grid">
+                                <div class="block-documentation__title">Документация</div>
+                                <div class="block-documentation__body">
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/pdf.svg" alt="">
+                                        </div>
+                                        <span>
+                                            Cкачать инструкцию
+                                            к прибору
+                                        </span>
+                                    </a>
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/pdf.svg" alt="">
+                                        </div>
+                                        <span>
+                                            Cкачать инструкцию
+                                            к прибору
+                                        </span>
+                                    </a>
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/pdf.svg" alt="">
+                                        </div>
+                                        <span>
+                                            Cкачать инструкцию
+                                            к прибору
+                                        </span>
+                                    </a>
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/pdf.svg" alt="">
+                                        </div>
+                                        <span>
+                                            Cкачать инструкцию
+                                            к прибору
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="block-documentation__grid">
+                                <div class="block-documentation__title">Програмное обеспечение</div>
+                                <div class="block-documentation__body">
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/android.svg" alt="">
+                                        </div>
+                                        <span>
+                                            Скачать приложение
+                                            Android
+                                        </span>
+                                    </a>
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/apple.svg" alt="">
+                                        </div>
+                                        <span>
+                                            Скачать приложение
+                                            Apple iOS
+                                        </span>
+                                    </a>
+                                    <a href="#" class="block-documentation__column">
+                                        <div class="block-documentation__icon">
+                                            <img loading="lazy" src="img/zip.svg" alt="">
+                                        </div>
+                                        <span>
+                                            ARKON ALFA ST19
+                                            Прошивка 2.0 2022
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

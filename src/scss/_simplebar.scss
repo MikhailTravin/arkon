@@ -213,3 +213,23 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
+
+.map-block-payment__shops {
+    .simplebar-track.simplebar-vertical {
+        top: 10px;
+        width: 10px;
+        right: 10px;
+        bottom: 10px;
+        @media (max-width: 1300px) {
+            right: 5px;
+        }
+    }
+    .simplebar-scrollbar {
+        clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
+        background-color: var(--theme-color-accent);
+    }
+    .simplebar-scrollbar:before {
+        width: 10px;
+        background-color: var(--theme-color-accent);
+    }
+}

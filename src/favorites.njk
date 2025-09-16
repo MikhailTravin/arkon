@@ -11,7 +11,7 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
-            <div class="breadcrumbs">
+            <div class="breadcrumbs breadcrumbs-favourites">
                 <div class="container">
                     <ul class="breadcrumbs__list">
                         <li class="breadcrumbs__item">
@@ -23,6 +23,28 @@
                             <span>Избранное</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="block-favourites">
+                <div class="container">
+                    <div class="block-favourites__content">
+                        <div class="heading-cols1">
+                            <h2 class="title2">Избранное <span>[8 товаров]</span></h2>
+                            <button type="button" class="btn-text btn-text_1">Очистить избранное</button>
+                        </div>
+                        <div class="block-favourites__cards">
+                            {% include 'blocks/card-product-timer.njk' %}
+                            {% include 'blocks/card-product-price.njk' %}
+                            {% include 'blocks/card-product-timer.njk' %}
+                            {% include 'blocks/card-product-timer.njk' %}
+                            {% include 'blocks/card-product-price.njk' %}
+                            {% include 'blocks/card-product-timer.njk' %}
+                            {% include 'blocks/card-product-timer.njk' %}
+                            {% include 'blocks/card-product-price.njk' %}
+                        </div>
+                        {% include 'blocks/pagging.njk' %}
+                    </div>
                 </div>
             </div>
 
