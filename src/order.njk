@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Оформление заказа</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cart">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="cart.html">
+                                Корзина
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Оформление заказа</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-order">
+                <div class="container">
+                    <form data-validate class="block-order__content">
+                        <div class="block-order__left">
+                            <h2 class="title2">
+                                Оформление заказа
+                            </h2>
+                            <div class="block-order__body">
+                                <div class="block-order__column">
+                                    <div class="block-order__top">
+                                        <div class="block-order__title">Данные покупателя</div>
+                                    </div>
+                                    <div class="block-order__grid">
+                                        <div class="form-group1">
+                                            <input id="feedback_fio" class="field-input1 form-group__field" type="text"
+                                                name="feedback_fio" required placeholder=" ">
+                                            <label class="form-group1__label form-group1__label_req"
+                                                for="feedback_fio">ФИО</label>
+                                        </div>
+                                        <div class="form-group1">
+                                            <input id="feedback_phone4" class="field-input1 form-group__field"
+                                                data-mask="phone" data-type="phone" type="text" name="feedback_phone4"
+                                                required placeholder=" ">
+                                            <label class="form-group1__label form-group1__label_hidden"
+                                                for="feedback_phone4">Номер
+                                                телефона</label>
+                                            <span
+                                                class="form-group1__placeholder1 form-group1__label_req"><span>+7</span>
+                                                (999)
+                                                999-99-99</span>
+                                        </div>
+                                        <div class="form-group1">
+                                            <input id="feedback_email5" class="field-input1 form-group__field"
+                                                data-type="email" type="text" name="feedback_email5" required
+                                                placeholder=" ">
+                                            <label class="form-group1__label form-group1__label_req"
+                                                for="feedback_email5">E-mail</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-order__column">
+                                    <div class="block-order__top">
+                                        <div class="block-order__title">Способ оплаты</div>
+                                    </div>
+                                    <ul class="block-order-radio checklist">
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input checked class="radio__input" type="radio" name="rad2">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__title">Банковской картой</span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input class="radio__input" type="radio" name="rad2">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__title">Наличными</span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input class="radio__input" type="radio" name="rad2">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__title">Наложенный платеж</span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="block-order__column">
+                                    <div class="block-order__top">
+                                        <div class="block-order__title">Способ доставки </div>
+                                        <div class="block-order__location">
+                                            <svg aria-hidden="true" width="16" height="20">
+                                                <use xlink:href="img/sprite.svg#location1"></use>
+                                            </svg>
+                                            <span>Москва</span>
+                                        </div>
+                                    </div>
+                                    <div class="search">
+                                        <button type="button" class="search__button">
+                                            <svg aria-hidden="true" width="20" height="20">
+                                                <use xlink:href="img/sprite.svg#search1"></use>
+                                            </svg>
+                                        </button>
+                                        <input autocomplete="off" type="text" name="form[]" placeholder="">
+                                        <div class="search__placeholder"><span>Москва,</span> Центр, Россия</div>
+                                        <button type="button" class="search__close">
+                                            <svg aria-hidden="true" width="16" height="16">
+                                                <use xlink:href="img/sprite.svg#close1"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <ul class="block-order-radio2 checklist">
+                                        <li class="checklist__item">
+                                            <label data-target=".self-delivery-block"
+                                                class="checkbox-text self-delivery">
+                                                <span class="radio">
+                                                    <input checked class="radio__input" type="radio" name="rad3">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__left">
+                                                        <span class="checkbox-text__title">Самовывоз</span>
+                                                        <span class="checkbox-text__subtitle">1 день</span>
+                                                    </span>
+                                                    <span class="checkbox-text__price">Бесплатно</span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="checklist__item">
+                                            <label data-target=".cdek-delivery-block"
+                                                class="checkbox-text cdek-delivery">
+                                                <span class="radio">
+                                                    <input class="radio__input" type="radio" name="rad3">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__left">
+                                                        <span class="checkbox-text__title">СДЭК</span>
+                                                        <span class="checkbox-text__subtitle">от 1 до 2 дней</span>
+                                                    </span>
+                                                    <span class="checkbox-text__price">900 ₽</span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="checklist__item">
+                                            <label data-target=".pochta-delivery-block"
+                                                class="checkbox-text pochta-delivery">
+                                                <span class="radio">
+                                                    <input class="radio__input" type="radio" name="rad3">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__left">
+                                                        <span class="checkbox-text__title">Почта России</span>
+                                                        <span class="checkbox-text__subtitle">от 1 до 2 дней</span>
+                                                    </span>
+                                                    <span class="checkbox-text__price">900 ₽</span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <div class="self-delivery-block delivery-block _active">
+                                        <div class="self-delivery-block__title">Пункты самовывоза</div>
+                                        <div class="self-delivery-block__body">
+                                            <div data-simplebar class="self-delivery-block__left">
+                                                <ul class="checklist">
+                                                    <li class="checklist__item">
+                                                        <label class="checkbox-text">
+                                                            <span class="radio">
+                                                                <input checked class="radio__input" type="radio"
+                                                                    name="rad4">
+                                                                <span class="radio__visual"></span>
+                                                            </span>
+                                                            <span class="checkbox-text__label">
+                                                                <span class="checkbox-text__title">
+                                                                    г. Москва, ул. Вавилова 69/75,
+                                                                    Оружейный Молл "Вавилон"
+                                                                </span>
+                                                                <div class="checkbox-text__contacts">
+                                                                    <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                                    <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                                        до 21:00</div>
+                                                                </div>
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="checklist__item">
+                                                        <label class="checkbox-text">
+                                                            <span class="radio">
+                                                                <input class="radio__input" type="radio" name="rad4">
+                                                                <span class="radio__visual"></span>
+                                                            </span>
+                                                            <span class="checkbox-text__label">
+                                                                <span class="checkbox-text__title">
+                                                                    г. Москва, ул. Вавилова 69/75,
+                                                                    Оружейный Молл "Вавилон"
+                                                                </span>
+                                                                <div class="checkbox-text__contacts">
+                                                                    <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                                    <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                                        до 21:00</div>
+                                                                </div>
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="checklist__item">
+                                                        <label class="checkbox-text">
+                                                            <span class="radio">
+                                                                <input class="radio__input" type="radio" name="rad4">
+                                                                <span class="radio__visual"></span>
+                                                            </span>
+                                                            <span class="checkbox-text__label">
+                                                                <span class="checkbox-text__title">
+                                                                    г. Москва, ул. Вавилова 69/75,
+                                                                    Оружейный Молл "Вавилон"
+                                                                </span>
+                                                                <div class="checkbox-text__contacts">
+                                                                    <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                                    <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                                        до 21:00</div>
+                                                                </div>
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="checklist__item">
+                                                        <label class="checkbox-text">
+                                                            <span class="radio">
+                                                                <input class="radio__input" type="radio" name="rad4">
+                                                                <span class="radio__visual"></span>
+                                                            </span>
+                                                            <span class="checkbox-text__label">
+                                                                <span class="checkbox-text__title">
+                                                                    г. Москва, ул. Вавилова 69/75,
+                                                                    Оружейный Молл "Вавилон"
+                                                                </span>
+                                                                <div class="checkbox-text__contacts">
+                                                                    <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                                    <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                                        до 21:00</div>
+                                                                </div>
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="checklist__item">
+                                                        <label class="checkbox-text">
+                                                            <span class="radio">
+                                                                <input class="radio__input" type="radio" name="rad4">
+                                                                <span class="radio__visual"></span>
+                                                            </span>
+                                                            <span class="checkbox-text__label">
+                                                                <span class="checkbox-text__title">
+                                                                    г. Москва, ул. Вавилова 69/75,
+                                                                    Оружейный Молл "Вавилон"
+                                                                </span>
+                                                                <div class="checkbox-text__contacts">
+                                                                    <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                                    <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                                        до 21:00</div>
+                                                                </div>
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="self-delivery-block__left mob">
+                                                <span class="checkbox-text__label">
+                                                    <span class="checkbox-text__title">
+                                                        г. Москва, ул. Вавилова 69/75,
+                                                        Оружейный Молл "Вавилон"
+                                                    </span>
+                                                    <div class="checkbox-text__contacts">
+                                                        <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                        <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                            до 21:00</div>
+                                                    </div>
+                                                    <a href="#" class="btn">Изменить магазин</a>
+                                                </span>
+                                            </div>
+                                            <div class="self-delivery-block__map">
+                                                <div id="map4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cdek-delivery-block delivery-block">
+                                        <div class="block-order__grid">
+                                            <div class="form-group1">
+                                                <input id="feedback_address" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_address" required placeholder=" ">
+                                                <label class="form-group1__label form-group1__label_req"
+                                                    for="feedback_address">Введите Ваш адрес (город,улица,дом)</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_kv" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_kv" placeholder=" ">
+                                                <label class="form-group1__label"
+                                                    for="feedback_kv">Квартира/офис</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_entrance" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_entrance" placeholder=" ">
+                                                <label class="form-group1__label"
+                                                    for="feedback_entrance">Подъезд</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_floor" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_floor" placeholder=" ">
+                                                <label class="form-group1__label" for="feedback_floor">Этаж</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_domofon" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_domofon" placeholder=" ">
+                                                <label class="form-group1__label" for="feedback_domofon">Домофон</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pochta-delivery-block delivery-block">
+                                        <div class="block-order__grid">
+                                            <div class="form-group1">
+                                                <input id="feedback_address2" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_address2" required placeholder=" ">
+                                                <label class="form-group1__label form-group1__label_req"
+                                                    for="feedback_address2">Введите Ваш адрес (город,улица,дом)</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_kv2" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_kv2" placeholder=" ">
+                                                <label class="form-group1__label"
+                                                    for="feedback_kv2">Квартира/офис</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_entrance2" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_entrance2" placeholder=" ">
+                                                <label class="form-group1__label"
+                                                    for="feedback_entrance2">Подъезд</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_floor2" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_floor2" placeholder=" ">
+                                                <label class="form-group1__label" for="feedback_floor2">Этаж</label>
+                                            </div>
+                                            <div class="form-group1">
+                                                <input id="feedback_domofon2" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_domofon2" placeholder=" ">
+                                                <label class="form-group1__label"
+                                                    for="feedback_domofon2">Домофон</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-order__column">
+                                    <div class="block-order__top last">
+                                        <div class="block-order__title">Товары в заказе</div>
+                                        <a href="#" class="btn-text btn-text_1">
+                                            <span>Редактировать заказ</span>
+                                        </a>
+                                    </div>
+                                    <div class="cart-product">
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/product1.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__top">
+                                                    <div class="card-product__left">
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa2.svg" alt="">
+                                                        </div>
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">
+                                                                Тепловизионный прицел LT25
+                                                                Тепловизионный прицел LT25
+                                                            </a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В наличии</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__stepcounter">
+                                                        1 шт.
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__center">
+                                                    <div class="card-product__prices">
+                                                        <div>
+                                                            <span class="card-product__price2">399 900 ₽</span>
+                                                            <span class="card-product__discount">-20%</span>
+                                                            <span class="card-product__price1">299 900 ₽</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/product1.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__top">
+                                                    <div class="card-product__left">
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa2.svg" alt="">
+                                                        </div>
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">
+                                                                Тепловизионный прицел LT25
+                                                                Тепловизионный прицел LT25
+                                                            </a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В наличии</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__stepcounter">
+                                                        1 шт.
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__center">
+                                                    <div class="card-product__prices">
+                                                        <div>
+                                                            <span class="card-product__price2">399 900 ₽</span>
+                                                            <span class="card-product__discount">-20%</span>
+                                                            <span class="card-product__price1">299 900 ₽</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/product1.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__top">
+                                                    <div class="card-product__left">
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa2.svg" alt="">
+                                                        </div>
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">
+                                                                Тепловизионный прицел LT25
+                                                                Тепловизионный прицел LT25
+                                                            </a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В наличии</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__stepcounter">
+                                                        1 шт.
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__center">
+                                                    <div class="card-product__prices">
+                                                        <div>
+                                                            <span class="card-product__price2">399 900 ₽</span>
+                                                            <span class="card-product__discount">-20%</span>
+                                                            <span class="card-product__price1">299 900 ₽</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-cart">
+                            <div class="detail-cart__sticky">
+                                <div class="detail-cart__title">
+                                    Детали заказа
+                                </div>
+                                <ul class="detail-cart__list">
+                                    <li>
+                                        <div class="detail-cart__name">3 товара</div>
+                                        <div class="detail-cart__value">1 199 700 ₽</div>
+                                    </li>
+                                    <li>
+                                        <div class="detail-cart__name grey">Скидка</div>
+                                        <div class="detail-cart__value red">-300 000 ₽</div>
+                                    </li>
+                                    <li>
+                                        <div class="detail-cart__name grey">2 товара</div>
+                                        <div class="detail-cart__value">+ 2000 Б</div>
+                                    </li>
+                                    <li>
+                                        <div class="detail-cart__name grey">Доставка</div>
+                                        <div class="detail-cart__value">900 ₽</div>
+                                    </li>
+                                </ul>
+                                <div class="detail-cart__payment">
+                                    <div class="detail-cart__payment-title">Оплата</div>
+                                    <ul class="checklist">
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input checked class="radio__input" type="radio" name="rad1">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">У меня есть промокод</span>
+                                            </label>
+                                        </li>
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input class="radio__input" type="radio" name="rad1">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">Оплата бонусами</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <div class="form-group1">
+                                        <input id="feedback_promocode" class="field-input1 form-group__field"
+                                            type="text" name="feedback_promocode" required="" placeholder=" ">
+                                        <label class="form-group1__label" for="feedback_promocode">Введите
+                                            промокод</label>
+                                    </div>
+                                </div>
+                                <div class="detail-cart__totals">
+                                    <div class="detail-cart__total">Итого к оплате:</div>
+                                    <div class="detail-cart__sum">899 799 ₽</div>
+                                </div>
+                                <a href="order-info.html" class="btn">Оформить заказ</a>
+                                <div class="form-text1">Нажимая на кнопку, Вы соглашаетесь
+                                    на <a href="#">обработку персональных данных</a>
+                                    и с публичной офертой</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=b71f8801-d131-4c34-8869-00b3975108f5&lang=ru_RU"></script>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

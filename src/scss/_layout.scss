@@ -9,7 +9,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  overflow: hidden;
+  //overflow: hidden;
+  @media (max-width: 992px) {
+    overflow: hidden;
+  }
 }
 
 .header {
@@ -28,6 +31,15 @@
   padding-bottom: 200px;
   &.error {
     padding: 0px 0px 0px 0px;
+  }
+  &.cart {
+    padding: 0px 0px 0px 0px;
+  }
+  &.compare {
+    overflow: hidden;
+  }
+  &.product {
+    overflow: hidden;
   }
   @media (max-width: 1100px) {
     padding-bottom: 100px;

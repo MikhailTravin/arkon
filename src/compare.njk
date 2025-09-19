@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Сравнение</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main compare">
+
+            <div class="breadcrumbs breadcrumbs-compare">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Сравнение</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-container="tab1" class="block-compare">
+                <div class="container">
+                    <div class="block-compare__top">
+                        <h1 class="title2">Сравнение</h1>
+                        <a href="#" class="btn-text btn-text_1">
+                            <span>Очистить сравнение</span>
+                        </a>
+                    </div>
+                    <div class="tabs-nav2">
+                        <button data-action="showTab1" data-tab="compare1" class="block-compare__nav btn-corner1_active"
+                            type="button">
+                            <span>Тепловизионные прицелы [11]</span>
+                        </button>
+                        <button data-action="showTab1" data-tab="compare2" class="block-compare__nav" type="button">
+                            <span>Тепловизионные монокуляры [5]</span>
+                        </button>
+                    </div>
+                    <div data-tab-content="compare1">
+                        <!--
+                        <div class="block-compare__content">
+                            <div class="left-block-compare">
+                                <div class="left-block-compare__top">
+                                    <ul class="checklist">
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input checked class="radio__input" type="radio" name="rad1">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">Все характеристики</span>
+                                            </label>
+                                        </li>
+                                        <li class="checklist__item">
+                                            <label class="checkbox-text">
+                                                <span class="radio">
+                                                    <input id="compareToggleSame" class="radio__input" type="radio"
+                                                        name="diff">
+                                                    <span class="radio__visual"></span>
+                                                </span>
+                                                <span class="checkbox-text__label">Показывать только различия</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="left-block-compare__bottom">
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Поле зрения</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Оптическое увеличение</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Диаметр объектива</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Разрешение детектора</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Потребляемая мощность</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Встроенная память</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Поле зрения</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Оптическое увеличение</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Диаметр объектива</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Разрешение детектора</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Потребляемая мощность</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-block-compare__column corners1">
+                                        <div class="corners1__inner">
+                                            <span>Встроенная память</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-block-compare">
+                                <div class="right-block-compare__top">
+                                    <button type="button" class="btn-text btn-text_1">
+                                        <span>Очистить категорию</span>
+                                    </button>
+                                    <div class="swiper-navs">
+                                        <button class="swiper-nav swiper-nav_prev" type="button">
+                                            <svg aria-hidden="true" width="42" height="22">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                        <button class="swiper-nav swiper-nav_next" type="button">
+                                            <svg aria-hidden="true" width="42" height="22">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div data-swiper="productsCompare" class="right-block-compare__slider swiper">
+                                        <div class="right-block-compare__wrapper swiper-wrapper">
+                                            <div class="right-block-compare__slide swiper-slide">
+                                                {% include 'blocks/card-product-timer.njk' %}
+                                            </div>
+                                            <div class="right-block-compare__slide swiper-slide">
+                                                {% include 'blocks/card-product-noprice.njk' %}
+                                            </div>
+                                            <div class="right-block-compare__slide swiper-slide">
+                                                {% include 'blocks/card-product-timer.njk' %}
+                                            </div>
+                                            <div class="right-block-compare__slide swiper-slide">
+                                                {% include 'blocks/card-product-noprice.njk' %}
+                                            </div>
+                                            <div class="right-block-compare__slide swiper-slide">
+                                                {% include 'blocks/card-product-noprice.njk' %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-block-compare__bottom">
+
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                        <div class="compare-items">
+                            <div class="compare-items__inner">
+                                <div data-swiper="productsCompare" class="swiper slider1 slider-products">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            {% include 'blocks/card-product-timer.njk' %}
+                                        </div>
+                                        <div class="swiper-slide">
+                                            {% include 'blocks/card-product-noprice.njk' %}
+                                        </div>
+                                        <div class="swiper-slide">
+                                            {% include 'blocks/card-product-timer.njk' %}
+                                        </div>
+                                        <div class="swiper-slide">
+                                            {% include 'blocks/card-product-noprice.njk' %}
+                                        </div>
+                                        <div class="swiper-slide">
+                                            {% include 'blocks/card-product-timer.njk' %}
+                                        </div>
+                                        <div class="swiper-slide">
+                                            {% include 'blocks/card-product-noprice.njk' %}
+                                        </div>
+                                    </div>
+                                    <button type="button" class="swiper-nav swiper-nav_prev">
+                                        <span class="v-h">Назад</span>
+                                        <svg aria-hidden="true" width="12" height="21">
+                                            <use xlink:href="img/sprite.svg#chevron3"></use>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="swiper-nav swiper-nav_next">
+                                        <span class="v-h">Вперед</span>
+                                        <svg aria-hidden="true" width="12" height="21">
+                                            <use xlink:href="img/sprite.svg#chevron3"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-tab-content="compare2"></div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

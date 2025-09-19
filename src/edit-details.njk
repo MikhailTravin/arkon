@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Личный кабинет</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cabinet">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Личный кабинет</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-personal-cabinet">
+                <div class="container">
+                    <h1 class="title2">Личный кабинет</h1>
+                </div>
+                <div class="block-personal-cabinet__content">
+                    <div class="container">
+                        <div class="block-personal-cabinet__body">
+                            <div class="left-personal-cabinet">
+                                <div class="left-personal-cabinet__sticky">
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="_active">Мои данные</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Мои заказы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Мои бонусы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">История покупок</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Избранное</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Лист ожидания</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Обратная связь</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Управление подписками</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-personal-cabinet">
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Персональные данные
+                                        </div>
+                                    </div>
+                                    <form data-validate action="#" class="form-other">
+                                        <div class="block-feedback__grid">
+                                            <div class="block-feedback__groups">
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label"
+                                                        for="feedback_familia">Фамилия</label>
+                                                    <input id="feedback_familia" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_familia" placeholder="Фамилия">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label form-group1__label_req"
+                                                        for="feedback_name3">Имя</label>
+                                                    <input id="feedback_name3" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_name3" required placeholder=""
+                                                        value="Михаил">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label"
+                                                        for="feedback_surname">Отчество</label>
+                                                    <input id="feedback_surname" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_surname" placeholder="Евгеньевич">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label" for="feedback_birth">Дата
+                                                        рождения</label>
+                                                    <input id="feedback_birth" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_birth" value="4 февр. 1994 г.">
+                                                </div>
+                                            </div>
+                                            <div class="block-feedback__groups">
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label form-group1__label_req"
+                                                        for="feedback_email6">E-mail</label>
+                                                    <input id="feedback_email6" class="field-input1 form-group__field"
+                                                        data-type="email" type="text" name="feedback_email6" required
+                                                        placeholder="ivanov@mail.ru">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label form-group1__label_req"
+                                                        for="feedback_phone4">Телефон</label>
+                                                    <input id="feedback_phone4" class="field-input1 form-group__field"
+                                                        data-mask="phone" data-type="phone" type="text"
+                                                        name="feedback_phone4" required="" placeholder=" ">
+                                                    <span class="form-group1__placeholder1"><span>+7</span>
+                                                        (999)
+                                                        999-99-99</span>
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label" for="feedback_surname">Пол</label>
+                                                    <ul class="checklist">
+                                                        <li class="checklist__item">
+                                                            <label class="checkbox-text badge1">
+                                                                <span class="radio">
+                                                                    <input class="radio__input" type="radio"
+                                                                        name="rad1">
+                                                                    <span class="radio__visual"></span>
+                                                                </span>
+                                                                <span class="checkbox-text__label">Женский</span>
+                                                            </label>
+                                                        </li>
+                                                        <li class="checklist__item ">
+                                                            <label
+                                                                class="checkbox-text checked badge1 badge1_white badge1_hollow">
+                                                                <span class="radio">
+                                                                    <input class="radio__input" type="radio"
+                                                                        name="rad1">
+                                                                    <span class="radio__visual"></span>
+                                                                </span>
+                                                                <span class="checkbox-text__label">Мужской</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Пароль
+                                        </div>
+                                    </div>
+                                    <form data-validate action="#" class="form-other">
+                                        <div class="block-feedback__grid passwords">
+                                            <div class="form-group1">
+                                                <label class="form-group1__label form-group1__label_req"
+                                                    for="feedback_password6">Старый пароль</label>
+                                                <input id="feedback_password6" class="field-input1 form-group__field"
+                                                    data-type="password" type="text" name="feedback_password6" required
+                                                    placeholder="Введите старый пароль">
+                                                <div class="form-group1__icon toggle-password hidden">
+                                                    <img src="img/password.svg" alt="">
+                                                </div>
+                                                <div class="form-group1__icon toggle-password open">
+                                                    <img src="img/password2.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group1">
+                                                <label class="form-group1__label form-group1__label_req"
+                                                    for="feedback_password7">Новый пароль</label>
+                                                <input id="feedback_password7" class="field-input1 form-group__field"
+                                                    data-type="password" type="text" name="feedback_password7" required
+                                                    placeholder="Введите новый пароль">
+                                                <div class="form-group1__icon toggle-password hidden">
+                                                    <img src="img/password.svg" alt="">
+                                                </div>
+                                                <div class="form-group1__icon  toggle-password open">
+                                                    <img src="img/password2.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group1">
+                                                <label class="form-group1__label form-group1__label_req"
+                                                    for="feedback_password8">Подтверждение пароля</label>
+                                                <input id="feedback_password8" class="field-input1 form-group__field"
+                                                    data-type="password" type="text" name="feedback_password8" required
+                                                    placeholder="Введите новый пароль повторно">
+                                                <div class="form-group1__icon toggle-password hidden">
+                                                    <img src="img/password.svg" alt="">
+                                                </div>
+                                                <div class="form-group1__icon toggle-password open">
+                                                    <img src="img/password2.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right-personal-cabinet__buttons">
+                                            <button type="button" class="edit-password badge1 badge1_accent">Изменить
+                                                пароль</button>
+                                            <button type="button"
+                                                class="btn-reset badge1 badge1_white badge1_hollow">Отменить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Мои адреса
+                                        </div>
+                                    </div>
+                                    <form data-validate action="#" class="form-other">
+                                        <div class="block-feedback__grid">
+                                            <div class="block-feedback__groups">
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label" for="feedback_address">Введите Ваш
+                                                        адрес, включая город, улицу, дом и квартиру</label>
+                                                    <input id="feedback_address" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_address"
+                                                        value="Москва, улица Кошкина д.12, к.3, кв.123">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label" for="feedback_reqion">Название
+                                                        региона</label>
+                                                    <input id="feedback_reqion" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_reqion" placeholder="г. Москва">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label" for="feedback_gorod">Название
+                                                        населенного пункта</label>
+                                                    <input id="feedback_gorod" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_gorod"
+                                                        placeholder="г. Москва (р-н Москворечье-Сабурово)">
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label"
+                                                        for="feedback_index">Индекс</label>
+                                                    <input id="feedback_index" class="field-input1 form-group__field"
+                                                        type="text" name="feedback_index" placeholder="115409">
+                                                </div>
+                                            </div>
+                                            <div class="block-feedback__groups">
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label"
+                                                        for="feedback_street">Улица</label>
+                                                    <input id="feedback_street" class="field-input1 form-group__field"
+                                                        data-type="text" type="text" name="feedback_street"
+                                                        placeholder="улица Кошкина">
+                                                </div>
+                                                <div class="form-groups">
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_dom1">Дом</label>
+                                                        <input id="feedback_dom1" class="field-input1 form-group__field"
+                                                            type="text" name="feedback_dom1" placeholder="12к3">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_dom2">Дом</label>
+                                                        <input id="feedback_dom2" class="field-input1 form-group__field"
+                                                            type="text" name="feedback_dom2" value="12к3">
+                                                    </div>
+                                                </div>
+                                                <div class="form-groups">
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_kv">Кварира/офис</label>
+                                                        <input id="feedback_kv" class="field-input1 form-group__field"
+                                                            type="text" name="feedback_kv" value="123">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_floor">Этаж</label>
+                                                        <input id="feedback_floor"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_floor" value="14">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right-personal-cabinet__buttons">
+                                            <button type="button" class="edit-password badge1 badge1_accent">Добавить
+                                                адрес</button>
+                                            <button type="button"
+                                                class="btn-reset badge1 badge1_white badge1_hollow">Отменить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Социальные сети
+                                        </div>
+                                    </div>
+                                    <div class="socials-login">
+                                        <div class="socials-login__type badge1 badge1_white badge1_hollow">
+                                            <span>Привязать аккаунт</span>
+                                        </div>
+                                        <div class="socials-login__buttons">
+                                            <a href="#" class="socials-login__button">Яндекс</a>
+                                            <a href="#" class="socials-login__button">Google</a>
+                                            <a href="#" class="socials-login__button">Вконтакте</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

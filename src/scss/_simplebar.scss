@@ -233,3 +233,23 @@
         background-color: var(--theme-color-accent);
     }
 }
+
+.self-delivery-block {
+    .simplebar-track.simplebar-vertical {
+        top: 8px;
+        width: 6px;
+        right: 5px;
+        bottom: 8px;
+        @media (max-width: 1300px) {
+            right: 5px;
+        }
+    }
+    .simplebar-scrollbar {
+        clip-path: polygon(0 0, 100% 2%, 100% 100%, 0 98%);
+        background-color: var(--theme-color-accent);
+    }
+    .simplebar-scrollbar:before {
+        width: 6px;
+        background-color: var(--theme-color-accent);
+    }
+}

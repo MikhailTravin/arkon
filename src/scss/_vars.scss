@@ -1,12 +1,13 @@
 :root {
-  --font-primary: 'Play';
-  --font-secondary: 'Xolonium';
+  --font-primary: "Play";
+  --font-secondary: "Xolonium";
+  --font4: "Noah", sans-serif;
   --container-width: 1640px;
   --main-outer-width: 1920px;
   --container-padding: 30px;
   --calculated-padding: calc((100% - var(--container-width)) / 2);
-  --border-color: #2B2C2D;
-  --theme-color-accent: #C6CE4E;
+  --border-color: #2b2c2d;
+  --theme-color-accent: #c6ce4e;
   --theme-animation-duration: 200ms;
   --theme-animation-duration-fast: 100ms;
 
