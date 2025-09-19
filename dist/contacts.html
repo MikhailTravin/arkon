@@ -2,7 +2,7 @@
 <html lang="ru">
 
 	<head>
-		<title>404</title>
+		<title>Контакты</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -288,25 +288,138 @@
 					</div>
 				</div>
 			</header>
-			<main class="main error">
+			<main class="main">
 
-				<div class="block-error">
-					<img src="img/404-bg.webp" srcset="img/404-bg@2x.webp 2x" alt="" class="block-error__bg">
+				<div class="breadcrumbs breadcrumbs-contacts">
 					<div class="container">
-						<div class="block-error__content">
-							<img src="img/404.webp" alt="" class="block-error__pic">
-							<div class="title2">Страница не найдена...</div>
-							<p>
-								Может быть, эта страница переместилась, была удалена, находится
-								на карантине или никогда не существовала, попробуйте проверить адрес, обновить страницу или
-								же вернитесь назад.
-							</p>
-							<a class="btn-fancy" href="index.html">
-								<span>перейти на главную</span>
-							</a>
+						<ul class="breadcrumbs__list">
+							<li class="breadcrumbs__item">
+								<a href="index.html">
+									Главная
+								</a>
+							</li>
+							<li class="breadcrumbs__item is-active">
+								<span>Контакты</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="block-contacts">
+					<div class="container">
+						<div class="block-contacts__content">
+							<div class="block-contacts__body">
+								<div class="block-contacts__column corners1">
+									<div class="corners1__inner">
+										<div class="block-contacts__item">
+											<div class="block-contacts__title">
+												Наш офис в Москве
+											</div>
+											<div class="block-contacts__bottom">
+												<div class="block-contacts__location">
+													<svg aria-hidden="true" width="13" height="16">
+														<use xlink:href="img/sprite.svg#location1"></use>
+													</svg>
+													<span>Москва, улица Киевская, 22</span>
+												</div>
+												<div class="block-contacts__items">
+													<div class="block-contacts__left">
+														<div class="block-contacts__phone">
+															<a href="tel:84952293993">8 (495) 229-39-93</a>
+															<span>Пн-Пт 09:00 – 19:00 Мск</span>
+														</div>
+														<a href="mailto:info@arkonoptics.ru" class="block-contacts__mail">info@arkonoptics.ru</a>
+													</div>
+													<a href="#" data-hystmodal="#details" class="btn-text btn-text_1">
+														<span>Наши
+															реквизиты</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="block-contacts__column corners1">
+									<div class="corners1__inner">
+										<div class="block-contacts__item">
+											<div class="block-contacts__title">
+												сервисный центр
+											</div>
+											<div class="block-contacts__bottom">
+												<div class="block-contacts__location">
+													<svg aria-hidden="true" width="13" height="16">
+														<use xlink:href="img/sprite.svg#location1"></use>
+													</svg>
+													<span>Москва, ул. Полимерная, д. 8, стр. 2</span>
+												</div>
+												<div class="block-contacts__items">
+													<div class="block-contacts__left">
+														<div class="block-contacts__phone">
+															<a href="tel:89637221507">8 (963) 722-15-07</a>
+															<span>Пн-Пт 09:00 – 19:00 Мск</span>
+														</div>
+														<a href="mailto:service@arkonoptics.ru" class="block-contacts__mail">service@arkonoptics.ru</a>
+													</div>
+													<a href="#" data-hystmodal="#details" class="btn-text btn-text_1">
+														<span>Как добраться</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block-contacts__map corners1">
+								<div class="corners1__inner">
+									<div id="map3"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+
+				<section class="block-feedback">
+					<div class="container">
+						<div class="block-feedback__heading">
+							<h2 class="title1">Мы готовы ответить <span>на все Ваши вопросы</span></h2>
+							<div class="title3 corners1">Заполните форму обратной связи и мы свяжемся с Вами в ближайшее время!</div>
+						</div>
+						<div class="corners1 block-feedback__inner">
+							<div class="corners1__inner">
+								<form data-validate action="feedback.php">
+									<div class="block-feedback__grid">
+										<div>
+											<div class="form-group1">
+												<input id="feedback_name" class="field-input1 form-group__field" type="text" name="feedback_name" required="" placeholder=" ">
+												<label class="form-group1__label" for="feedback_name">Ваше имя</label>
+											</div>
+										</div>
+										<div>
+											<div class="form-group1">
+												<input id="feedback_phone" class="field-input1 form-group__field" data-mask="phone" data-type="phone" type="text" name="feedback_phone" required="" placeholder=" ">
+												<label class="form-group1__label form-group1__label_hidden" for="feedback_phone">Номер телефона</label>
+												<span class="form-group1__placeholder1"><span>+7</span> (999) 999-99-99</span>
+											</div>
+										</div>
+										<div>
+											<div class="form-group1">
+												<input id="feedback_email" class="field-input1 form-group__field" data-type="email" type="text" name="feedback_email" required="" placeholder=" ">
+												<label class="form-group1__label" for="feedback_email">E-mail</label>
+											</div>
+										</div>
+										<div>
+											<button class="btn-fancy" type="submit">
+												<span>Отправить заявку</span>
+											</button>
+										</div>
+										<div class="form-text1">Нажав на кнопку «Отправить заявку», соглашаюсь на обработку <a href="#">персональных данных</a></div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+
 
 			</main>
 			<footer class="footer">
@@ -464,6 +577,7 @@
 			</footer>
 
 		</div>
+		<script src="https://api-maps.yandex.ru/2.1/?apikey=b71f8801-d131-4c34-8869-00b3975108f5&lang=ru_RU"></script>
 		<div class="hystmodal" id="login" aria-hidden="true">
 			<div class="hystmodal__wrap">
 				<div class="hystmodal__window" role="dialog" aria-modal="true">
@@ -737,6 +851,36 @@
 								</div>
 							</form>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hystmodal" id="details" aria-hidden="true">
+			<div class="hystmodal__wrap">
+				<div class="hystmodal__window" role="dialog" aria-modal="true">
+					<div class="hystmodal__top">
+						<div class="hystmodal__title">
+							Наши реквизиты
+						</div>
+						<button data-hystclose class="hystmodal__close">
+							<svg aria-hidden="true" width="20" height="20">
+								<use xlink:href="img/sprite.svg#close1"></use>
+							</svg>
+							<span class="v-h">Закрыть</span>
+						</button>
+					</div>
+					<div class="details-hystmodal">
+						<div class="details-hystmodal__subtitle">
+							Общество с ограничеснной ответственностью “ЦЭК”
+						</div>
+						<ul>
+							<li>121165, г. Москва, ул. Киевская, д. 22, помещ. 3/1</li>
+							<li><span>ИНН:</span> 7733626391</li>
+							<li><span>Р/счет:</span> 40702810043022085201</li>
+							<li><span>Банк:</span> ПАО «Банк ПСБ»</li>
+							<li><span>ИНН банка:</span> 7744000912</li>
+							<li><span>Кор/счет:</span> 30101810400000000555</li>
+						</ul>
 					</div>
 				</div>
 			</div>

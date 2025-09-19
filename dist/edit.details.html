@@ -2,14 +2,14 @@
 <html lang="ru">
 
 	<head>
-		<title>404</title>
+		<title>Личный кабинет</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="css/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="css/hystmodal.min.css" />
 		<link rel="stylesheet" href="css/fancybox.min.css" />
-		<link rel="stylesheet" href="css/styles.css?v=1758244279341" />
+		<link rel="stylesheet" href="css/styles.css?v=1758210610980" />
 
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -288,22 +288,245 @@
 					</div>
 				</div>
 			</header>
-			<main class="main error">
+			<main class="main cart">
 
-				<div class="block-error">
-					<img src="img/404-bg.webp" srcset="img/404-bg@2x.webp 2x" alt="" class="block-error__bg">
+				<div class="breadcrumbs breadcrumbs-cabinet">
 					<div class="container">
-						<div class="block-error__content">
-							<img src="img/404.webp" alt="" class="block-error__pic">
-							<div class="title2">Страница не найдена...</div>
-							<p>
-								Может быть, эта страница переместилась, была удалена, находится
-								на карантине или никогда не существовала, попробуйте проверить адрес, обновить страницу или
-								же вернитесь назад.
-							</p>
-							<a class="btn-fancy" href="index.html">
-								<span>перейти на главную</span>
-							</a>
+						<ul class="breadcrumbs__list">
+							<li class="breadcrumbs__item">
+								<a href="index.html">
+									Главная
+								</a>
+							</li>
+							<li class="breadcrumbs__item is-active">
+								<span>Личный кабинет</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="block-personal-cabinet">
+					<div class="container">
+						<h1 class="title2">Личный кабинет</h1>
+					</div>
+					<div class="block-personal-cabinet__content">
+						<div class="container">
+							<div class="block-personal-cabinet__body">
+								<div class="left-personal-cabinet">
+									<div class="left-personal-cabinet__sticky">
+										<ul>
+											<li>
+												<a href="#" class="_active">Мои данные</a>
+											</li>
+											<li>
+												<a href="#">Мои заказы</a>
+											</li>
+											<li>
+												<a href="#">Мои бонусы</a>
+											</li>
+											<li>
+												<a href="#">История покупок</a>
+											</li>
+											<li>
+												<a href="#">Избранное</a>
+											</li>
+											<li>
+												<a href="#">Лист ожидания</a>
+											</li>
+											<li>
+												<a href="#">Обратная связь</a>
+											</li>
+											<li>
+												<a href="#">Управление подписками</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="right-personal-cabinet">
+									<div class="right-personal-cabinet__column">
+										<div class="right-personal-cabinet__top">
+											<div class="right-personal-cabinet__title">
+												Персональные данные
+											</div>
+											<a href="edit-details.html" class="btn-text btn-text_1">
+												<span>Редактировать данные</span>
+											</a>
+										</div>
+										<div class="details-personal-cabinet">
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">Фамилия</div>
+														<div class="details-personal-cabinet__value">Иванов</div>
+													</div>
+												</div>
+											</div>
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">E-mail</div>
+														<div class="details-personal-cabinet__value">ivanov@mail.ru</div>
+													</div>
+												</div>
+											</div>
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">Имя</div>
+														<div class="details-personal-cabinet__value">Михаил</div>
+													</div>
+												</div>
+											</div>
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">Телефон</div>
+														<div class="details-personal-cabinet__value">+7 (925) 123-45-67
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">Отчество</div>
+														<div class="details-personal-cabinet__value">Евгеньевич</div>
+													</div>
+												</div>
+											</div>
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">Пол</div>
+														<div class="details-personal-cabinet__value">мужской</div>
+													</div>
+												</div>
+											</div>
+											<div class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="details-personal-cabinet__item">
+														<div class="details-personal-cabinet__name">Дата рождения</div>
+														<div class="details-personal-cabinet__value">50</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="right-personal-cabinet__column">
+										<div class="right-personal-cabinet__top">
+											<div class="right-personal-cabinet__title">
+												Пароль
+											</div>
+											<a href="edit-details.html" class="btn-text btn-text_1">
+												<span>Изменить пароль</span>
+											</a>
+										</div>
+										<div class="details-personal-cabinet">
+											<div data-validate class="details-personal-cabinet__column corners1">
+												<div class="corners1__inner">
+													<div class="form-group1">
+														<input id="feedback_password4" class="field-input1 form-group__field" data-type="password" type="password" name="feedback_password4" required value="123456" placeholder=" ">
+														<div class="form-group1__icon toggle-password">
+															<img src="img/password.svg" alt="">
+														</div>
+														<div class="form-group1__icon hidden toggle-password open">
+															<img src="img/password2.svg" alt="">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="right-personal-cabinet__column">
+										<div class="right-personal-cabinet__top">
+											<div class="right-personal-cabinet__title">
+												Мои адреса
+											</div>
+											<a href="#" class="btn-text btn-text_1">
+												<span>Добавить адрес</span>
+											</a>
+										</div>
+										<div class="address-personal-cabinet">
+											<div class="address-personal-cabinet__tables">
+												<div class="address-personal-cabinet__main-table">
+													<div class="address-personal-cabinet__value">
+														№
+													</div>
+													<div class="address-personal-cabinet__value">
+														Адрес
+													</div>
+													<div class="address-personal-cabinet__value">
+														Регион
+													</div>
+													<div class="address-personal-cabinet__value">
+														Город
+													</div>
+													<div class="address-personal-cabinet__value">
+														Индекс
+													</div>
+													<div class="address-personal-cabinet__value">
+														Подъезд
+													</div>
+													<div class="address-personal-cabinet__value">
+														Этаж
+													</div>
+													<div class="address-personal-cabinet__value">
+
+													</div>
+												</div>
+												<div class="address-personal-cabinet__table">
+													<div class="address-personal-cabinet__value">
+														1
+													</div>
+													<div class="address-personal-cabinet__value">
+														р-н Москворечье-Сабурово,<br> улица Кошкина д.12, к.3,<br> кв.123
+													</div>
+													<div class="address-personal-cabinet__value">
+														Москва
+													</div>
+													<div class="address-personal-cabinet__value">
+														Москва
+													</div>
+													<div class="address-personal-cabinet__value">
+														115409
+													</div>
+													<div class="address-personal-cabinet__value">
+														4
+													</div>
+													<div class="address-personal-cabinet__value">
+														14
+													</div>
+													<div class="address-personal-cabinet__value">
+														<button data-hystclose class="address-personal-cabinet__close">
+															<svg aria-hidden="true" width="8" height="8">
+																<use xlink:href="img/sprite.svg#close1"></use>
+															</svg>
+															<span class="v-h">Закрыть</span>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="right-personal-cabinet__column">
+										<div class="right-personal-cabinet__top">
+											<div class="right-personal-cabinet__title">
+												Социальные сети
+											</div>
+										</div>
+										<div class="socials-login">
+											<div class="socials-login__type badge1 badge1_white badge1_hollow">
+												<span>Привязать аккаунт</span>
+											</div>
+											<div class="socials-login__buttons">
+												<a href="#" class="socials-login__button">Яндекс</a>
+												<a href="#" class="socials-login__button">Google</a>
+												<a href="#" class="socials-login__button">Вконтакте</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -756,7 +979,7 @@
 		<script src="js/dragscroll.min.js"></script>
 		<script src="js/hystmodal.min.js"></script>
 		<script src="js/simplebar.min.js"></script>
-		<script src="js/scripts.js?v=1758244279341"></script>
+		<script src="js/scripts.js?v=1758210610980"></script>
 	</body>
 
 </html>

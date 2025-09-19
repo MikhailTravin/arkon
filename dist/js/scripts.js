@@ -283,7 +283,6 @@ AW.validateForm = function ($el) {
       const isPassword = $input.attr('type') === 'password';
       $input.attr('type', isPassword ? 'text' : 'password');
 
-      // Переключаем отображение иконок
       $parent.find('.form-group1__icon').each(function () {
         $(this).toggleClass('hidden');
       });
@@ -346,6 +345,71 @@ AW.initSliderRecommend = function ($el) {
     pagination: {
       el: $el.find('.swiper-pagination')[0],
       clickable: true
+    },
+  });
+}
+
+AW.initSliderProductDetail = function ($el) {
+  const $navNext = $el.find('.swiper-nav_next');
+  const $navPrev = $el.find('.swiper-nav_prev');
+
+  new Swiper($el[0], {
+    loop: false,
+    spaceBetween: 20,
+    slidesPerView: 1,
+    centeredSlides: true,
+    speed: 200,
+    navigation: {
+      nextEl: $navNext[0],
+      prevEl: $navPrev[0],
+    },
+  });
+}
+
+AW.initSliderProductsCompare = function ($el) {
+  const $navNext = $el.find('.swiper-nav_next');
+  const $navPrev = $el.find('.swiper-nav_prev');
+  return new Swiper($el[0], {
+    allowTouchMove: false,
+    spaceBetween: 30,
+    slidesPerView: 3,
+    speed: 400,
+    watchSlidesProgress: true,
+    navigation: {
+      nextEl: $navNext[0],
+      prevEl: $navPrev[0],
+    },
+    breakpoints: {
+      1300: {
+        slidesPerView: 3,
+      }
+    }
+  });
+}
+
+AW.initSliderProductsCompareMobile = function ($el, shift = false) {
+  const $navNext = $el.find('.swiper-compare-mobile__btn_next');
+  const $navPrev = $el.find('.swiper-compare-mobile__btn_prev');
+  const $label = $el.find('.swiper-compare-mobile__label');
+  return new Swiper($el[0], {
+    allowTouchMove: false,
+    spaceBetween: 0,
+    slidesPerView: 1,
+    speed: 400,
+    watchSlidesProgress: true,
+    initialSlide: shift ? 1 : 0,
+    navigation: {
+      nextEl: $navNext[0],
+      prevEl: $navPrev[0],
+    },
+    pagination: {
+      el: $el.find('.swiper-compare-mobile__dots')[0],
+    },
+    on: {
+      slideChange: function (s) {
+        $label.find('span').text(s.realIndex + 1)
+        //console.log('slideChange', s.realIndex);
+      },
     },
   });
 }
@@ -680,6 +744,23 @@ AW.initSliderPublicationsOther = function ($el) {
   moveNavigation();
 };
 
+AW.toggleCompareFloat = function () {
+  if ($(window).scrollTop() > 700) {
+    $('.compare-float').addClass('active');
+  } else {
+    $('.compare-float').removeClass('active');
+  }
+}
+
+$(window).on('scroll', () => {
+  if ($('#compareToggleSame').length) {
+    AW.toggleCompareFloat();
+  }
+
+  $('.float-promo.active').addClass('closed')
+  $('.float-promo.active').removeClass('active');
+});
+
 $(document).ready(() => {
 
 
@@ -770,15 +851,74 @@ $(document).ready(() => {
     AW.initSliderPublications($(this));
   });
 
+  $('.top-product-detail__slider').each(function () {
+    AW.initSliderProductDetail($(this));
+  });
+
   $('.swiper-publications').each(function () {
     AW.initSliderPublicationsOther($(this));
   });
 
-
-
   $('.swiper-recommend').each(function () {
     AW.initSliderRecommend($(this));
   });
+
+  $('[data-swiper="productsCompare"]').each(function () {
+    AW.initSliderProductsCompare($(this));
+  });
+
+  if ($('#compareToggleSame').length) {
+    AW.toggleCompareFloat();
+
+    const itemsSlider = AW.initSliderProductsCompare($('[data-swiper="productsCompare"]'));
+    const itemsSliderMobile1 = AW.initSliderProductsCompareMobile($('[data-swiper="productsCompareMobile1"]'));
+    const itemsSliderMobile2 = AW.initSliderProductsCompareMobile($('[data-swiper="productsCompareMobile2"]'), true);
+    const itemsSliderFloat = AW.initSliderProductsCompare($('[data-swiper="productsCompareFloat"]'));
+    const $specsScroll = $('.compare-specs__inner');
+    const $specsScrollMobileLeft = $('.compare-mobile-grid__col_left .compare-mobile-grid__scroll');
+    const $specsScrollMobileRight = $('.compare-mobile-grid__col_right .compare-mobile-grid__scroll');
+
+    itemsSlider.on('activeIndexChange', function (s) {
+      const slideWidth = s.slidesSizesGrid[0] - 2;
+      $specsScroll[0].scroll({
+        left: s.activeIndex * slideWidth,
+        behavior: 'smooth'
+      });
+      itemsSliderFloat.slideTo(s.activeIndex);
+    });
+
+    itemsSliderFloat.on('activeIndexChange', function (s) {
+      const slideWidth = s.slidesSizesGrid[0] - 2;
+      $specsScroll[0].scroll({
+        left: s.activeIndex * slideWidth,
+        behavior: 'smooth'
+      });
+      itemsSlider.slideTo(s.activeIndex);
+    });
+
+    itemsSliderMobile1.on('activeIndexChange', function (s) {
+      const slideWidth = $('.compare-mobile-grid__scroll').width();
+      console.log(slideWidth)
+      $specsScrollMobileLeft.each(function () {
+        $(this)[0].scroll({
+          left: s.activeIndex * slideWidth,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    itemsSliderMobile2.on('activeIndexChange', function (s) {
+      const slideWidth = $('.compare-mobile-grid__scroll').width();
+      $specsScrollMobileRight.each(function () {
+        $(this)[0].scroll({
+          left: s.activeIndex * slideWidth,
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+
 
   $('.swiper-recommend2').each(function () {
     AW.initSliderRecommend2($(this));
@@ -806,9 +946,9 @@ $(document).ready(() => {
     AW.initMask($(this));
   });
 
-  // $('[data-stepcounter]').each(function() {
-  //   new AW.StepCounter($(this));
-  // });
+  $('[data-stepcounter]').each(function () {
+    new AW.StepCounter($(this));
+  });
 
   $('[data-select1]').each(function () {
     const selectElement = $(this)[0];
@@ -1432,8 +1572,10 @@ window.addEventListener('resize', function () {
 function initYandexMaps() {
   const map1 = document.querySelector('#map1');
   const map2 = document.querySelector('#map2');
+  const map3 = document.querySelector('#map3');
+  const map4 = document.querySelector('#map4');
 
-  if (!map1 && !map2) {
+  if (!map1 && !map2 && !map3 && !map4) {
     return;
   }
 
@@ -1535,8 +1677,88 @@ function initYandexMaps() {
 
       myMap2.geoObjects.add(mark);
     }
+
+    if (map3) {
+      var myMap3 = new ymaps.Map('map3', {
+        center: [55.738049, 37.543731],
+        zoom: 14,
+        controls: ['zoomControl'],
+        behaviors: ['drag']
+      }, {
+        searchControlProvider: 'yandex#search'
+      });
+
+      // Применяем встроенную темную тему
+      myMap3.options.set('theme', 'dark');
+
+      // Для второй карты
+      const mark = new ymaps.Placemark([55.738049, 37.543731], {
+
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/map.svg',
+        iconImageSize: [48, 64],
+        iconImageOffset: [0, 0],
+      });
+
+      myMap3.geoObjects.add(mark);
+    }
+
+    if (map4) {
+      var myMap4 = new ymaps.Map('map4', {
+        center: [55.738049, 37.543731],
+        zoom: 14,
+        controls: ['zoomControl'],
+        behaviors: ['drag']
+      }, {
+        searchControlProvider: 'yandex#search'
+      });
+
+      // Сохраняем ссылку на карту для последующего обновления
+      window.myMap4 = myMap4;
+
+      // Применяем встроенную темную тему
+      myMap4.options.set('theme', 'dark');
+
+      const mark = new ymaps.Placemark([55.738049, 37.543731], {
+
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/map2.svg',
+        iconImageSize: [40, 40],
+        iconImageOffset: [0, 0],
+      });
+
+      myMap4.geoObjects.add(mark);
+
+      // Сразу обновляем размер после создания
+      setTimeout(() => {
+        myMap4.container.fitToViewport();
+      }, 300);
+    }
   });
 }
+
+// Функция для обновления размера карты
+function updateMapSize() {
+  if (typeof myMap4 !== 'undefined') {
+    setTimeout(() => {
+      myMap4.container.fitToViewport();
+    }, 100);
+  }
+}
+
+// Обработчик ресайза с debounce
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(updateMapSize, 250);
+});
+
+// Обновляем после полной загрузки страницы
+window.addEventListener('load', updateMapSize);
+
+// Остальные функции остаются без изменений
 function activateShopColumn(shopId) {
   if (window.innerWidth > 992) {
     return;
@@ -1552,12 +1774,14 @@ function activateShopColumn(shopId) {
     targetColumn.classList.add('_active');
   }
 }
+
 function deactivateAllShopColumns() {
   const shopColumns = document.querySelectorAll('.list-block-shops__column');
   shopColumns.forEach(column => {
     column.classList.remove('_active');
   });
 }
+
 function initShopMapButtons() {
   const mapButtons = document.querySelectorAll('.btn-text-map');
   mapButtons.forEach((button) => {
@@ -1576,6 +1800,7 @@ function initShopMapButtons() {
     });
   });
 }
+
 document.addEventListener('DOMContentLoaded', function () {
   initYandexMaps();
   initShopMapButtons();
@@ -1589,10 +1814,50 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
 window.addEventListener('resize', function () {
   if (window.innerWidth > 992) {
     deactivateAllShopColumns();
   }
+});
+
+document.querySelectorAll('input[type="radio"].radio__input').forEach(radio => {
+  const label = radio.closest('.checkbox-text');
+  const targetClass = label ? label.getAttribute('data-target') : null;
+
+  if (targetClass) {
+    if (radio.checked) {
+      label.classList.add('checked');
+      document.querySelector(targetClass)?.classList.add('_active');
+    }
+
+    radio.addEventListener('change', () => {
+      document.querySelectorAll('.checkbox-text').forEach(el => {
+        el.classList.remove('checked');
+        const target = el.getAttribute('data-target');
+        if (target) document.querySelector(target)?.classList.remove('_active');
+      });
+
+      if (radio.checked) {
+        label.classList.add('checked');
+        document.querySelector(targetClass)?.classList.add('_active');
+      }
+    });
+  }
+
+  if (radio.checked) {
+    radio.closest('.checkbox-text').classList.add('checked');
+  }
+
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('.checkbox-text').forEach(el => {
+      el.classList.remove('checked');
+    });
+
+    if (radio.checked) {
+      radio.closest('.checkbox-text').classList.add('checked');
+    }
+  });
 });
 
 //Спойлер
@@ -1758,104 +2023,217 @@ function spollers() {
 spollers();
 
 // Показать еще
-function initShowMore(containerSelector, itemSelector, buttonSelector, itemsToShow, breakpoint) {
+// Показать еще ПО КОЛИЧЕСТВУ ЭЛЕМЕНТОВ (с опциональным брейкпоинтом)
+function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, itemsToShow, breakpoint = null) {
   const container = document.querySelector(containerSelector);
-  const content = container.querySelector('[data-showmore-content]');
-  const button = container.querySelector(buttonSelector);
-  const items = content.querySelectorAll(itemSelector);
 
-  let clickHandlerAdded = false;
-  let isManualToggle = false;
+  if (container) {
+    const content = container.querySelector('[data-showmore-content]');
+    const button = container.querySelector(buttonSelector);
+    const items = content.querySelectorAll(itemSelector);
+    let clickHandlerAdded = false;
+    let isManualToggle = false;
 
-  function checkItemsCount() {
-    if (items.length <= itemsToShow) {
-      button.setAttribute('hidden', 'true');
-    } else {
-      button.removeAttribute('hidden');
-    }
-  }
-
-  function handleShowMoreClick() {
-    isManualToggle = true;
-
-    const isActive = this.classList.contains('_showmore-active');
-
-    if (isActive) {
-      items.forEach((item, index) => {
-        if (index >= itemsToShow) {
-          item.style.display = 'none';
-        }
-      });
-      this.classList.remove('_showmore-active');
-      container.classList.remove('_showmore-open');
-    } else {
-      items.forEach(item => {
-        item.style.display = '';
-      });
-      this.classList.add('_showmore-active');
-      container.classList.add('_showmore-open');
-    }
-  }
-
-  function toggleShowMore() {
-    if (isManualToggle && window.innerWidth <= breakpoint) {
-      return;
+    function checkItemsCount() {
+      if (items.length <= itemsToShow) {
+        button.setAttribute('hidden', 'true');
+      } else {
+        button.removeAttribute('hidden');
+      }
     }
 
-    if (window.innerWidth <= breakpoint) {
-      if (!button.classList.contains('_showmore-active')) {
+    function handleShowMoreClick() {
+      isManualToggle = true;
+
+      const isActive = this.classList.contains('_showmore-active');
+
+      if (isActive) {
+        // Скрываем все элементы кроме .title3 и .text
         items.forEach((item, index) => {
           if (index >= itemsToShow) {
             item.style.display = 'none';
-          } else {
-            item.style.display = 'flex';
           }
         });
+        this.classList.remove('_showmore-active');
         container.classList.remove('_showmore-open');
+      } else {
+        // Показываем все элементы
+        items.forEach(item => {
+          item.style.display = '';
+        });
+        this.classList.add('_showmore-active');
+        container.classList.add('_showmore-open');
+      }
+    }
+
+    function toggleShowMore() {
+      // Если брейкпоинт не указан, работаем всегда
+      if (breakpoint === null) {
+        if (!button.classList.contains('_showmore-active')) {
+          // Показываем только первые N элементов (.title3 и .text)
+          items.forEach((item, index) => {
+            if (index < itemsToShow) {
+              // Показываем только элементы .title3 и .text
+              if (item.classList.contains('title3') || item.classList.contains('text')) {
+                item.style.display = '';
+              } else {
+                item.style.display = 'none';
+              }
+            } else {
+              item.style.display = 'none';
+            }
+          });
+          container.classList.remove('_showmore-open');
+        } else {
+          // Показываем все элементы
+          items.forEach(item => {
+            item.style.display = '';
+          });
+          container.classList.add('_showmore-open');
+        }
+
+        if (!clickHandlerAdded) {
+          button.addEventListener('click', handleShowMoreClick);
+          clickHandlerAdded = true;
+        }
+
+        checkItemsCount();
+        return;
+      }
+
+      // Старая логика с брейкпоинтом (если нужно)
+      if (isManualToggle && window.innerWidth <= breakpoint) {
+        return;
+      }
+
+      if (window.innerWidth <= breakpoint) {
+        if (!button.classList.contains('_showmore-active')) {
+          items.forEach((item, index) => {
+            if (index >= itemsToShow) {
+              item.style.display = 'none';
+            } else {
+              item.style.display = 'flex';
+            }
+          });
+          container.classList.remove('_showmore-open');
+        } else {
+          items.forEach(item => {
+            item.style.display = 'flex';
+          });
+          container.classList.add('_showmore-open');
+        }
+
+        if (!clickHandlerAdded) {
+          button.addEventListener('click', handleShowMoreClick);
+          clickHandlerAdded = true;
+        }
+
+        checkItemsCount();
       } else {
         items.forEach(item => {
           item.style.display = 'flex';
         });
-        container.classList.add('_showmore-open');
-      }
+        button.classList.remove('_showmore-active');
+        button.setAttribute('hidden', 'true');
+        container.classList.remove('_showmore-open');
 
-      if (!clickHandlerAdded) {
-        button.addEventListener('click', handleShowMoreClick);
-        clickHandlerAdded = true;
-      }
+        if (clickHandlerAdded) {
+          button.removeEventListener('click', handleShowMoreClick);
+          clickHandlerAdded = false;
+        }
 
-      checkItemsCount();
-    } else {
-      items.forEach(item => {
-        item.style.display = 'flex';
+        isManualToggle = false;
+      }
+    }
+
+    toggleShowMore();
+
+    // Добавляем ресайз только если есть брейкпоинт
+    if (breakpoint !== null) {
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(toggleShowMore, 250);
       });
-      button.classList.remove('_showmore-active');
-      button.setAttribute('hidden', 'true');
-      container.classList.remove('_showmore-open');
-
-      if (clickHandlerAdded) {
-        button.removeEventListener('click', handleShowMoreClick);
-        clickHandlerAdded = false;
-      }
-
-      isManualToggle = false;
     }
   }
+}
 
-  toggleShowMore();
+// Инициализация
+document.addEventListener('DOMContentLoaded', function () {
+  // Для вашего блока - показывать только .title3 и .text
+  initShowMoreByItems(
+    '[data-showmore].corners1__inner',
+    '.block-product-descr__body > *', // все прямые дочерние элементы
+    '[data-showmore-button]',
+    2 // показывать первые 2 элемента (.title3 и .text)
+  );
+});
 
-  let resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(toggleShowMore, 250);
-  });
+// Функция для проверки позиции и скрытия/показа cart-fixed
+function toggleFixedCart() {
+  const fixedCart = document.querySelector('.cart-fixed');
+  const detailCart = document.querySelector('.detail-cart');
+
+  if (!fixedCart || !detailCart) return;
+
+  const fixedCartRect = fixedCart.getBoundingClientRect();
+  const detailCartRect = detailCart.getBoundingClientRect();
+
+  if (fixedCartRect.bottom >= detailCartRect.top) {
+    fixedCart.classList.remove("_active")
+  } else {
+    fixedCart.classList.add("_active")
+  }
+}
+
+window.addEventListener('scroll', toggleFixedCart);
+window.addEventListener('resize', toggleFixedCart);
+toggleFixedCart();
+
+// Функция для обновления высоты
+function updateCompareTopHeight() {
+  const leftTop = document.querySelector('.left-block-compare__top');
+  const rightTop = document.querySelector('.right-block-compare__top');
+  if (leftTop && rightTop) {
+    const rightHeight = rightTop.offsetHeight;
+    leftTop.style.height = `${rightHeight}px`;
+  }
 }
 document.addEventListener('DOMContentLoaded', function () {
-  initShowMore(
-    '[data-showmore="1100,max"].block-support__texts',
-    '.block-support__texts ul li',
-    '[data-showmore-button]',
-    1,
-    1100
-  );
+  updateCompareTopHeight();
+
+  const rightTop = document.querySelector('.right-block-compare__top');
+
+  if (rightTop) {
+    const resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        updateCompareTopHeight();
+      }
+    });
+
+    resizeObserver.observe(rightTop);
+  }
+
+  window.addEventListener('resize', updateCompareTopHeight);
+});
+
+// Добавляем обработку перехода по якорным ссылкам
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const hash = this.getAttribute('href');
+
+    if (hash === '#characteristics') {
+
+      const tabBlock = document.querySelector('.block-characteristics');
+
+      if (tabBlock) {
+        const characteristicsButton = tabBlock.querySelector('button#characteristics');
+
+        if (characteristicsButton) {
+          characteristicsButton.click();
+        }
+      }
+    }
+  });
 });
