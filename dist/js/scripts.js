@@ -366,50 +366,24 @@ AW.initSliderProductDetail = function ($el) {
   });
 }
 
-AW.initSliderProductsCompare = function ($el) {
+AW.initSliderSeries = function ($el) {
   const $navNext = $el.find('.swiper-nav_next');
   const $navPrev = $el.find('.swiper-nav_prev');
-  return new Swiper($el[0], {
-    allowTouchMove: false,
-    spaceBetween: 30,
-    slidesPerView: 3,
-    speed: 400,
-    watchSlidesProgress: true,
-    navigation: {
-      nextEl: $navNext[0],
-      prevEl: $navPrev[0],
-    },
-    breakpoints: {
-      1300: {
-        slidesPerView: 3,
-      }
-    }
-  });
-}
 
-AW.initSliderProductsCompareMobile = function ($el, shift = false) {
-  const $navNext = $el.find('.swiper-compare-mobile__btn_next');
-  const $navPrev = $el.find('.swiper-compare-mobile__btn_prev');
-  const $label = $el.find('.swiper-compare-mobile__label');
-  return new Swiper($el[0], {
-    allowTouchMove: false,
+  new Swiper($el[0], {
+    loop: true,
     spaceBetween: 0,
     slidesPerView: 1,
-    speed: 400,
-    watchSlidesProgress: true,
-    initialSlide: shift ? 1 : 0,
+    speed: 500,
     navigation: {
       nextEl: $navNext[0],
       prevEl: $navPrev[0],
     },
     pagination: {
-      el: $el.find('.swiper-compare-mobile__dots')[0],
+      el: $el.find('.swiper-pagination')[0],
+      clickable: true
     },
     on: {
-      slideChange: function (s) {
-        $label.find('span').text(s.realIndex + 1)
-        //console.log('slideChange', s.realIndex);
-      },
     },
   });
 }
@@ -556,6 +530,42 @@ AW.initSliderGalleryMedia = function ($el) {
 
 }
 
+AW.initSliderGallery = function ($el) {
+  const $navNext = $el.find('.swiper-nav_next');
+  const $navPrev = $el.find('.swiper-nav_prev');
+
+  new Swiper($el[0], {
+    loop: true,
+    spaceBetween: 20,
+    slidesPerView: 1,
+    speed: 200,
+    navigation: {
+      nextEl: $navNext[0],
+      prevEl: $navPrev[0],
+    },
+    pagination: {
+      el: $el.find('.swiper-pagination')[0],
+      clickable: true
+    },
+    breakpoints: {
+      550: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 12
+      },
+      1300: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      }
+    }
+  });
+
+
+}
+
 AW.initSliderOtherShops = function ($el) {
   const $slider = $el;
   const $topBlock = $el.closest('.block-other-shops__content').find('.block-other-shops__top');
@@ -687,6 +697,71 @@ AW.initSliderRecommend2 = function ($el) {
   moveNavigation();
 };
 
+AW.initSliderRecommend3 = function ($el) {
+  const $slider = $el;
+  const $topBlock = $el.closest('.block-recommend-product').find('.heading-cols1');
+  const $navs = $el.find('.swiper-navs');
+  const $navNext = $navs.find('.swiper-nav_next');
+  const $navPrev = $navs.find('.swiper-nav_prev');
+
+  function moveNavigation() {
+    if (window.innerWidth >= 1100) {
+      if (!$navs.parent().is('.heading-cols1')) {
+        $navs.detach().appendTo($topBlock);
+      }
+    } else {
+      if (!$navs.parent().is('.swiper-recommend3')) {
+        $navs.detach().appendTo($slider);
+      }
+    }
+  }
+
+  const swiper = new Swiper($el[0], {
+    loop: true,
+    spaceBetween: 8,
+    slidesPerView: 1,
+    speed: 200,
+    navigation: {
+      nextEl: $navNext[0],
+      prevEl: $navPrev[0],
+    },
+    pagination: {
+      el: $el.find('.swiper-pagination')[0],
+      clickable: true
+    },
+    breakpoints: {
+      550: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 12
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      }
+    },
+    on: {
+      init: function () {
+        moveNavigation();
+      }
+    }
+  });
+
+  $(window).on('resize', function () {
+    moveNavigation();
+    swiper.update();
+  });
+
+  moveNavigation();
+};
+
 AW.initSliderPublicationsOther = function ($el) {
   const $slider = $el;
   const $topBlock = $el.closest('.block-publications-other').find('.heading-cols1');
@@ -744,22 +819,8 @@ AW.initSliderPublicationsOther = function ($el) {
   moveNavigation();
 };
 
-AW.toggleCompareFloat = function () {
-  if ($(window).scrollTop() > 700) {
-    $('.compare-float').addClass('active');
-  } else {
-    $('.compare-float').removeClass('active');
-  }
-}
 
-$(window).on('scroll', () => {
-  if ($('#compareToggleSame').length) {
-    AW.toggleCompareFloat();
-  }
 
-  $('.float-promo.active').addClass('closed')
-  $('.float-promo.active').removeClass('active');
-});
 
 $(document).ready(() => {
 
@@ -859,69 +920,21 @@ $(document).ready(() => {
     AW.initSliderPublicationsOther($(this));
   });
 
+  $('.block-series-descr__slider').each(function () {
+    AW.initSliderSeries($(this));
+  });
+
   $('.swiper-recommend').each(function () {
     AW.initSliderRecommend($(this));
   });
 
-  $('[data-swiper="productsCompare"]').each(function () {
-    AW.initSliderProductsCompare($(this));
-  });
-
-  if ($('#compareToggleSame').length) {
-    AW.toggleCompareFloat();
-
-    const itemsSlider = AW.initSliderProductsCompare($('[data-swiper="productsCompare"]'));
-    const itemsSliderMobile1 = AW.initSliderProductsCompareMobile($('[data-swiper="productsCompareMobile1"]'));
-    const itemsSliderMobile2 = AW.initSliderProductsCompareMobile($('[data-swiper="productsCompareMobile2"]'), true);
-    const itemsSliderFloat = AW.initSliderProductsCompare($('[data-swiper="productsCompareFloat"]'));
-    const $specsScroll = $('.compare-specs__inner');
-    const $specsScrollMobileLeft = $('.compare-mobile-grid__col_left .compare-mobile-grid__scroll');
-    const $specsScrollMobileRight = $('.compare-mobile-grid__col_right .compare-mobile-grid__scroll');
-
-    itemsSlider.on('activeIndexChange', function (s) {
-      const slideWidth = s.slidesSizesGrid[0] - 2;
-      $specsScroll[0].scroll({
-        left: s.activeIndex * slideWidth,
-        behavior: 'smooth'
-      });
-      itemsSliderFloat.slideTo(s.activeIndex);
-    });
-
-    itemsSliderFloat.on('activeIndexChange', function (s) {
-      const slideWidth = s.slidesSizesGrid[0] - 2;
-      $specsScroll[0].scroll({
-        left: s.activeIndex * slideWidth,
-        behavior: 'smooth'
-      });
-      itemsSlider.slideTo(s.activeIndex);
-    });
-
-    itemsSliderMobile1.on('activeIndexChange', function (s) {
-      const slideWidth = $('.compare-mobile-grid__scroll').width();
-      console.log(slideWidth)
-      $specsScrollMobileLeft.each(function () {
-        $(this)[0].scroll({
-          left: s.activeIndex * slideWidth,
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    itemsSliderMobile2.on('activeIndexChange', function (s) {
-      const slideWidth = $('.compare-mobile-grid__scroll').width();
-      $specsScrollMobileRight.each(function () {
-        $(this)[0].scroll({
-          left: s.activeIndex * slideWidth,
-          behavior: 'smooth'
-        });
-      });
-    });
-  }
-
-
 
   $('.swiper-recommend2').each(function () {
     AW.initSliderRecommend2($(this));
+  });
+
+  $('.swiper-recommend3').each(function () {
+    AW.initSliderRecommend3($(this));
   });
 
   $('.shops-gallery').each(function () {
@@ -932,10 +945,13 @@ $(document).ready(() => {
     AW.initSliderGalleryMedia($(this));
   });
 
+  $('.block-gallery__slider').each(function () {
+    AW.initSliderGallery($(this));
+  });
+
   $('.block-other-shops__slider').each(function () {
     AW.initSliderOtherShops($(this));
   });
-
 
 
   $('[data-validate]').each(function () {
@@ -1557,18 +1573,88 @@ window.removeSimplebarOnMobile = function () {
     }
   }
 }
-document.addEventListener('DOMContentLoaded', function () {
-  if (typeof removeSimplebarOnMobile === 'function') {
-    removeSimplebarOnMobile();
-  }
-});
-window.addEventListener('resize', function () {
-  if (typeof removeSimplebarOnMobile === 'function') {
-    removeSimplebarOnMobile();
-  }
-});
 
-//Яндекс карта
+// Функция для активации колонки (для мобильных устройств)
+function activateShopColumn(shopId) {
+  if (window.innerWidth > 992) {
+    return;
+  }
+
+  const shopColumns = document.querySelectorAll('.list-block-shops__column');
+  shopColumns.forEach(column => {
+    column.classList.remove('_active');
+  });
+
+  const targetColumn = document.querySelector(`.list-block-shops__column[data-shop-id="${shopId}"]`);
+  if (targetColumn) {
+    targetColumn.classList.add('_active');
+  }
+}
+
+function deactivateAllShopColumns() {
+  const shopColumns = document.querySelectorAll('.list-block-shops__column');
+  shopColumns.forEach(column => {
+    column.classList.remove('_active');
+  });
+}
+
+// Функция для прокрутки к нужному элементу списка магазинов
+function scrollToShopColumn(shopId) {
+  const targetColumn = document.querySelector(`.list-block-shops__column[data-shop-id="${shopId}"]`);
+
+  if (targetColumn) {
+    // Простой и надежный способ прокрутки
+    targetColumn.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
+
+    highlightShopColumn(shopId);
+  }
+}
+
+// Функция для подсветки элемента
+function highlightShopColumn(shopId) {
+  const targetColumn = document.querySelector(`.list-block-shops__column[data-shop-id="${shopId}"]`);
+
+  if (targetColumn) {
+    // Убираем подсветку со всех элементов
+    const allColumns = document.querySelectorAll('.list-block-shops__column');
+    allColumns.forEach(column => {
+      column.classList.remove('_highlighted');
+    });
+
+    // Добавляем подсветку к целевому элементу
+    targetColumn.classList.add('_highlighted');
+
+    // Убираем подсветку через 2 секунды
+    setTimeout(() => {
+      targetColumn.classList.remove('_highlighted');
+    }, 2000);
+  }
+}
+
+// Обработчик для кнопок "На карте"
+function initShopMapButtons() {
+  const mapButtons = document.querySelectorAll('.btn-text-map');
+  mapButtons.forEach((button) => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      if (window.innerWidth > 992) {
+        return;
+      }
+
+      const column = this.closest('.list-block-shops__column');
+      if (column) {
+        const shopId = column.getAttribute('data-shop-id');
+        activateShopColumn(shopId);
+      }
+    });
+  });
+}
+
+// Яндекс карта
 function initYandexMaps() {
   const map1 = document.querySelector('#map1');
   const map2 = document.querySelector('#map2');
@@ -1594,7 +1680,6 @@ function initYandexMaps() {
         searchControlProvider: 'yandex#search'
       });
 
-      // Применяем встроенную темную тему
       myMap1.options.set('theme', 'dark');
 
       const placemarks = [
@@ -1609,10 +1694,6 @@ function initYandexMaps() {
         {
           coords: [55.809955, 37.568524],
           shopId: 'shop-3'
-        },
-        {
-          coords: [55.839820, 37.488655],
-          shopId: 'shop-4'
         }
       ];
 
@@ -1623,7 +1704,7 @@ function initYandexMaps() {
           iconLayout: 'default#image',
           iconImageHref: 'img/map2.svg',
           iconImageSize: [40, 40],
-          iconImageOffset: [-57, -137],
+          iconImageOffset: [-20, -20], // Правильное центрирование
         });
 
         mark.events.add('click', function (e) {
@@ -1631,8 +1712,11 @@ function initYandexMaps() {
           const shopId = targetPlacemark.properties.get('shopId');
 
           if (shopId) {
-            activateShopColumn(shopId);
-
+            if (window.innerWidth <= 992) {
+              activateShopColumn(shopId);
+            } else {
+              scrollToShopColumn(shopId);
+            }
             myMap1.panTo(targetPlacemark.geometry.getCoordinates(), {
               duration: 300
             });
@@ -1653,17 +1737,15 @@ function initYandexMaps() {
         searchControlProvider: 'yandex#search'
       });
 
-      // Применяем встроенную темную тему
       myMap2.options.set('theme', 'dark');
 
-      // Для второй карты
       const mark = new ymaps.Placemark([55.694843, 37.435023], {
         shopId: 'map2-shop-1'
       }, {
         iconLayout: 'default#image',
         iconImageHref: 'img/map.svg',
         iconImageSize: [48, 64],
-        iconImageOffset: [0, 0],
+        iconImageOffset: [-24, -64], // Правильное смещение для маркера
       });
 
       mark.events.add('click', function (e) {
@@ -1671,13 +1753,18 @@ function initYandexMaps() {
         const shopId = targetPlacemark.properties.get('shopId');
 
         if (shopId) {
-          activateShopColumn(shopId);
+          if (window.innerWidth <= 992) {
+            activateShopColumn(shopId);
+          } else {
+            scrollToShopColumn(shopId);
+          }
         }
       });
 
       myMap2.geoObjects.add(mark);
     }
 
+    // Аналогично исправьте для map3 и map4
     if (map3) {
       var myMap3 = new ymaps.Map('map3', {
         center: [55.738049, 37.543731],
@@ -1688,17 +1775,13 @@ function initYandexMaps() {
         searchControlProvider: 'yandex#search'
       });
 
-      // Применяем встроенную темную тему
       myMap3.options.set('theme', 'dark');
 
-      // Для второй карты
-      const mark = new ymaps.Placemark([55.738049, 37.543731], {
-
-      }, {
+      const mark = new ymaps.Placemark([55.738049, 37.543731], {}, {
         iconLayout: 'default#image',
         iconImageHref: 'img/map.svg',
         iconImageSize: [48, 64],
-        iconImageOffset: [0, 0],
+        iconImageOffset: [-24, -64],
       });
 
       myMap3.geoObjects.add(mark);
@@ -1714,24 +1797,18 @@ function initYandexMaps() {
         searchControlProvider: 'yandex#search'
       });
 
-      // Сохраняем ссылку на карту для последующего обновления
       window.myMap4 = myMap4;
-
-      // Применяем встроенную темную тему
       myMap4.options.set('theme', 'dark');
 
-      const mark = new ymaps.Placemark([55.738049, 37.543731], {
-
-      }, {
+      const mark = new ymaps.Placemark([55.738049, 37.543731], {}, {
         iconLayout: 'default#image',
         iconImageHref: 'img/map2.svg',
         iconImageSize: [40, 40],
-        iconImageOffset: [0, 0],
+        iconImageOffset: [-20, -20],
       });
 
       myMap4.geoObjects.add(mark);
 
-      // Сразу обновляем размер после создания
       setTimeout(() => {
         myMap4.container.fitToViewport();
       }, 300);
@@ -1741,70 +1818,45 @@ function initYandexMaps() {
 
 // Функция для обновления размера карты
 function updateMapSize() {
-  if (typeof myMap4 !== 'undefined') {
+  if (typeof window.myMap4 !== 'undefined') {
     setTimeout(() => {
-      myMap4.container.fitToViewport();
+      window.myMap4.container.fitToViewport();
     }, 100);
   }
 }
 
-// Обработчик ресайза с debounce
-let resizeTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(updateMapSize, 250);
-});
+function initShopMap() {
+  // Инициализация всех функций
+  function initAll() {
+    initYandexMaps();
+    initShopMapButtons();
 
-// Обновляем после полной загрузки страницы
-window.addEventListener('load', updateMapSize);
-
-// Остальные функции остаются без изменений
-function activateShopColumn(shopId) {
-  if (window.innerWidth > 992) {
-    return;
-  }
-
-  const shopColumns = document.querySelectorAll('.list-block-shops__column');
-
-  shopColumns.forEach(column => {
-    column.classList.remove('_active');
-  });
-  const targetColumn = document.querySelector(`.list-block-shops__column[data-shop-id="${shopId}"]`);
-  if (targetColumn) {
-    targetColumn.classList.add('_active');
-  }
-}
-
-function deactivateAllShopColumns() {
-  const shopColumns = document.querySelectorAll('.list-block-shops__column');
-  shopColumns.forEach(column => {
-    column.classList.remove('_active');
-  });
-}
-
-function initShopMapButtons() {
-  const mapButtons = document.querySelectorAll('.btn-text-map');
-  mapButtons.forEach((button) => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      if (window.innerWidth > 992) {
-        return;
-      }
-
-      const column = this.closest('.list-block-shops__column');
-      if (column) {
-        const shopId = column.getAttribute('data-shop-id');
-        activateShopColumn(shopId);
-      }
+    // Обработчик ресайза с debounce
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateMapSize, 250);
     });
-  });
+
+    // Обновляем после полной загрузки страницы
+    window.addEventListener('load', updateMapSize);
+  }
+
+  // Запускаем инициализацию
+  initAll();
 }
 
+// Основная инициализация при загрузке документа
 document.addEventListener('DOMContentLoaded', function () {
-  initYandexMaps();
-  initShopMapButtons();
+  // Инициализация simplebar
+  if (typeof removeSimplebarOnMobile === 'function') {
+    removeSimplebarOnMobile();
+  }
 
+  // Инициализация карты магазинов
+  initShopMap();
+
+  // Обработчики событий
   document.addEventListener('click', function (e) {
     if (window.innerWidth <= 992 &&
       !e.target.closest('.map-block-payment__right') &&
@@ -1815,7 +1867,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Обработчик ресайза окна
 window.addEventListener('resize', function () {
+  // Обновление simplebar
+  if (typeof removeSimplebarOnMobile === 'function') {
+    removeSimplebarOnMobile();
+  }
+
+  // Деактивация колонок на десктопе
   if (window.innerWidth > 992) {
     deactivateAllShopColumns();
   }
@@ -2023,11 +2082,10 @@ function spollers() {
 spollers();
 
 // Показать еще
-// Показать еще ПО КОЛИЧЕСТВУ ЭЛЕМЕНТОВ (с опциональным брейкпоинтом)
 function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, itemsToShow, breakpoint = null) {
-  const container = document.querySelector(containerSelector);
+  const containers = document.querySelectorAll(containerSelector);
 
-  if (container) {
+  containers.forEach(container => {
     const content = container.querySelector('[data-showmore-content]');
     const button = container.querySelector(buttonSelector);
     const items = content.querySelectorAll(itemSelector);
@@ -2044,11 +2102,9 @@ function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, it
 
     function handleShowMoreClick() {
       isManualToggle = true;
-
       const isActive = this.classList.contains('_showmore-active');
 
       if (isActive) {
-        // Скрываем все элементы кроме .title3 и .text
         items.forEach((item, index) => {
           if (index >= itemsToShow) {
             item.style.display = 'none';
@@ -2057,7 +2113,6 @@ function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, it
         this.classList.remove('_showmore-active');
         container.classList.remove('_showmore-open');
       } else {
-        // Показываем все элементы
         items.forEach(item => {
           item.style.display = '';
         });
@@ -2067,25 +2122,17 @@ function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, it
     }
 
     function toggleShowMore() {
-      // Если брейкпоинт не указан, работаем всегда
-      if (breakpoint === null) {
+      if (breakpoint === null || window.innerWidth <= breakpoint) {
         if (!button.classList.contains('_showmore-active')) {
-          // Показываем только первые N элементов (.title3 и .text)
           items.forEach((item, index) => {
             if (index < itemsToShow) {
-              // Показываем только элементы .title3 и .text
-              if (item.classList.contains('title3') || item.classList.contains('text')) {
-                item.style.display = '';
-              } else {
-                item.style.display = 'none';
-              }
+              item.style.display = '';
             } else {
               item.style.display = 'none';
             }
           });
           container.classList.remove('_showmore-open');
         } else {
-          // Показываем все элементы
           items.forEach(item => {
             item.style.display = '';
           });
@@ -2098,40 +2145,9 @@ function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, it
         }
 
         checkItemsCount();
-        return;
-      }
-
-      // Старая логика с брейкпоинтом (если нужно)
-      if (isManualToggle && window.innerWidth <= breakpoint) {
-        return;
-      }
-
-      if (window.innerWidth <= breakpoint) {
-        if (!button.classList.contains('_showmore-active')) {
-          items.forEach((item, index) => {
-            if (index >= itemsToShow) {
-              item.style.display = 'none';
-            } else {
-              item.style.display = 'flex';
-            }
-          });
-          container.classList.remove('_showmore-open');
-        } else {
-          items.forEach(item => {
-            item.style.display = 'flex';
-          });
-          container.classList.add('_showmore-open');
-        }
-
-        if (!clickHandlerAdded) {
-          button.addEventListener('click', handleShowMoreClick);
-          clickHandlerAdded = true;
-        }
-
-        checkItemsCount();
       } else {
         items.forEach(item => {
-          item.style.display = 'flex';
+          item.style.display = '';
         });
         button.classList.remove('_showmore-active');
         button.setAttribute('hidden', 'true');
@@ -2148,7 +2164,6 @@ function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, it
 
     toggleShowMore();
 
-    // Добавляем ресайз только если есть брейкпоинт
     if (breakpoint !== null) {
       let resizeTimer;
       window.addEventListener('resize', function () {
@@ -2156,17 +2171,31 @@ function initShowMoreByItems(containerSelector, itemSelector, buttonSelector, it
         resizeTimer = setTimeout(toggleShowMore, 250);
       });
     }
-  }
+  });
 }
-
-// Инициализация
 document.addEventListener('DOMContentLoaded', function () {
-  // Для вашего блока - показывать только .title3 и .text
+  initShowMoreByItems(
+    '[data-showmore].block-support__texts',
+    '.block-support__texts ul li',
+    '[data-showmore-button]',
+    1,
+    1100
+  );
+
   initShowMoreByItems(
     '[data-showmore].corners1__inner',
-    '.block-product-descr__body > *', // все прямые дочерние элементы
+    '.block-product-descr__body > *',
     '[data-showmore-button]',
-    2 // показывать первые 2 элемента (.title3 и .text)
+    2,
+    null
+  );
+
+  initShowMoreByItems(
+    '[data-showmore].block-series-compare__column',
+    '.block-series-compare__item > *',
+    '[data-showmore-button]',
+    1,
+    null
   );
 });
 
@@ -2218,22 +2247,379 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', updateCompareTopHeight);
 });
 
-// Добавляем обработку перехода по якорным ссылкам
+// переход по якорным ссылкам
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const hash = this.getAttribute('href');
 
     if (hash === '#characteristics') {
+      e.preventDefault();
 
-      const tabBlock = document.querySelector('.block-characteristics');
+      const targetBlock = document.querySelector('.block-characteristics2');
+      const headerHeight = document.querySelector('header')?.offsetHeight || 80; // Высота шапки
 
-      if (tabBlock) {
-        const characteristicsButton = tabBlock.querySelector('button#characteristics');
+      if (targetBlock) {
+        const targetPosition = targetBlock.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
-        if (characteristicsButton) {
-          characteristicsButton.click();
-        }
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
     }
   });
 });
+
+function initCompareSliders() {
+  const itemsSlider = $('.compare-items__slider');
+  const floatSlider = $('.compare-float-slider');
+  if (!itemsSlider.length && !floatSlider.length) return;
+
+  let mainSwiper = null;
+  let floatSwiper = null;
+  let mobileSwiper1 = null;
+  let mobileSwiper2 = null;
+  let floatMobileSwiper1 = null;
+  let floatMobileSwiper2 = null;
+
+  function syncDesktopSliders(activeIndex, sourceSwiper) {
+    if (mainSwiper && mainSwiper !== sourceSwiper) {
+      mainSwiper.slideTo(activeIndex);
+    }
+
+    if (floatSwiper && floatSwiper !== sourceSwiper) {
+      floatSwiper.slideTo(activeIndex);
+    }
+
+    syncSpecsPosition(activeIndex);
+  }
+
+  function syncMobileSliders(activeIndex, sourceSwiper, isLeftSlider = true) {
+    if (isLeftSlider) {
+      if (mobileSwiper1 && mobileSwiper1 !== sourceSwiper) {
+        mobileSwiper1.slideTo(activeIndex);
+      }
+      if (floatMobileSwiper1 && floatMobileSwiper1 !== sourceSwiper) {
+        floatMobileSwiper1.slideTo(activeIndex);
+      }
+
+      updateMobileSpecs(activeIndex, true, false);
+    } else {
+      if (mobileSwiper2 && mobileSwiper2 !== sourceSwiper) {
+        mobileSwiper2.slideTo(activeIndex);
+      }
+      if (floatMobileSwiper2 && floatMobileSwiper2 !== sourceSwiper) {
+        floatMobileSwiper2.slideTo(activeIndex);
+      }
+
+      updateMobileSpecs(activeIndex, false, true);
+    }
+  }
+
+  function syncSpecsPosition(activeIndex) {
+    const $specsCols = $('.compare-specs__cols');
+    let visibleSlides = 3;
+
+    if (mainSwiper) {
+      visibleSlides = mainSwiper.params.slidesPerView;
+    } else if (floatSwiper) {
+      visibleSlides = floatSwiper.params.slidesPerView;
+    }
+
+    $specsCols.each(function () {
+      const $cols = $(this).find('.compare-specs__col').not(':first');
+
+      $cols.each(function (index) {
+        if (index >= activeIndex && index < activeIndex + visibleSlides) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+  }
+
+  function updateMobileSpecs(activeIndex, updateLeft = false, updateRight = false) {
+    if (updateLeft) {
+      const $leftCols = $('.compare-specs-mob__col_left');
+      $leftCols.each(function () {
+        const $divs = $(this).find('div');
+        $divs.hide();
+        if ($divs.length > activeIndex) {
+          $divs.eq(activeIndex).show();
+        }
+      });
+    }
+
+    if (updateRight) {
+      const $rightCols = $('.compare-specs-mob__col_right');
+      $rightCols.each(function () {
+        const $divs = $(this).find('div');
+        $divs.hide();
+        if ($divs.length > activeIndex) {
+          $divs.eq(activeIndex).show();
+        }
+      });
+    }
+  }
+
+  if (itemsSlider.length) {
+    const $navNext = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_next');
+    const $navPrev = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
+
+    mainSwiper = new Swiper(itemsSlider[0], {
+      spaceBetween: 30,
+      slidesPerView: 3,
+      speed: 200,
+      navigation: {
+        nextEl: $navNext[0],
+        prevEl: $navPrev[0],
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1400: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
+      },
+      on: {
+        init: function () {
+          this.slides.forEach((slide, index) => {
+            if (index < this.params.slidesPerView) {
+              $(slide).addClass('swiper-slide-visible');
+            }
+          });
+          syncSpecsPosition(this.activeIndex);
+        },
+        slideChangeTransitionEnd: function () {
+          this.slides.forEach(slide => {
+            $(slide).removeClass('swiper-slide-visible');
+          });
+
+          this.slides.forEach((slide, index) => {
+            if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
+              $(slide).addClass('swiper-slide-visible');
+            }
+          });
+
+          syncDesktopSliders(this.activeIndex, this);
+        }
+      }
+    });
+  }
+
+  if (floatSlider.length) {
+    const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
+    const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
+
+    floatSwiper = new Swiper(floatSlider[0], {
+      spaceBetween: 30,
+      slidesPerView: 3,
+      speed: 200,
+      navigation: {
+        nextEl: $navNext[0],
+        prevEl: $navPrev[0],
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1400: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
+      },
+      on: {
+        init: function () {
+          this.slides.forEach((slide, index) => {
+            if (index < this.params.slidesPerView) {
+              $(slide).addClass('swiper-slide-visible');
+            }
+          });
+          syncSpecsPosition(this.activeIndex);
+        },
+        slideChangeTransitionEnd: function () {
+          this.slides.forEach(slide => {
+            $(slide).removeClass('swiper-slide-visible');
+          });
+
+          this.slides.forEach((slide, index) => {
+            if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
+              $(slide).addClass('swiper-slide-visible');
+            }
+          });
+
+          syncDesktopSliders(this.activeIndex, this);
+        }
+      }
+    });
+  }
+
+  const itemsSliderMobile1 = $('.compare-mobile1').not('.compare-float .compare-mobile1');
+  if (itemsSliderMobile1.length) {
+    const $navNext1 = itemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_next');
+    const $navPrev1 = itemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_prev');
+    const $label1 = itemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
+
+    mobileSwiper1 = new Swiper(itemsSliderMobile1[0], {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 200,
+      navigation: {
+        nextEl: $navNext1[0],
+        prevEl: $navPrev1[0],
+      },
+      on: {
+        init: function () {
+          $label1.find('span').text(this.activeIndex + 1);
+          updateMobileSpecs(this.activeIndex, true, false);
+        },
+        slideChange: function (s) {
+          $label1.find('span').text(s.realIndex + 1);
+          syncMobileSliders(s.realIndex, this, true);
+        },
+      },
+    });
+  }
+
+  const itemsSliderMobile2 = $('.compare-mobile2').not('.compare-float .compare-mobile2');
+  if (itemsSliderMobile2.length) {
+    const $navNext2 = itemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_next');
+    const $navPrev2 = itemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_prev');
+    const $label2 = itemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
+
+    mobileSwiper2 = new Swiper(itemsSliderMobile2[0], {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 200,
+      navigation: {
+        nextEl: $navNext2[0],
+        prevEl: $navPrev2[0],
+      },
+      on: {
+        init: function () {
+          $label2.find('span').text(this.activeIndex + 1);
+          updateMobileSpecs(this.activeIndex, false, true);
+        },
+        slideChange: function (s) {
+          $label2.find('span').text(s.realIndex + 1);
+          syncMobileSliders(s.realIndex, this, false);
+        },
+      },
+    });
+  }
+
+  const floatItemsSliderMobile1 = $('.compare-float .compare-mobile1');
+  if (floatItemsSliderMobile1.length) {
+    const $navNext1 = floatItemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_next');
+    const $navPrev1 = floatItemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_prev');
+    const $label1 = floatItemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
+
+    floatMobileSwiper1 = new Swiper(floatItemsSliderMobile1[0], {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 200,
+      navigation: {
+        nextEl: $navNext1[0],
+        prevEl: $navPrev1[0],
+      },
+      on: {
+        init: function () {
+          $label1.find('span').text(this.activeIndex + 1);
+          updateMobileSpecs(this.activeIndex, true, false);
+        },
+        slideChange: function (s) {
+          $label1.find('span').text(s.realIndex + 1);
+          syncMobileSliders(s.realIndex, this, true);
+        },
+      },
+    });
+  }
+
+  const floatItemsSliderMobile2 = $('.compare-float .compare-mobile2');
+  if (floatItemsSliderMobile2.length) {
+    const $navNext2 = floatItemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_next');
+    const $navPrev2 = floatItemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_prev');
+    const $label2 = floatItemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
+
+    floatMobileSwiper2 = new Swiper(floatItemsSliderMobile2[0], {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 200,
+      navigation: {
+        nextEl: $navNext2[0],
+        prevEl: $navPrev2[0],
+      },
+      on: {
+        init: function () {
+          $label2.find('span').text(this.activeIndex + 1);
+          updateMobileSpecs(this.activeIndex, false, true);
+        },
+        slideChange: function (s) {
+          $label2.find('span').text(s.realIndex + 1);
+          syncMobileSliders(s.realIndex, this, false);
+        },
+      },
+    });
+  }
+
+  function initSpecsSync() {
+    const $specsContainer = $('.compare-specs__inner');
+    const $specsCols = $('.compare-specs__cols');
+
+    $specsContainer.on('scroll', function () {
+      const scrollLeft = $specsContainer.scrollLeft();
+      const colWidth = $specsCols.first().outerWidth();
+      const activeIndex = Math.round(scrollLeft / colWidth);
+
+      syncDesktopSliders(activeIndex, null);
+    });
+  }
+
+  initSpecsSync();
+
+  if (mainSwiper) {
+    syncSpecsPosition(mainSwiper.activeIndex);
+  } else if (floatSwiper) {
+    syncSpecsPosition(floatSwiper.activeIndex);
+  }
+
+  $(window).on('resize', function () {
+    if (mainSwiper) {
+      syncSpecsPosition(mainSwiper.activeIndex);
+    } else if (floatSwiper) {
+      syncSpecsPosition(floatSwiper.activeIndex);
+    }
+  });
+}
+initCompareSliders();
+
+const compareFloat = document.querySelector('.compare-float');
+if (compareFloat) {
+  function toggleCompareFloatClass() {
+    if (window.scrollY > 50) {
+      compareFloat.classList.add('_active');
+    } else {
+      compareFloat.classList.remove('_active');
+    }
+  }
+  window.addEventListener('scroll', toggleCompareFloatClass);
+  toggleCompareFloatClass();
+}
+
+const productFloat = document.querySelector('.fixed-product');
+if (productFloat) {
+  function toggleproductFloat() {
+    if (window.scrollY > 50) {
+      productFloat.classList.add('_active');
+    } else {
+      productFloat.classList.remove('_active');
+    }
+  }
+  window.addEventListener('scroll', toggleproductFloat);
+  toggleproductFloat();
+}
