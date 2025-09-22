@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="css/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="css/hystmodal.min.css" />
 		<link rel="stylesheet" href="css/fancybox.min.css" />
-		<link rel="stylesheet" href="css/styles.css?v=1758502245838" />
+		<link rel="stylesheet" href="css/styles.css?v=1758539523276" />
 
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -42,7 +42,7 @@
 								<a class="header__phone" href="tel:84952293993">8 (495) 229-39-93</a>
 							</div>
 						</div>
-						<button class="header__btn-callback" type="button">Заказать звонок</button>
+						<button class="header__btn-callback" data-hystmodal="#callback" type="button">Заказать звонок</button>
 						<div class="header__btn-catalog">
 							<button type="button" class="btn-catalog">
 								<span class="btn-catalog__sq1">
@@ -1000,6 +1000,135 @@
 			</footer>
 
 		</div>
+		<div class="hystmodal" id="callback" aria-hidden="true">
+			<div class="hystmodal__wrap">
+				<div class="hystmodal__window" role="dialog" aria-modal="true">
+					<div data-container="tab1" class="hystmodal__inner">
+						<div class="hystmodal__top">
+							<div class="hystmodal__title">заказать звонок</div>
+							<button data-hystclose class="hystmodal__close">
+								<svg aria-hidden="true" width="20" height="20">
+									<use xlink:href="img/sprite.svg#close1"></use>
+								</svg>
+								<span class="v-h">Закрыть</span>
+							</button>
+						</div>
+						<form data-validate action="#" class="form-other">
+							<div class="block-feedback__grid">
+								<div class="form-group1">
+									<label class="form-group1__label form-group1__label_req" for="feedback_fio2">ФИО</label>
+									<input id="feedback_fio2" class="field-input1 form-group__field" type="text" name="feedback_fio2" required placeholder="Введите ФИО">
+								</div>
+								<div class="form-group1">
+									<label class="form-group1__label form-group1__label_req" for="feedback_phone7">Телефон</label>
+									<input id="feedback_phone7" class="field-input1 form-group__field" data-mask="phone" data-type="phone" type="text" name="feedback_phone7" required="" placeholder=" ">
+									<span class="form-group1__placeholder1"><span>+7</span>
+										(999)
+										999-99-99</span>
+								</div>
+							</div>
+							<div class="form-text1">Нажав на кнопку «Заказать звонок», соглашаюсь
+								на обработку <a href="#">персональных данных</a></div>
+							<div class="buttons-forms">
+								<button class="btn" type="submit">
+									<span>заказать звонок</span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hystmodal" id="thanks" aria-hidden="true">
+			<div class="hystmodal__wrap">
+				<div class="hystmodal__window" role="dialog" aria-modal="true">
+					<div data-container="tab1" class="hystmodal__inner">
+						<div class="hystmodal__top">
+							<div class="hystmodal__title">заявка принята</div>
+							<button data-hystclose class="hystmodal__close">
+								<svg aria-hidden="true" width="20" height="20">
+									<use xlink:href="img/sprite.svg#close1"></use>
+								</svg>
+								<span class="v-h">Закрыть</span>
+							</button>
+						</div>
+						<p class="color">
+							Наш специалист свяжется с Вами в ближайшее время!
+						</p>
+						<div class="buttons-forms other">
+							<button data-hystclose class="btn" type="button">
+								<span>закрыть</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hystmodal" id="buy-click" aria-hidden="true">
+			<div class="hystmodal__wrap">
+				<div class="hystmodal__window" role="dialog" aria-modal="true">
+					<div data-container="tab1" class="hystmodal__inner">
+						<div class="hystmodal__top">
+							<div class="hystmodal__title">купить в 1 клик</div>
+							<button data-hystclose class="hystmodal__close">
+								<svg aria-hidden="true" width="20" height="20">
+									<use xlink:href="img/sprite.svg#close1"></use>
+								</svg>
+								<span class="v-h">Закрыть</span>
+							</button>
+						</div>
+						<div class="hystmodal-product">
+							<div class="hystmodal-product__image">
+								<img loading="lazy" src="img/product1.webp" alt="">
+							</div>
+							<div class="hystmodal-product__item">
+								<div class="hystmodal-product__brand">
+									<img src="img/arkon-alfa2.svg" alt="">
+								</div>
+								<div class="hystmodal-product__name">
+									Тепловизионный прицел LT25 Тепловизионный прицел LT25
+								</div>
+							</div>
+						</div>
+						<form data-validate action="#" class="form-other">
+							<div class="block-feedback__grid">
+								<div class="form-group1">
+									<label class="form-group1__label form-group1__label_req" for="feedback_fio3">ФИО</label>
+									<input id="feedback_fio3" class="field-input1 form-group__field" type="text" name="feedback_fio3" required placeholder="Введите ФИО">
+								</div>
+								<div class="form-group1">
+									<label class="form-group1__label form-group1__label_req" for="feedback_phone8">Телефон</label>
+									<input id="feedback_phone8" class="field-input1 form-group__field" data-mask="phone" data-type="phone" type="text" name="feedback_phone8" required="" placeholder=" ">
+									<span class="form-group1__placeholder1"><span>+7</span>
+										(999)
+										999-99-99</span>
+								</div>
+								<div class="form-group1">
+									<label class="form-group1__label form-group1__label_req" for="feedback_email8">E-mail</label>
+									<input id="feedback_email8" class="field-input1 form-group__field" data-type="email" type="text" name="feedback_email8" required="" placeholder="Введите E-mail">
+								</div>
+								<div class="form-group1">
+									<label class="form-group1__label" for="feedback_textarea4">
+										Комментарий к заказу
+									</label>
+									<textarea id="feedback_textarea4" class="field-input1 form-group__field" placeholder="Текст комментария"></textarea>
+								</div>
+							</div>
+							<div class="form-text1">Нажав на кнопку «Купить в 1 клик»», соглашаюсь
+								на обработку <a href="#">персональных данных</a></div>
+							<div class="buttons-forms">
+								<button class="btn" type="submit">
+									<span>купить в 1 клик</span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="hystmodal" id="login" aria-hidden="true">
 			<div class="hystmodal__wrap">
 				<div class="hystmodal__window" role="dialog" aria-modal="true">
@@ -1292,7 +1421,7 @@
 		<script src="js/dragscroll.min.js"></script>
 		<script src="js/hystmodal.min.js"></script>
 		<script src="js/simplebar.min.js"></script>
-		<script src="js/scripts.js?v=1758502245838"></script>
+		<script src="js/scripts.js?v=1758539523276"></script>
 	</body>
 
 </html>
