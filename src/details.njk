@@ -64,172 +64,415 @@
                                 </div>
                             </div>
                             <div class="right-personal-cabinet">
-                                <div class="right-personal-cabinet__column">
+                                <div class="right-personal-cabinet__column edit-container">
                                     <div class="right-personal-cabinet__top">
                                         <div class="right-personal-cabinet__title">
                                             Персональные данные
                                         </div>
-                                        <a href="edit-details.html" class="btn-text btn-text_1">
+                                        <button type="button" data-action="toggleFormEdit" class="btn-text btn-text_1">
                                             <span>Редактировать данные</span>
-                                        </a>
+                                        </button>
                                     </div>
-                                    <div class="details-personal-cabinet">
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">Фамилия</div>
-                                                    <div class="details-personal-cabinet__value">Иванов</div>
+                                    <div class="edit-container__view">
+                                        <div class="details-personal-cabinet">
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">Фамилия</div>
+                                                        <div class="details-personal-cabinet__value">Иванов</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">E-mail</div>
-                                                    <div class="details-personal-cabinet__value">ivanov@mail.ru</div>
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">E-mail</div>
+                                                        <div class="details-personal-cabinet__value">ivanov@mail.ru
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">Имя</div>
-                                                    <div class="details-personal-cabinet__value">Михаил</div>
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">Имя</div>
+                                                        <div class="details-personal-cabinet__value">Михаил</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">Телефон</div>
-                                                    <div class="details-personal-cabinet__value">+7 (925) 123-45-67
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">Телефон</div>
+                                                        <div class="details-personal-cabinet__value">+7 (925) 123-45-67
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">Отчество</div>
+                                                        <div class="details-personal-cabinet__value">Евгеньевич</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">Пол</div>
+                                                        <div class="details-personal-cabinet__value">мужской</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="details-personal-cabinet__item">
+                                                        <div class="details-personal-cabinet__name">Дата рождения</div>
+                                                        <div class="details-personal-cabinet__value">50</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">Отчество</div>
-                                                    <div class="details-personal-cabinet__value">Евгеньевич</div>
+                                    </div>
+                                    <div class="edit-container__edit">
+                                        <form data-validate action="#" class="form-other">
+                                            <div class="block-feedback__grid">
+                                                <div class="block-feedback__groups">
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_familia">Фамилия</label>
+                                                        <input id="feedback_familia"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_familia" placeholder="Фамилия">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label form-group1__label_req"
+                                                            for="feedback_name3">Имя</label>
+                                                        <input id="feedback_name3"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_name3" required placeholder=""
+                                                            value="Михаил">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_surname">Отчество</label>
+                                                        <input id="feedback_surname"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_surname" placeholder="Евгеньевич">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label" for="feedback_birth">Дата
+                                                            рождения</label>
+                                                        <input id="feedback_birth"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_birth" value="4 февр. 1994 г.">
+                                                    </div>
+                                                </div>
+                                                <div class="block-feedback__groups">
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label form-group1__label_req"
+                                                            for="feedback_email6">E-mail</label>
+                                                        <input id="feedback_email6"
+                                                            class="field-input1 form-group__field" data-type="email"
+                                                            type="text" name="feedback_email6" required
+                                                            placeholder="ivanov@mail.ru">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label form-group1__label_req"
+                                                            for="feedback_phone4">Телефон</label>
+                                                        <input id="feedback_phone4"
+                                                            class="field-input1 form-group__field" data-mask="phone"
+                                                            data-type="phone" type="text" name="feedback_phone4"
+                                                            required="" placeholder=" ">
+                                                        <span class="form-group1__placeholder1"><span>+7</span>
+                                                            (999)
+                                                            999-99-99</span>
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_surname">Пол</label>
+                                                        <ul class="checklist">
+                                                            <li class="checklist__item">
+                                                                <label class="checkbox-text badge1">
+                                                                    <span class="radio">
+                                                                        <input class="radio__input" type="radio"
+                                                                            name="rad1">
+                                                                        <span class="radio__visual"></span>
+                                                                    </span>
+                                                                    <span class="checkbox-text__label">Женский</span>
+                                                                </label>
+                                                            </li>
+                                                            <li class="checklist__item ">
+                                                                <label
+                                                                    class="checkbox-text checked badge1 badge1_white badge1_hollow">
+                                                                    <span class="radio">
+                                                                        <input class="radio__input" type="radio"
+                                                                            name="rad1">
+                                                                        <span class="radio__visual"></span>
+                                                                    </span>
+                                                                    <span class="checkbox-text__label">Мужской</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">Пол</div>
-                                                    <div class="details-personal-cabinet__value">мужской</div>
-                                                </div>
+                                            <div class="right-personal-cabinet__buttons">
+                                                <button type="submit"
+                                                    class="edit-password badge1 badge1_accent">Сохранить
+                                                    изменения</button>
+                                                <button data-action="toggleFormEdit" type="button"
+                                                    class="btn-reset badge1 badge1_white badge1_hollow">Отменить</button>
                                             </div>
-                                        </div>
-                                        <div class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
-                                                <div class="details-personal-cabinet__item">
-                                                    <div class="details-personal-cabinet__name">Дата рождения</div>
-                                                    <div class="details-personal-cabinet__value">50</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="right-personal-cabinet__column">
+                                <div class="right-personal-cabinet__column edit-container">
                                     <div class="right-personal-cabinet__top">
                                         <div class="right-personal-cabinet__title">
                                             Пароль
                                         </div>
-                                        <a href="edit-details.html" class="btn-text btn-text_1">
+                                        <button type="button" data-action="toggleFormEdit" class="btn-text btn-text_1">
                                             <span>Изменить пароль</span>
-                                        </a>
+                                        </button>
                                     </div>
-                                    <div class="details-personal-cabinet">
-                                        <div data-validate class="details-personal-cabinet__column corners1">
-                                            <div class="corners1__inner">
+                                    <div class="edit-container__view">
+                                        <div class="details-personal-cabinet">
+                                            <div data-validate class="details-personal-cabinet__column corners1">
+                                                <div class="corners1__inner">
+                                                    <div class="form-group1">
+                                                        <input id="feedback_password4"
+                                                            class="field-input1 form-group__field" data-type="password"
+                                                            type="password" name="feedback_password4" required
+                                                            value="123456" placeholder=" ">
+                                                        <div class="form-group1__icon toggle-password">
+                                                            <img src="img/password.svg" alt="">
+                                                        </div>
+                                                        <div class="form-group1__icon hidden toggle-password open">
+                                                            <img src="img/password2.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit-container__edit">
+                                        <form data-validate action="#" class="form-other">
+                                            <div class="block-feedback__grid passwords">
                                                 <div class="form-group1">
-                                                    <input id="feedback_password4"
+                                                    <label class="form-group1__label form-group1__label_req"
+                                                        for="feedback_password6">Старый пароль</label>
+                                                    <input id="feedback_password6"
                                                         class="field-input1 form-group__field" data-type="password"
-                                                        type="password" name="feedback_password4" required
-                                                        value="123456" placeholder=" ">
+                                                        type="password" name="feedback_password6" required
+                                                        placeholder="Введите старый пароль">
+                                                    <div class="form-group1__icon toggle-password ">
+                                                        <img src="img/password.svg" alt="">
+                                                    </div>
+                                                    <div class="form-group1__icon toggle-password hidden open">
+                                                        <img src="img/password2.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label form-group1__label_req"
+                                                        for="feedback_password7">Новый пароль</label>
+                                                    <input id="feedback_password7"
+                                                        class="field-input1 form-group__field" data-type="password"
+                                                        type="password" name="feedback_password7" required
+                                                        placeholder="Введите новый пароль">
                                                     <div class="form-group1__icon toggle-password">
                                                         <img src="img/password.svg" alt="">
                                                     </div>
-                                                    <div class="form-group1__icon hidden toggle-password open">
+                                                    <div class="form-group1__icon  toggle-password hidden open">
+                                                        <img src="img/password2.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group1">
+                                                    <label class="form-group1__label form-group1__label_req"
+                                                        for="feedback_password8">Подтверждение пароля</label>
+                                                    <input id="feedback_password8"
+                                                        class="field-input1 form-group__field" data-type="password"
+                                                        type="password" name="feedback_password8" required
+                                                        placeholder="Введите новый пароль повторно">
+                                                    <div class="form-group1__icon toggle-password hidden">
+                                                        <img src="img/password.svg" alt="">
+                                                    </div>
+                                                    <div class="form-group1__icon toggle-password hidden open">
                                                         <img src="img/password2.svg" alt="">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="right-personal-cabinet__buttons">
+                                                <button type="submit"
+                                                    class="edit-password badge1 badge1_accent">Изменить
+                                                    пароль</button>
+                                                <button data-action="toggleFormEdit" type="button"
+                                                    class="btn-reset badge1 badge1_white badge1_hollow">Отменить</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="right-personal-cabinet__column">
+                                <div class="right-personal-cabinet__column edit-container">
                                     <div class="right-personal-cabinet__top">
                                         <div class="right-personal-cabinet__title">
                                             Мои адреса
                                         </div>
-                                        <a href="#" class="btn-text btn-text_1">
+                                        <button type="button" data-action="toggleFormEdit" class="btn-text btn-text_1">
                                             <span>Добавить адрес</span>
-                                        </a>
+                                        </button>
                                     </div>
-                                    <div class="address-personal-cabinet">
-                                        <div class="address-personal-cabinet__tables">
-                                            <div class="address-personal-cabinet__main-table">
-                                                <div class="address-personal-cabinet__value">
-                                                    №
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Адрес
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Регион
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Город
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Индекс
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Подъезд
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Этаж
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
+                                    <div class="edit-container__view">
+                                        <div class="address-personal-cabinet">
+                                            <div class="address-personal-cabinet__tables">
+                                                <div class="address-personal-cabinet__main-table">
+                                                    <div class="address-personal-cabinet__value">
+                                                        №
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Адрес
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Регион
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Город
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Индекс
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Подъезд
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Этаж
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="address-personal-cabinet__table">
-                                                <div class="address-personal-cabinet__value">
-                                                    1
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    р-н Москворечье-Сабурово,<br> улица Кошкина д.12, к.3,<br> кв.123
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Москва
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    Москва
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    115409
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    4
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    14
-                                                </div>
-                                                <div class="address-personal-cabinet__value">
-                                                    <button data-hystclose class="address-personal-cabinet__close">
-                                                        <svg aria-hidden="true" width="8" height="8">
-                                                            <use xlink:href="img/sprite.svg#close1"></use>
-                                                        </svg>
-                                                        <span class="v-h">Закрыть</span>
-                                                    </button>
+                                                <div class="address-personal-cabinet__table">
+                                                    <div class="address-personal-cabinet__value">
+                                                        1
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        р-н Москворечье-Сабурово,<br> улица Кошкина д.12, к.3,<br>
+                                                        кв.123
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Москва
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        Москва
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        115409
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        4
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        14
+                                                    </div>
+                                                    <div class="address-personal-cabinet__value">
+                                                        <button data-hystclose class="address-personal-cabinet__close">
+                                                            <svg aria-hidden="true" width="8" height="8">
+                                                                <use xlink:href="img/sprite.svg#close1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Закрыть</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="edit-container__edit">
+                                        <form data-validate action="#" class="form-other">
+                                            <div class="block-feedback__grid">
+                                                <div class="block-feedback__groups">
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label" for="feedback_address">Введите
+                                                            Ваш
+                                                            адрес, включая город, улицу, дом и квартиру</label>
+                                                        <input id="feedback_address"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_address"
+                                                            value="Москва, улица Кошкина д.12, к.3, кв.123">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label" for="feedback_reqion">Название
+                                                            региона</label>
+                                                        <input id="feedback_reqion"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_reqion" placeholder="г. Москва">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label" for="feedback_gorod">Название
+                                                            населенного пункта</label>
+                                                        <input id="feedback_gorod"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_gorod"
+                                                            placeholder="г. Москва (р-н Москворечье-Сабурово)">
+                                                    </div>
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_index">Индекс</label>
+                                                        <input id="feedback_index"
+                                                            class="field-input1 form-group__field" type="text"
+                                                            name="feedback_index" placeholder="115409">
+                                                    </div>
+                                                </div>
+                                                <div class="block-feedback__groups">
+                                                    <div class="form-group1">
+                                                        <label class="form-group1__label"
+                                                            for="feedback_street">Улица</label>
+                                                        <input id="feedback_street"
+                                                            class="field-input1 form-group__field" data-type="text"
+                                                            type="text" name="feedback_street"
+                                                            placeholder="улица Кошкина">
+                                                    </div>
+                                                    <div class="form-groups">
+                                                        <div class="form-group1">
+                                                            <label class="form-group1__label"
+                                                                for="feedback_dom1">Дом</label>
+                                                            <input id="feedback_dom1"
+                                                                class="field-input1 form-group__field" type="text"
+                                                                name="feedback_dom1" placeholder="12к3">
+                                                        </div>
+                                                        <div class="form-group1">
+                                                            <label class="form-group1__label"
+                                                                for="feedback_dom2">Дом</label>
+                                                            <input id="feedback_dom2"
+                                                                class="field-input1 form-group__field" type="text"
+                                                                name="feedback_dom2" value="12к3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-groups">
+                                                        <div class="form-group1">
+                                                            <label class="form-group1__label"
+                                                                for="feedback_kv">Кварира/офис</label>
+                                                            <input id="feedback_kv"
+                                                                class="field-input1 form-group__field" type="text"
+                                                                name="feedback_kv" value="123">
+                                                        </div>
+                                                        <div class="form-group1">
+                                                            <label class="form-group1__label"
+                                                                for="feedback_floor">Этаж</label>
+                                                            <input id="feedback_floor"
+                                                                class="field-input1 form-group__field" type="text"
+                                                                name="feedback_floor" value="14">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="right-personal-cabinet__buttons">
+                                                <button type="submit"
+                                                    class="edit-password badge1 badge1_accent">Добавить
+                                                    адрес</button>
+                                                <button data-action="toggleFormEdit" type="button"
+                                                    class="btn-reset badge1 badge1_white badge1_hollow">Отменить</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="right-personal-cabinet__column">
@@ -239,13 +482,25 @@
                                         </div>
                                     </div>
                                     <div class="socials-login">
-                                        <div class="socials-login__type badge1 badge1_white badge1_hollow">
-                                            <span>Привязать аккаунт</span>
-                                        </div>
                                         <div class="socials-login__buttons">
-                                            <a href="#" class="socials-login__button">Яндекс</a>
-                                            <a href="#" class="socials-login__button">Google</a>
-                                            <a href="#" class="socials-login__button">Вконтакте</a>
+                                            <a href="#" class="socials-login__button">
+                                                <div class="socials-login__type badge1 badge1_white badge1_hollow">
+                                                    <span>Привязать аккаунт</span>
+                                                </div>
+                                                Яндекс
+                                            </a>
+                                            <a href="#" class="socials-login__button">
+                                                <div class="socials-login__type badge1 badge1_white badge1_hollow">
+                                                    <span>Привязать аккаунт</span>
+                                                </div>
+                                                Google
+                                            </a>
+                                            <a href="#" class="socials-login__button">
+                                                <div class="socials-login__type badge1 badge1_white badge1_hollow">
+                                                    <span>Привязать аккаунт</span>
+                                                </div>
+                                                Вконтакте
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

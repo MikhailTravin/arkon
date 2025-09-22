@@ -572,8 +572,13 @@
 
   &__type {
     position: absolute;
-    top: -20px;
+    top: -45px;
     left: 5px;
+    width: 155px;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
     @media (max-width: 1200px) {
       display: none;
     }
@@ -622,6 +627,7 @@
   // .socials-login__button
 
   &__button {
+    position: relative;
     background-color: #363841;
     padding: 5px 36px;
     flex: 0 1 auto;
@@ -638,6 +644,9 @@
     &:hover {
       color: #16171d;
       background-color: var(--theme-color-accent);
+      .socials-login__type {
+        opacity: 1;
+      }
     }
     @media (max-width: 600px) {
       padding: 5px 12px;
@@ -649,6 +658,11 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  &.other {
+    @media (max-width: 768px) {
+      margin: 0px 15px;
+    }
+  }
   @media (max-width: 768px) {
     gap: 10px;
   }

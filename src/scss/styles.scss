@@ -1,7 +1,7 @@
 @import "vars";
 @import "fonts";
 @import "mixins";
-
+@import "reset";
 @import "layout";
 @import "form";
 @import "header";
@@ -12,4 +12,4 @@
 @import "popups";
 @import "range";
 @import "simplebar";
-@import "footer";@import "reset";
+@import "footer";

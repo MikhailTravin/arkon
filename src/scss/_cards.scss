@@ -1,5 +1,6 @@
 .card-pub {
   --duration: 500ms;
+  --delay-leave: 200ms;
 
   border-left: 1px #2b2c2d solid;
   min-height: 400px;
@@ -85,10 +86,23 @@
   &:focus-visible {
     .card-pub__photo {
       transform: translateX(0);
+      transition-delay: 0ms;
     }
 
     .card-pub__bottom {
       transform: translateY(0);
+      transition-delay: 0ms;
+    }
+  }
+
+  /* Добавляем задержку при уходе от карточки */
+  &:not(:hover):not(:focus-visible) {
+    .card-pub__photo {
+      transition-delay: var(--delay-leave);
+    }
+
+    .card-pub__bottom {
+      transition-delay: var(--delay-leave);
     }
   }
 
@@ -698,7 +712,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      padding: 0px 0px 10px 0px;
+      padding: 0px 0px 40px 0px;
     }
 
     &:hover &__buttons {

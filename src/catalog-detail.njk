@@ -9,7 +9,7 @@
 <body class="preload mp">
     <div class="main-wrapper-outer">
         {% include 'blocks/header.njk' %}
-        <main class="main">
+        <main class="main catalog">
 
             <div class="breadcrumbs breadcrumbs-catalog-detail">
                 <div class="container">
@@ -50,6 +50,13 @@
                                         <span>Фильтры</span>
                                     </div>
                                     <div class="top-catalog-detail__sorting">
+                                        <select data-select2 class="select" autocomplete="off" tabindex="-1">
+                                            <option value="1" selected>По популярности (убывание)</option>
+                                            <option value="2">По популярности (возрастание)</option>
+                                            <option value="3">По цене (убывание)</option>
+                                            <option value="4">По цене (возрастание)</option>
+                                        </select>
+                                        <!--
                                         <div class="top-catalog-detail__sorting-title">
                                             По популярности <span>(убывание)</span>
                                         </div>
@@ -65,7 +72,7 @@
                                                     <use xlink:href="img/sprite.svg#arrow3"></use>
                                                 </svg>
                                             </button>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
