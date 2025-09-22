@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Обратная связь</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cabinet">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Личный кабинет</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-personal-cabinet">
+                <div class="container">
+                    <h1 class="title2">Личный кабинет</h1>
+                </div>
+                <div class="block-personal-cabinet__content">
+                    <div class="container">
+                        <div class="block-personal-cabinet__body">
+                            <div class="left-personal-cabinet">
+                                <div class="left-personal-cabinet__sticky">
+                                    <ul>
+                                        <li>
+                                            <a href="details.html">Мои данные</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-orders.html">Мои заказы</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-bonuses.html">Мои бонусы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">История покупок</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-favorites.html">Избранное</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-await.html">Лист ожидания</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-feedback.html" class="_active">Обратная связь</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-subscribe.html">Управление подписками</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-personal-cabinet profile-feedback">
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Обратная связь
+                                        </div>
+                                        <p>
+                                            У Вас пока нет ни одного обращения. Вы можете создать обращение в этом
+                                            разделе.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Обращения
+                                        </div>
+                                        <a data-hystmodal="#create-request" class="btn-fancy" href="#">
+                                            <span>создать обращение</span>
+                                        </a>
+                                        <div class="feedback-personal-cabinet">
+                                            <div class="feedback-personal-cabinet__tables">
+                                                <div class="feedback-personal-cabinet__main-table">
+                                                    <div class="feedback-personal-cabinet__name">№ Обращения</div>
+                                                    <div class="feedback-personal-cabinet__name">Тема обращения</div>
+                                                    <div class="feedback-personal-cabinet__name">Статус</div>
+                                                    <div class="feedback-personal-cabinet__name">Дата</div>
+                                                    <div class="feedback-personal-cabinet__name"></div>
+                                                </div>
+                                                <div class="feedback-personal-cabinet__table">
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>№ Обращения</span>
+                                                        74855179
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Тема обращения</span>
+                                                        Внесение изменений в заказ
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name grey">
+                                                        <span>Статус</span>
+                                                        Ожидает ответа
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Дата</span>
+                                                        20.07.2025
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <a href="#" class="btn-arrow1">
+                                                            <svg aria-hidden="true" width="16" height="16">
+                                                                <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="feedback-personal-cabinet__table">
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>№ Обращения</span>
+                                                        74855179
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Тема обращения</span>
+                                                        Доставка товаров
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name green">
+                                                        <span>Статус</span>
+                                                        Ответ поступил
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Дата</span>
+                                                        20.07.2025
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <a href="#" class="btn-arrow1">
+                                                            <svg aria-hidden="true" width="16" height="16">
+                                                                <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="feedback-personal-cabinet__table">
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>№ Обращения</span>
+                                                        74855179
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Тема обращения</span>
+                                                        Оплата товаров
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name green">
+                                                        <span>Статус</span>
+                                                        Ответ поступил
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Дата</span>
+                                                        20.07.2025
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <a href="#" class="btn-arrow1">
+                                                            <svg aria-hidden="true" width="16" height="16">
+                                                                <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="feedback-personal-cabinet__table">
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>№ Обращения</span>
+                                                        74855179
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Тема обращения</span>
+                                                        Вопросы по скидкам и акциям
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name green">
+                                                        <span>Статус</span>
+                                                        Ответ поступил
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <span>Дата</span>
+                                                        20.07.2025
+                                                    </div>
+                                                    <div class="feedback-personal-cabinet__name">
+                                                        <a href="#" class="btn-arrow1">
+                                                            <svg aria-hidden="true" width="16" height="16">
+                                                                <use xlink:href="img/sprite.svg#arrow2"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    <div class="hystmodal" id="create-request" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <div class="hystmodal__inner">
+                    <div class="hystmodal__top">
+                        <div class="hystmodal__title">Создать обращение</div>
+                        <button data-hystclose class="hystmodal__close">
+                            <svg aria-hidden="true" width="20" height="20">
+                                <use xlink:href="img/sprite.svg#close1"></use>
+                            </svg>
+                            <span class="v-h">Закрыть</span>
+                        </button>
+                    </div>
+                    <div>
+                        <form data-validate action="#" class="form-other">
+                            <div class="block-feedback__grid">
+                                <div class="form-group1">
+                                    <label class="form-group1__label form-group1__label_req" for="feedback_company">Тема
+                                        обращения</label>
+                                    <input id="feedback_company" class="field-input1 form-group__field" type="text"
+                                        name="feedback_company" required="" placeholder="Введите тему">
+                                </div>
+                                <div class="form-group1">
+                                    <label class="form-group1__label form-group1__label_req"
+                                        for="feedback_phone4">Телефон</label>
+                                    <input id="feedback_phone4" class="field-input1 form-group__field" data-mask="phone"
+                                        data-type="phone" type="text" name="feedback_phone4" required=""
+                                        placeholder=" ">
+                                    <span class="form-group1__placeholder1"><span>+7</span>
+                                        (999)
+                                        999-99-99</span>
+                                </div>
+                                <div class="form-group1">
+                                    <label class="form-group1__label form-group1__label_req"
+                                        for="feedback_email5">E-mail</label>
+                                    <input id="feedback_email5" class="field-input1 form-group__field" data-type="email"
+                                        type="text" name="feedback_email5" required="" placeholder="Введите E-mail">
+                                </div>
+                                <div class="form-group1">
+                                    <label class="form-group1__label" for="feedback_textarea">
+                                        Текст обращения
+                                    </label>
+                                    <textarea id="feedback_textarea" class="field-input1 form-group__field"
+                                        placeholder="Подробное описание поможет ответить Вам как можно скорее"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-text1">Нажав на кнопку «Отправить обращение», соглашаюсь на обработку <a
+                                    href="#">персональных данных</a></div>
+                            <div class="buttons-forms">
+                                <button class="btn" type="submit">
+                                    <span>отправить обращение</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hystmodal create-request" id="create-request2" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <div class="hystmodal__inner">
+                    <div class="hystmodal__top">
+                        <div class="hystmodal__title">Обращение от 18 июля 2025</div>
+                        <button data-hystclose class="hystmodal__close">
+                            <svg aria-hidden="true" width="20" height="20">
+                                <use xlink:href="img/sprite.svg#close1"></use>
+                            </svg>
+                            <span class="v-h">Закрыть</span>
+                        </button>
+                    </div>
+                    <div class="create-request__body">
+                        <div class="create-request__column">
+                            <ul>
+                                <li>
+                                    <div class="create-request__name">№ Обращения:</div>
+                                    <div class="create-request__value">74855179</div>
+                                </li>
+                                <li>
+                                    <div class="create-request__name">Тема обращения:</div>
+                                    <div class="create-request__value">Доставка товаров</div>
+                                </li>
+                            </ul>
+                            <p>
+                                Здравствуйте случайно указал не тот пункт выдачи. Могу ли я поменять пункт выдачи на
+                                другой?
+                            </p>
+                        </div>
+                        <div class="create-request__column">
+                            <div class="create-request__title">Ответ от ARKON</div>
+                            <div class="create-request__name">Менеджер Адександр, 18 июля 2025 в 16:22</div>
+                            <p class="p2">
+                                Здравствуйте. Я уточнил информацию по Вашему заказу, изменить адрес доставки или внести
+                                другие изменения в оформленный заказ, к сожалению, нет технической возможности, но Вы
+                                можете оформить повторный заказ и указать в нем верный адрес.
+                            </p>
+                        </div>
+                        <div class="create-request__column">
+                            <div class="buttons-forms">
+                                <a href="#" class="btn">
+                                    <span>продолжить беседу</span>
+                                </a>
+                                <button type="button" data-hystclose class="btn btn-grey">
+                                    <span>закрыть обращение</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hystmodal create-request" id="create-request3" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <div class="hystmodal__inner">
+                    <div class="hystmodal__top">
+                        <div class="hystmodal__title">Обращение от 18 июля 2025</div>
+                        <button data-hystclose class="hystmodal__close">
+                            <svg aria-hidden="true" width="20" height="20">
+                                <use xlink:href="img/sprite.svg#close1"></use>
+                            </svg>
+                            <span class="v-h">Закрыть</span>
+                        </button>
+                    </div>
+                    <div class="create-request__body">
+                        <div class="create-request__column">
+                            <ul>
+                                <li>
+                                    <div class="create-request__name">№ Обращения:</div>
+                                    <div class="create-request__value">74855179</div>
+                                </li>
+                                <li>
+                                    <div class="create-request__name">Тема обращения:</div>
+                                    <div class="create-request__value">Доставка товаров</div>
+                                </li>
+                            </ul>
+                            <p>
+                                Здравствуйте случайно указал не тот пункт выдачи. Могу ли я поменять пункт выдачи на
+                                другой?
+                            </p>
+                        </div>
+                        <div class="create-request__column">
+                            <div class="create-request__title">Ответ от ARKON</div>
+                            <div class="create-request__name">Менеджер Адександр, 18 июля 2025 в 16:22</div>
+                            <p class="p2">
+                                Здравствуйте. Я уточнил информацию по Вашему заказу, изменить адрес доставки или внести
+                                другие изменения в оформленный заказ, к сожалению, нет технической возможности, но Вы
+                                можете оформить повторный заказ и указать в нем верный адрес.
+                            </p>
+                        </div>
+                        <div class="create-request__column">
+                            <form data-validate="" action="#" class="form-other" novalidate="novalidate">
+                                <div class="block-feedback__grid">
+                                    <div class="form-group1">
+                                        <label class="form-group1__label" for="feedback_textarea">
+                                            Сообщение
+                                        </label>
+                                        <textarea id="feedback_textarea" class="field-input1 form-group__field"
+                                            placeholder="Текст сообщения"></textarea>
+                                    </div>
+                                </div>
+                                <div class="buttons-forms">
+                                    <button class="btn" type="submit">
+                                        <span>отправить</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hystmodal create-request" id="create-request4" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <div class="hystmodal__inner">
+                    <div class="hystmodal__top">
+                        <div class="hystmodal__title">Обращение от 18 июля 2025</div>
+                        <button data-hystclose class="hystmodal__close">
+                            <svg aria-hidden="true" width="20" height="20">
+                                <use xlink:href="img/sprite.svg#close1"></use>
+                            </svg>
+                            <span class="v-h">Закрыть</span>
+                        </button>
+                    </div>
+                    <div class="create-request__body">
+                        <div class="create-request__column">
+                            <ul>
+                                <li>
+                                    <div class="create-request__name">№ Обращения:</div>
+                                    <div class="create-request__value">74855179</div>
+                                </li>
+                                <li>
+                                    <div class="create-request__name">Тема обращения:</div>
+                                    <div class="create-request__value">Доставка товаров</div>
+                                </li>
+                            </ul>
+                            <p>
+                                Здравствуйте случайно указал не тот пункт выдачи. Могу ли я поменять пункт выдачи на
+                                другой?
+                            </p>
+                        </div>
+                        <div class="create-request__column">
+                            <div class="create-request__title">Ответ от ARKON</div>
+                            <div class="create-request__name">Менеджер Адександр, 18 июля 2025 в 16:22</div>
+                            <p class="p2">
+                                Здравствуйте. Я уточнил информацию по Вашему заказу, изменить адрес доставки или внести
+                                другие изменения в оформленный заказ, к сожалению, нет технической возможности, но Вы
+                                можете оформить повторный заказ и указать в нем верный адрес.
+                            </p>
+                        </div>
+                        <div class="create-request__column">
+                            <div class="create-request__title">Ваш ответ</div>
+                            <div class="create-request__name">19 июля 2025 в 16:32</div>
+                            <form data-validate="" action="#" novalidate="novalidate">
+                                <div class="block-feedback__grid">
+                                    <div class="form-group1">
+                                        <input id="feedback_answer" class="field-input1 form-group__field" type="text"
+                                            name="feedback_answer" required="" placeholder=" ">
+                                        <label class="form-group1__label" for="feedback_answer">Ответ.</label>
+                                    </div>
+                                </div>
+                                <div class="buttons-forms">
+                                    <a href="#" class="btn">
+                                        <span>продолжить беседу</span>
+                                    </a>
+                                    <button type="button" data-hystclose class="btn btn-grey">
+                                        <span>закрыть обращение</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

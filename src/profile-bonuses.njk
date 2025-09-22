@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Мои бонусы</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cabinet">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Личный кабинет</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-personal-cabinet">
+                <div class="container">
+                    <h1 class="title2">Личный кабинет</h1>
+                </div>
+                <div class="block-personal-cabinet__content">
+                    <div class="container">
+                        <div class="block-personal-cabinet__body">
+                            <div class="left-personal-cabinet">
+                                <div class="left-personal-cabinet__sticky">
+                                    <ul>
+                                        <li>
+                                            <a href="details.html">Мои данные</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-orders.html">Мои заказы</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-bonuses.html" class="_active">Мои бонусы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">История покупок</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-favorites.html">Избранное</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-await.html">Лист ожидания</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-feedback.html">Обратная связь</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-subscribe.html">Управление подписками</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-personal-cabinet bonuses">
+                                <div class="right-personal-cabinet__column">
+                                    <div class="bonuses-personal-cabinet">
+                                        <h2 class="title3">Мои бонусы</h2>
+                                        <div class="bonuses-personal-cabinet__cards">
+                                            <div class="bonuses-personal-cabinet__card btn-left yellow">
+                                                <div class="bonuses-personal-cabinet__title">Бонусы</div>
+                                                <div class="bonuses-personal-cabinet__value">
+                                                    2000 Б
+                                                </div>
+                                            </div>
+                                            <div class="bonuses-personal-cabinet__card btn-center">
+                                                <div class="bonuses-personal-cabinet__title">
+                                                    Ожидают начисления
+                                                    <strong>(23.02.2024)</strong>
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__value">
+                                                    + 1000 Б
+                                                </div>
+                                            </div>
+                                            <div class="bonuses-personal-cabinet__card btn-right">
+                                                <div class="bonuses-personal-cabinet__title">
+                                                    Ближайшее сгорание
+                                                    <strong>(02.03.2024)</strong>
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__value">
+                                                    - 200 Б
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-personal-cabinet__column">
+                                    <div class="bonuses-personal-cabinet">
+                                        <h2 class="title3">История</h2>
+                                        <div class="bonuses-personal-cabinet__tables">
+                                            <div class="bonuses-personal-cabinet__main-table">
+                                                <div class="bonuses-personal-cabinet__name">Наименование</div>
+                                                <div class="bonuses-personal-cabinet__name">Дата операции</div>
+                                                <div class="bonuses-personal-cabinet__name">Статус</div>
+                                                <div class="bonuses-personal-cabinet__name">Активны с</div>
+                                                <div class="bonuses-personal-cabinet__name">Активны до</div>
+                                                <div class="bonuses-personal-cabinet__name">Бонусы</div>
+                                            </div>
+                                            <div class="bonuses-personal-cabinet__table">
+                                                <div class="bonuses-personal-cabinet__name">Бонусы за покупку</div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Дата операции</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Статус</span>
+                                                    Начислены
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны с</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны до</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name green">
+                                                    <span>Бонусы</span>
+                                                    +2000 Б
+                                                </div>
+                                            </div>
+                                            <div class="bonuses-personal-cabinet__table">
+                                                <div class="bonuses-personal-cabinet__name">Бонусы за покупку</div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Дата операции</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Статус</span>
+                                                    Ожидают начисления
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны с</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны до</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name green">
+                                                    <span>Бонусы</span>
+                                                    +2000 Б
+                                                </div>
+                                            </div>
+                                            <div class="bonuses-personal-cabinet__table">
+                                                <div class="bonuses-personal-cabinet__name">Бонусы за покупку</div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Дата операции</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Статус</span>
+                                                    Истек срок действия
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны с</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны до</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name red">
+                                                    <span>Бонусы</span>
+                                                    +2000 Б
+                                                </div>
+                                            </div>
+                                            <div class="bonuses-personal-cabinet__table">
+                                                <div class="bonuses-personal-cabinet__name">Бонусы за покупку</div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Дата операции</span>
+                                                    20.07.2025
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Статус</span>
+                                                    Списаны
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны с</span>
+                                                    -
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name">
+                                                    <span>Активны до</span>
+                                                    -
+                                                </div>
+                                                <div class="bonuses-personal-cabinet__name red">
+                                                    <span>Бонусы</span>
+                                                    +2000 Б
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-personal-cabinet__column">
+                                    <div class="bonuses-personal-cabinet">
+                                        <h2 class="title3">Промокод на бонусы</h2>
+                                        <p>
+                                            У Вас есть промокод на бонусы? Активируйте его и получите бонусы на свой
+                                            счёт.
+                                        </p>
+                                        <form class="bonuses-personal-cabinet__inputs">
+                                            <div class="form-group1">
+                                                <input id="feedback_promocode" class="field-input1 form-group__field"
+                                                    type="text" name="feedback_promocode" required="" placeholder=" ">
+                                                <label class="form-group1__label" for="feedback_promocode">Введите
+                                                    промокод</label>
+                                            </div>
+                                            <button type="submit" class="btn-fancy">
+                                                <span>активировать</span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

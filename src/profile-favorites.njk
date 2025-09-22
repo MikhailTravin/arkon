@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Избранное</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cabinet">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Личный кабинет</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-personal-cabinet">
+                <div class="container">
+                    <h1 class="title2">Личный кабинет</h1>
+                </div>
+                <div class="block-personal-cabinet__content">
+                    <div class="container">
+                        <div class="block-personal-cabinet__body">
+                            <div class="left-personal-cabinet">
+                                <div class="left-personal-cabinet__sticky">
+                                    <ul>
+                                        <li>
+                                            <a href="details.html">Мои данные</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-orders.html">Мои заказы</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-bonuses.html">Мои бонусы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">История покупок</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-favorites.html" class="_active">Избранное</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-await.html">Лист ожидания</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-feedback.html">Обратная связь</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-subscribe.html">Управление подписками</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-personal-cabinet profile-favorites">
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Избранное
+                                        </div>
+                                        <button type="button" class="btn-text btn-text_1">
+                                            <span>Очистить избранное</span>
+                                        </button>
+                                    </div>
+                                    <div class="right-personal-cabinet__favorites">
+                                        {% include 'blocks/card-product-timer.njk' %}
+                                        {% include 'blocks/card-product-price.njk' %}
+                                        {% include 'blocks/card-product-timer.njk' %}
+                                        {% include 'blocks/card-product-timer.njk' %}
+                                        {% include 'blocks/card-product-price.njk' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

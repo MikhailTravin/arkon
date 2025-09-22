@@ -41,6 +41,12 @@
   &.product {
     overflow: hidden;
   }
+  &.series {
+    overflow: hidden;
+  }
+  &.map {
+    overflow: hidden;
+  }
   @media (max-width: 1100px) {
     padding-bottom: 100px;
   }

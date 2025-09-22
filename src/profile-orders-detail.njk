@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Мои заказы</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cabinet">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Личный кабинет</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-personal-cabinet">
+                <div class="container">
+                    <h1 class="title2">Личный кабинет</h1>
+                </div>
+                <div class="block-personal-cabinet__content">
+                    <div class="container">
+                        <div class="block-personal-cabinet__body">
+                            <div class="left-personal-cabinet">
+                                <div class="left-personal-cabinet__sticky">
+                                    <ul>
+                                        <li>
+                                            <a href="details.html">Мои данные</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-orders.html" class="_active">Мои заказы</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-bonuses.html">Мои бонусы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">История покупок</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-favorites.html">Избранное</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-await.html">Лист ожидания</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-feedback.html">Обратная связь</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-subscribe.html">Управление подписками</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-personal-cabinet orders-detail">
+                                <div class="right-personal-cabinet__column">
+                                    <a href="profile-orders.html" class="back">
+                                        <svg aria-hidden="true" width="21" height="18">
+                                            <use xlink:href="img/sprite.svg#arrow4"></use>
+                                        </svg>
+                                        <span>вернуться к списку заказов</span>
+                                    </a>
+                                    <div class="block-order__body">
+                                        <div class="block-order__column">
+                                            <div class="title3">Заказ № 12345678 от 15.02.2025</div>
+                                            <div class="orders-list__status">Статус заказа:
+                                                <strong>В пути</strong>
+                                            </div>
+                                            <div class="orders-list__payment orders-list__payment_payed">
+                                                Оплачен
+                                            </div>
+                                        </div>
+                                        <div class="block-order__column">
+                                            <div class="block-order__top">
+                                                <div class="block-order__title">Данные покупателя</div>
+                                            </div>
+                                            <ul class="block-order__info">
+                                                <li>
+                                                    <div class="block-order__info-name">ФИО</div>
+                                                    <div class="block-order__info-value">Иванов Иван Иванович</div>
+                                                </li>
+                                                <li>
+                                                    <div class="block-order__info-name">Телефон</div>
+                                                    <div class="block-order__info-value">+7 (925) 383-12-12</div>
+                                                </li>
+                                                <li>
+                                                    <div class="block-order__info-name">E-mail</div>
+                                                    <div class="block-order__info-value">ivanov@mail.ru</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="block-order__column orders-detail-payment">
+                                            <div class="order-info-payment">
+                                                <div class="block-order__top">
+                                                    <div class="block-order__title">Способ оплаты</div>
+                                                </div>
+                                                <div class="order-info-payment__column">
+                                                    <div class="order-info-payment__left">
+                                                        <div class="order-info-payment__titles">
+                                                            <div class="order-info-payment__title">
+                                                                Банковской картой
+                                                            </div>
+                                                        </div>
+                                                        <span>Оплачено</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="detail-cart">
+                                                <div class="detail-cart__title">
+                                                    Детали заказа
+                                                </div>
+                                                <ul class="detail-cart__list">
+                                                    <li>
+                                                        <div class="detail-cart__name">3 товара</div>
+                                                        <div class="detail-cart__value">1 199 700 ₽</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="detail-cart__name grey">Скидка</div>
+                                                        <div class="detail-cart__value red">-300 000 ₽</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="detail-cart__name grey">2 товара</div>
+                                                        <div class="detail-cart__value">+ 2000 Б</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="detail-cart__name grey">Доставка</div>
+                                                        <div class="detail-cart__value">900 ₽</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="detail-cart__totals">
+                                                    <div class="detail-cart__total">Сумма заказа:</div>
+                                                    <div class="detail-cart__sum">899 799 ₽</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block-order__column orders-detail-delivery">
+                                            <div class="block-order__top">
+                                                <div class="block-order__title">Способ доставки</div>
+                                            </div>
+                                            <div class="order-info-payment">
+                                                <div class="order-info-payment__column">
+                                                    <div class="order-info-payment__left">
+                                                        <div class="order-info-payment__titles">
+                                                            <div class="order-info-payment__title">
+                                                                Самовывоз
+                                                            </div>
+                                                            <div class="order-info-payment__price">
+                                                                Бесплатно
+                                                            </div>
+                                                        </div>
+                                                        <span class="day">1 день</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="block-order-info">
+                                                <div class="self-delivery-block delivery-block _active ">
+                                                    <div class="self-delivery-block__title">Пункты самовывоза</div>
+                                                    <span class="checkbox-text__label">
+                                                        <span class="checkbox-text__title">
+                                                            г. Москва, ул. Вавилова 69/75,
+                                                            Оружейный Молл "Вавилон"
+                                                        </span>
+                                                        <div class="checkbox-text__contacts">
+                                                            <a href="tel:74956496039">+7 (495) 649-60-39</a>
+                                                            <div class="checkbox-text__work">Ежедневно: с 10:00
+                                                                до 21:00</div>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block-order__column">
+                                            <div class="block-order__top last">
+                                                <div class="block-order__title">Товары в заказе</div>
+                                            </div>
+                                            <div class="cart-product">
+                                                <div class="card-product">
+                                                    <div class="card-product__image">
+                                                        <img loading="lazy" src="img/product1.webp" alt="">
+                                                    </div>
+                                                    <div class="card-product__item">
+                                                        <div class="card-product__top">
+                                                            <div class="card-product__left">
+                                                                <div class="card-product__brand">
+                                                                    <img src="img/arkon-alfa2.svg" alt="">
+                                                                </div>
+                                                                <div class="card-product__name">
+                                                                    <a href="product-detail.html">
+                                                                        Тепловизионный прицел LT25
+                                                                        Тепловизионный прицел LT25
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__stepcounter">
+                                                            1 шт.
+                                                        </div>
+                                                        <div class="card-product__center">
+                                                            <div class="card-product__prices">
+                                                                <div>
+                                                                    <span class="card-product__price1">299 900 ₽</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product">
+                                                    <div class="card-product__image">
+                                                        <img loading="lazy" src="img/product1.webp" alt="">
+                                                    </div>
+                                                    <div class="card-product__item">
+                                                        <div class="card-product__top">
+                                                            <div class="card-product__left">
+                                                                <div class="card-product__brand">
+                                                                    <img src="img/arkon-alfa2.svg" alt="">
+                                                                </div>
+                                                                <div class="card-product__name">
+                                                                    <a href="product-detail.html">
+                                                                        Тепловизионный прицел LT25
+                                                                        Тепловизионный прицел LT25
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__stepcounter">
+                                                            1 шт.
+                                                        </div>
+                                                        <div class="card-product__center">
+                                                            <div class="card-product__prices">
+                                                                <div>
+                                                                    <span class="card-product__price1">299 900 ₽</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product">
+                                                    <div class="card-product__image">
+                                                        <img loading="lazy" src="img/product1.webp" alt="">
+                                                    </div>
+                                                    <div class="card-product__item">
+                                                        <div class="card-product__top">
+                                                            <div class="card-product__left">
+                                                                <div class="card-product__brand">
+                                                                    <img src="img/arkon-alfa2.svg" alt="">
+                                                                </div>
+                                                                <div class="card-product__name">
+                                                                    <a href="product-detail.html">
+                                                                        Тепловизионный прицел LT25
+                                                                        Тепловизионный прицел LT25
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__stepcounter">
+                                                            1 шт.
+                                                        </div>
+                                                        <div class="card-product__center">
+                                                            <div class="card-product__prices">
+                                                                <div>
+                                                                    <span class="card-product__price1">299 900 ₽</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

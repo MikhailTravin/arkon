@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Лист ожидания</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main cart">
+
+            <div class="breadcrumbs breadcrumbs-cabinet">
+                <div class="container">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="index.html">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item is-active">
+                            <span>Личный кабинет</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-personal-cabinet">
+                <div class="container">
+                    <h1 class="title2">Личный кабинет</h1>
+                </div>
+                <div class="block-personal-cabinet__content">
+                    <div class="container">
+                        <div class="block-personal-cabinet__body">
+                            <div class="left-personal-cabinet">
+                                <div class="left-personal-cabinet__sticky">
+                                    <ul>
+                                        <li>
+                                            <a href="details.html">Мои данные</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-orders.html">Мои заказы</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-bonuses.html">Мои бонусы</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">История покупок</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-favorites.html">Избранное</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-await.html" class="_active">Лист ожидания</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-feedback.html">Обратная связь</a>
+                                        </li>
+                                        <li>
+                                            <a href="profile-subscribe.html">Управление подписками</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-personal-cabinet profile-favorites">
+                                <div class="right-personal-cabinet__column">
+                                    <div class="right-personal-cabinet__top">
+                                        <div class="right-personal-cabinet__title">
+                                            Лист ожидания
+                                        </div>
+                                        <button type="button" class="btn-text btn-text_1">
+                                            <span>Очистить лист ожидания</span>
+                                        </button>
+                                    </div>
+                                    <div class="right-personal-cabinet__favorites">
+                                        <div class="card-product">
+                                            <div class="card-product__inner">
+                                                <div class="card-product__actions">
+                                                    <button class="card-product__action" type="button"
+                                                        title="Добавить к списку сравнения">
+                                                        <svg aria-hidden="true" width="17" height="20">
+                                                            <use xlink:href="img/sprite.svg#compare1"></use>
+                                                        </svg>
+                                                        <span class="v-h">Добавить к списку сравнения</span>
+                                                    </button>
+                                                    <button class="card-product__action" type="button"
+                                                        title="Добавить в избранное">
+                                                        <svg aria-hidden="true" width="22" height="20">
+                                                            <use xlink:href="img/sprite.svg#heart1"></use>
+                                                        </svg>
+                                                        <span class="v-h">Добавить в избранное</span>
+                                                    </button>
+                                                </div>
+                                                <div class="card-product__photo">
+                                                    <div data-preview="container" class="photos-preview">
+                                                        <ul class="photos-preview__nav">
+                                                            <li data-preview="item"
+                                                                class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                            </li>
+                                                            <li data-preview="item" class="photos-preview__nav-item">
+                                                            </li>
+                                                        </ul>
+                                                        <div data-preview="stack" class="photos-preview__stack">
+                                                            <img loading="lazy" src="img/product1.webp" alt=""
+                                                                style="visibility: visible;">
+                                                            <img loading="lazy" src="img/product2.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                    <div class="card-product__brand">
+                                                        <img src="img/arkon-alfa.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__data">
+                                                    <div class="card-product__name">
+                                                        <a href="product-detail.html">Коллиматорный прицел Holosun AEMS,
+                                                            красная марка</a>
+                                                    </div>
+                                                    <div class="card-product__status">
+                                                        <span class="card-product__status_outofstock">Под заказ</span>
+                                                    </div>
+                                                    <div class="card-product__bottom">
+                                                        <div>
+                                                            <span class="card-product__price1">299 900 ₽</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__shipping">
+                                                    <span class="card-product__btn-shipping">
+                                                        <svg aria-hidden="true" width="23" height="16">
+                                                            <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                        </svg>
+                                                        <span>Доставка 26 февраля</span>
+                                                    </span>
+                                                </div>
+                                                <div class="card-product__buttons">
+                                                    <a class="btn-fancy btn-fancy_1 btn-blue" href="#">
+                                                        <span>Уточнить наличие</span>
+                                                    </a>
+                                                    <button class="btn-fancy btn-fancy_2 btn-grey" type="button">
+                                                        <span>Убрать из листа</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

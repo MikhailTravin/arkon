@@ -30,9 +30,9 @@
                 <div class="container">
                     <div class="block-compare__top">
                         <h1 class="title2">Сравнение</h1>
-                        <a href="#" class="btn-text btn-text_1">
+                        <button type="button" class="btn-text btn-text_1">
                             <span>Очистить сравнение</span>
-                        </a>
+                        </button>
                     </div>
                     <div class="tabs-nav2">
                         <button data-action="showTab1" data-tab="compare1" class="block-compare__nav btn-corner1_active"
@@ -44,97 +44,29 @@
                         </button>
                     </div>
                     <div data-tab-content="compare1">
-                        <!--
-                        <div class="block-compare__content">
-                            <div class="left-block-compare">
-                                <div class="left-block-compare__top">
-                                    <ul class="checklist">
-                                        <li class="checklist__item">
-                                            <label class="checkbox-text">
-                                                <span class="radio">
-                                                    <input checked class="radio__input" type="radio" name="rad1">
-                                                    <span class="radio__visual"></span>
-                                                </span>
-                                                <span class="checkbox-text__label">Все характеристики</span>
-                                            </label>
-                                        </li>
-                                        <li class="checklist__item">
-                                            <label class="checkbox-text">
-                                                <span class="radio">
-                                                    <input id="compareToggleSame" class="radio__input" type="radio"
-                                                        name="diff">
-                                                    <span class="radio__visual"></span>
-                                                </span>
-                                                <span class="checkbox-text__label">Показывать только различия</span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="left-block-compare__bottom">
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Поле зрения</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Оптическое увеличение</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Диаметр объектива</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Разрешение детектора</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Потребляемая мощность</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Встроенная память</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Поле зрения</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Оптическое увеличение</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Диаметр объектива</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Разрешение детектора</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Потребляемая мощность</span>
-                                        </div>
-                                    </div>
-                                    <div class="left-block-compare__column corners1">
-                                        <div class="corners1__inner">
-                                            <span>Встроенная память</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-block-compare">
-                                <div class="right-block-compare__top">
+                        <div class="compare-items">
+                            <ul class="checklist">
+                                <li class="checklist__item">
+                                    <label class="checkbox-text">
+                                        <span class="radio">
+                                            <input checked class="radio__input" type="radio" name="rad1">
+                                            <span class="radio__visual"></span>
+                                        </span>
+                                        <span class="checkbox-text__label">Все характеристики</span>
+                                    </label>
+                                </li>
+                                <li class="checklist__item">
+                                    <label class="checkbox-text">
+                                        <span class="radio">
+                                            <input class="radio__input" type="radio" name="rad1">
+                                            <span class="radio__visual"></span>
+                                        </span>
+                                        <span class="checkbox-text__label">Показывать только различия</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div class="compare-items__inner">
+                                <div class="compare-items__top">
                                     <button type="button" class="btn-text btn-text_1">
                                         <span>Очистить категорию</span>
                                     </button>
@@ -150,72 +82,1837 @@
                                             </svg>
                                         </button>
                                     </div>
-                                    <div data-swiper="productsCompare" class="right-block-compare__slider swiper">
-                                        <div class="right-block-compare__wrapper swiper-wrapper">
-                                            <div class="right-block-compare__slide swiper-slide">
-                                                {% include 'blocks/card-product-timer.njk' %}
-                                            </div>
-                                            <div class="right-block-compare__slide swiper-slide">
-                                                {% include 'blocks/card-product-noprice.njk' %}
-                                            </div>
-                                            <div class="right-block-compare__slide swiper-slide">
-                                                {% include 'blocks/card-product-timer.njk' %}
-                                            </div>
-                                            <div class="right-block-compare__slide swiper-slide">
-                                                {% include 'blocks/card-product-noprice.njk' %}
-                                            </div>
-                                            <div class="right-block-compare__slide swiper-slide">
-                                                {% include 'blocks/card-product-noprice.njk' %}
-                                            </div>
+                                </div>
+                                <div class="compare-items__slider swiper">
+                                    <div class="compare-items__wrapper swiper-wrapper">
+                                        <div class="compare-items__slide swiper-slide">
+                                            {% include 'blocks/card-product-timer.njk' %}
+                                        </div>
+                                        <div class="compare-items__slide swiper-slide">
+                                            {% include 'blocks/card-product-noprice.njk' %}
+                                        </div>
+                                        <div class="compare-items__slide swiper-slide">
+                                            {% include 'blocks/card-product-timer.njk' %}
+                                        </div>
+                                        <div class="compare-items__slide swiper-slide">
+                                            {% include 'blocks/card-product-noprice.njk' %}
+                                        </div>
+                                        <div class="compare-items__slide swiper-slide">
+                                            {% include 'blocks/card-product-timer.njk' %}
                                         </div>
                                     </div>
-                                </div>
-                                <div class="right-block-compare__bottom">
-
                                 </div>
                             </div>
                         </div>
-                        -->
-                        <div class="compare-items">
-                            <div class="compare-items__inner">
-                                <div data-swiper="productsCompare" class="swiper slider1 slider-products">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            {% include 'blocks/card-product-timer.njk' %}
+                        <div class="compare-mobile">
+                            <div class="compare-items__top">
+                                <button type="button" class="btn-text btn-text_1">
+                                    <span>Очистить категорию</span>
+                                </button>
+                            </div>
+                            <div class="compare-mobile__body">
+                                <div class="compare-mobile__column">
+                                    <div class="compare-mobile__slider compare-mobile1 swiper">
+                                        <div class="compare-mobile__wrapper swiper-wrapper">
+                                            <div class="compare-mobile__slide swiper-slide">
+                                                <div class="card-product">
+                                                    <div class="card-product__inner">
+                                                        <div class="card-product__actions">
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить к списку сравнения">
+                                                                <svg aria-hidden="true" width="17" height="20">
+                                                                    <use xlink:href="img/sprite.svg#compare1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить к списку сравнения</span>
+                                                            </button>
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить в избранное">
+                                                                <svg aria-hidden="true" width="22" height="20">
+                                                                    <use xlink:href="img/sprite.svg#heart1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить в избранное</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="card-product__photo">
+                                                            <div data-preview="container" class="photos-preview">
+                                                                <ul class="photos-preview__nav">
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                    </li>
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item"></li>
+                                                                </ul>
+                                                                <div data-preview="stack" class="photos-preview__stack">
+                                                                    <img loading="lazy" src="img/product1.webp" alt=""
+                                                                        style="visibility: visible;">
+                                                                    <img loading="lazy" src="img/product2.webp" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                            <div class="card-product__brand">
+                                                                <img src="img/arkon-alfa.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__badges">
+                                                            <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                            <span class="badge2 badge2_grey2">Акция</span>
+                                                        </div>
+                                                        <div class="card-product__data">
+                                                            <div class="card-product__name">
+                                                                <a href="product-detail.html">Коллиматорный прицел
+                                                                    Holosun AEMS, красная марка</a>
+                                                            </div>
+                                                            <div class="card-product__status">
+                                                                <span class="card-product__status_instock">В
+                                                                    наличии</span>
+                                                            </div>
+                                                            <div class="card-product__bottom">
+                                                                <div>
+                                                                    <span class="card-product__price2">70 200 ₽</span>
+                                                                    <span class="card-product__discount">-20%</span>
+                                                                    <span class="card-product__price1">57 600 ₽</span>
+                                                                </div>
+                                                                <div>
+                                                                    <div
+                                                                        class="special-offer-timer special-offer-timer_small">
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="days"
+                                                                                class="special-offer-timer__value">03</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">дн.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="hours"
+                                                                                class="special-offer-timer__value">12</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">час.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="minutes"
+                                                                                class="special-offer-timer__value">15</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">мин.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__shipping">
+                                                            <span class="card-product__btn-shipping">
+                                                                <svg aria-hidden="true" width="23" height="16">
+                                                                    <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                                </svg>
+                                                                <span>Доставка 26 февраля</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="card-product__buttons">
+                                                            <a class="btn-fancy btn-fancy_1" href="#">
+                                                                <span>Подробнее</span>
+                                                                <svg aria-hidden="true" width="22" height="15">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </a>
+                                                            <button class="btn-fancy btn-fancy_2" type="button">
+                                                                <span>В корзину</span>
+                                                                <svg aria-hidden="true" width="19" height="19">
+                                                                    <use xlink:href="img/sprite.svg#cart1"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="compare-mobile__slide swiper-slide">
+                                                <div class="card-product">
+                                                    <div class="card-product__inner">
+                                                        <div class="card-product__actions">
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить к списку сравнения">
+                                                                <svg aria-hidden="true" width="17" height="20">
+                                                                    <use xlink:href="img/sprite.svg#compare1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить к списку сравнения</span>
+                                                            </button>
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить в избранное">
+                                                                <svg aria-hidden="true" width="22" height="20">
+                                                                    <use xlink:href="img/sprite.svg#heart1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить в избранное</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="card-product__photo">
+                                                            <div data-preview="container" class="photos-preview">
+                                                                <ul class="photos-preview__nav">
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                    </li>
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item"></li>
+                                                                </ul>
+                                                                <div data-preview="stack" class="photos-preview__stack">
+                                                                    <img loading="lazy" src="img/product1.webp" alt=""
+                                                                        style="visibility: visible;">
+                                                                    <img loading="lazy" src="img/product2.webp" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                            <div class="card-product__brand">
+                                                                <img src="img/arkon-alfa.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__badges">
+                                                            <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                            <span class="badge2 badge2_grey2">Акция</span>
+                                                        </div>
+                                                        <div class="card-product__data">
+                                                            <div class="card-product__name">
+                                                                <a href="product-detail.html">Коллиматорный прицел
+                                                                    Holosun AEMS, красная марка</a>
+                                                            </div>
+                                                            <div class="card-product__status">
+                                                                <span class="card-product__status_instock">В
+                                                                    наличии</span>
+                                                            </div>
+                                                            <div class="card-product__bottom">
+                                                                <div>
+                                                                    <span class="card-product__price2">70 200 ₽</span>
+                                                                    <span class="card-product__discount">-20%</span>
+                                                                    <span class="card-product__price1">57 600 ₽</span>
+                                                                </div>
+                                                                <div>
+                                                                    <div
+                                                                        class="special-offer-timer special-offer-timer_small">
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="days"
+                                                                                class="special-offer-timer__value">03</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">дн.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="hours"
+                                                                                class="special-offer-timer__value">12</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">час.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="minutes"
+                                                                                class="special-offer-timer__value">15</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">мин.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__shipping">
+                                                            <span class="card-product__btn-shipping">
+                                                                <svg aria-hidden="true" width="23" height="16">
+                                                                    <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                                </svg>
+                                                                <span>Доставка 26 февраля</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="card-product__buttons">
+                                                            <a class="btn-fancy btn-fancy_1" href="#">
+                                                                <span>Подробнее</span>
+                                                                <svg aria-hidden="true" width="22" height="15">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </a>
+                                                            <button class="btn-fancy btn-fancy_2" type="button">
+                                                                <span>В корзину</span>
+                                                                <svg aria-hidden="true" width="19" height="19">
+                                                                    <use xlink:href="img/sprite.svg#cart1"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="compare-mobile__slide swiper-slide">
+                                                <div class="card-product">
+                                                    <div class="card-product__inner">
+                                                        <div class="card-product__actions">
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить к списку сравнения">
+                                                                <svg aria-hidden="true" width="17" height="20">
+                                                                    <use xlink:href="img/sprite.svg#compare1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить к списку сравнения</span>
+                                                            </button>
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить в избранное">
+                                                                <svg aria-hidden="true" width="22" height="20">
+                                                                    <use xlink:href="img/sprite.svg#heart1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить в избранное</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="card-product__photo">
+                                                            <div data-preview="container" class="photos-preview">
+                                                                <ul class="photos-preview__nav">
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                    </li>
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item"></li>
+                                                                </ul>
+                                                                <div data-preview="stack" class="photos-preview__stack">
+                                                                    <img loading="lazy" src="img/product1.webp" alt=""
+                                                                        style="visibility: visible;">
+                                                                    <img loading="lazy" src="img/product2.webp" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                            <div class="card-product__brand">
+                                                                <img src="img/arkon-alfa.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__badges">
+                                                            <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                            <span class="badge2 badge2_grey2">Акция</span>
+                                                        </div>
+                                                        <div class="card-product__data">
+                                                            <div class="card-product__name">
+                                                                <a href="product-detail.html">Коллиматорный прицел
+                                                                    Holosun AEMS, красная марка</a>
+                                                            </div>
+                                                            <div class="card-product__status">
+                                                                <span class="card-product__status_instock">В
+                                                                    наличии</span>
+                                                            </div>
+                                                            <div class="card-product__bottom">
+                                                                <div>
+                                                                    <span class="card-product__price2">70 200 ₽</span>
+                                                                    <span class="card-product__discount">-20%</span>
+                                                                    <span class="card-product__price1">57 600 ₽</span>
+                                                                </div>
+                                                                <div>
+                                                                    <div
+                                                                        class="special-offer-timer special-offer-timer_small">
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="days"
+                                                                                class="special-offer-timer__value">03</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">дн.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="hours"
+                                                                                class="special-offer-timer__value">12</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">час.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="minutes"
+                                                                                class="special-offer-timer__value">15</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">мин.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__shipping">
+                                                            <span class="card-product__btn-shipping">
+                                                                <svg aria-hidden="true" width="23" height="16">
+                                                                    <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                                </svg>
+                                                                <span>Доставка 26 февраля</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="card-product__buttons">
+                                                            <a class="btn-fancy btn-fancy_1" href="#">
+                                                                <span>Подробнее</span>
+                                                                <svg aria-hidden="true" width="22" height="15">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </a>
+                                                            <button class="btn-fancy btn-fancy_2" type="button">
+                                                                <span>В корзину</span>
+                                                                <svg aria-hidden="true" width="19" height="19">
+                                                                    <use xlink:href="img/sprite.svg#cart1"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            {% include 'blocks/card-product-noprice.njk' %}
-                                        </div>
-                                        <div class="swiper-slide">
-                                            {% include 'blocks/card-product-timer.njk' %}
-                                        </div>
-                                        <div class="swiper-slide">
-                                            {% include 'blocks/card-product-noprice.njk' %}
-                                        </div>
-                                        <div class="swiper-slide">
-                                            {% include 'blocks/card-product-timer.njk' %}
-                                        </div>
-                                        <div class="swiper-slide">
-                                            {% include 'blocks/card-product-noprice.njk' %}
+                                        <div class="compare-mobile__navs">
+                                            <button class="swiper-nav swiper-nav_prev" type="button">
+                                                <svg aria-hidden="true" width="42" height="22">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="swiper-compare-mobile__data">
+                                                <div class="swiper-compare-mobile__label"><span>1</span> из 3
+                                                </div>
+                                            </div>
+                                            <button class="swiper-nav swiper-nav_next" type="button">
+                                                <svg aria-hidden="true" width="42" height="22">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
-                                    <button type="button" class="swiper-nav swiper-nav_prev">
-                                        <span class="v-h">Назад</span>
-                                        <svg aria-hidden="true" width="12" height="21">
-                                            <use xlink:href="img/sprite.svg#chevron3"></use>
+                                </div>
+                                <div class="compare-mobile__column">
+                                    <div class="compare-mobile__slider compare-mobile2 swiper">
+                                        <div class="compare-mobile__wrapper swiper-wrapper">
+                                            <div class="compare-mobile__slide swiper-slide">
+                                                <div class="card-product">
+                                                    <div class="card-product__inner">
+                                                        <div class="card-product__actions">
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить к списку сравнения">
+                                                                <svg aria-hidden="true" width="17" height="20">
+                                                                    <use xlink:href="img/sprite.svg#compare1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить к списку сравнения</span>
+                                                            </button>
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить в избранное">
+                                                                <svg aria-hidden="true" width="22" height="20">
+                                                                    <use xlink:href="img/sprite.svg#heart1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить в избранное</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="card-product__photo">
+                                                            <div data-preview="container" class="photos-preview">
+                                                                <ul class="photos-preview__nav">
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                    </li>
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item"></li>
+                                                                </ul>
+                                                                <div data-preview="stack" class="photos-preview__stack">
+                                                                    <img loading="lazy" src="img/product1.webp" alt=""
+                                                                        style="visibility: visible;">
+                                                                    <img loading="lazy" src="img/product2.webp" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                            <div class="card-product__brand">
+                                                                <img src="img/arkon-alfa.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__badges">
+                                                            <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                            <span class="badge2 badge2_grey2">Акция</span>
+                                                        </div>
+                                                        <div class="card-product__data">
+                                                            <div class="card-product__name">
+                                                                <a href="product-detail.html">Коллиматорный прицел
+                                                                    Holosun AEMS, красная марка</a>
+                                                            </div>
+                                                            <div class="card-product__status">
+                                                                <span class="card-product__status_instock">В
+                                                                    наличии</span>
+                                                            </div>
+                                                            <div class="card-product__bottom">
+                                                                <div>
+                                                                    <span class="card-product__price2">70 200 ₽</span>
+                                                                    <span class="card-product__discount">-20%</span>
+                                                                    <span class="card-product__price1">57 600 ₽</span>
+                                                                </div>
+                                                                <div>
+                                                                    <div
+                                                                        class="special-offer-timer special-offer-timer_small">
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="days"
+                                                                                class="special-offer-timer__value">03</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">дн.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="hours"
+                                                                                class="special-offer-timer__value">12</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">час.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="minutes"
+                                                                                class="special-offer-timer__value">15</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">мин.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__shipping">
+                                                            <span class="card-product__btn-shipping">
+                                                                <svg aria-hidden="true" width="23" height="16">
+                                                                    <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                                </svg>
+                                                                <span>Доставка 26 февраля</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="card-product__buttons">
+                                                            <a class="btn-fancy btn-fancy_1" href="#">
+                                                                <span>Подробнее</span>
+                                                                <svg aria-hidden="true" width="22" height="15">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </a>
+                                                            <button class="btn-fancy btn-fancy_2" type="button">
+                                                                <span>В корзину</span>
+                                                                <svg aria-hidden="true" width="19" height="19">
+                                                                    <use xlink:href="img/sprite.svg#cart1"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="compare-mobile__slide swiper-slide">
+                                                <div class="card-product">
+                                                    <div class="card-product__inner">
+                                                        <div class="card-product__actions">
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить к списку сравнения">
+                                                                <svg aria-hidden="true" width="17" height="20">
+                                                                    <use xlink:href="img/sprite.svg#compare1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить к списку сравнения</span>
+                                                            </button>
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить в избранное">
+                                                                <svg aria-hidden="true" width="22" height="20">
+                                                                    <use xlink:href="img/sprite.svg#heart1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить в избранное</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="card-product__photo">
+                                                            <div data-preview="container" class="photos-preview">
+                                                                <ul class="photos-preview__nav">
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                    </li>
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item"></li>
+                                                                </ul>
+                                                                <div data-preview="stack" class="photos-preview__stack">
+                                                                    <img loading="lazy" src="img/product1.webp" alt=""
+                                                                        style="visibility: visible;">
+                                                                    <img loading="lazy" src="img/product2.webp" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                            <div class="card-product__brand">
+                                                                <img src="img/arkon-alfa.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__badges">
+                                                            <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                            <span class="badge2 badge2_grey2">Акция</span>
+                                                        </div>
+                                                        <div class="card-product__data">
+                                                            <div class="card-product__name">
+                                                                <a href="product-detail.html">Коллиматорный прицел
+                                                                    Holosun AEMS, красная марка</a>
+                                                            </div>
+                                                            <div class="card-product__status">
+                                                                <span class="card-product__status_instock">В
+                                                                    наличии</span>
+                                                            </div>
+                                                            <div class="card-product__bottom">
+                                                                <div>
+                                                                    <span class="card-product__price2">70 200 ₽</span>
+                                                                    <span class="card-product__discount">-20%</span>
+                                                                    <span class="card-product__price1">57 600 ₽</span>
+                                                                </div>
+                                                                <div>
+                                                                    <div
+                                                                        class="special-offer-timer special-offer-timer_small">
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="days"
+                                                                                class="special-offer-timer__value">03</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">дн.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="hours"
+                                                                                class="special-offer-timer__value">12</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">час.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="minutes"
+                                                                                class="special-offer-timer__value">15</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">мин.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__shipping">
+                                                            <span class="card-product__btn-shipping">
+                                                                <svg aria-hidden="true" width="23" height="16">
+                                                                    <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                                </svg>
+                                                                <span>Доставка 26 февраля</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="card-product__buttons">
+                                                            <a class="btn-fancy btn-fancy_1" href="#">
+                                                                <span>Подробнее</span>
+                                                                <svg aria-hidden="true" width="22" height="15">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </a>
+                                                            <button class="btn-fancy btn-fancy_2" type="button">
+                                                                <span>В корзину</span>
+                                                                <svg aria-hidden="true" width="19" height="19">
+                                                                    <use xlink:href="img/sprite.svg#cart1"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="compare-mobile__slide swiper-slide">
+                                                <div class="card-product">
+                                                    <div class="card-product__inner">
+                                                        <div class="card-product__actions">
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить к списку сравнения">
+                                                                <svg aria-hidden="true" width="17" height="20">
+                                                                    <use xlink:href="img/sprite.svg#compare1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить к списку сравнения</span>
+                                                            </button>
+                                                            <button class="card-product__action" type="button"
+                                                                title="Добавить в избранное">
+                                                                <svg aria-hidden="true" width="22" height="20">
+                                                                    <use xlink:href="img/sprite.svg#heart1"></use>
+                                                                </svg>
+                                                                <span class="v-h">Добавить в избранное</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="card-product__photo">
+                                                            <div data-preview="container" class="photos-preview">
+                                                                <ul class="photos-preview__nav">
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                    </li>
+                                                                    <li data-preview="item"
+                                                                        class="photos-preview__nav-item"></li>
+                                                                </ul>
+                                                                <div data-preview="stack" class="photos-preview__stack">
+                                                                    <img loading="lazy" src="img/product1.webp" alt=""
+                                                                        style="visibility: visible;">
+                                                                    <img loading="lazy" src="img/product2.webp" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                            <div class="card-product__brand">
+                                                                <img src="img/arkon-alfa.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__badges">
+                                                            <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                            <span class="badge2 badge2_grey2">Акция</span>
+                                                        </div>
+                                                        <div class="card-product__data">
+                                                            <div class="card-product__name">
+                                                                <a href="product-detail.html">Коллиматорный прицел
+                                                                    Holosun AEMS, красная марка</a>
+                                                            </div>
+                                                            <div class="card-product__status">
+                                                                <span class="card-product__status_instock">В
+                                                                    наличии</span>
+                                                            </div>
+                                                            <div class="card-product__bottom">
+                                                                <div>
+                                                                    <span class="card-product__price2">70 200 ₽</span>
+                                                                    <span class="card-product__discount">-20%</span>
+                                                                    <span class="card-product__price1">57 600 ₽</span>
+                                                                </div>
+                                                                <div>
+                                                                    <div
+                                                                        class="special-offer-timer special-offer-timer_small">
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="days"
+                                                                                class="special-offer-timer__value">03</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">дн.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="hours"
+                                                                                class="special-offer-timer__value">12</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">час.</span>
+                                                                        </div>
+                                                                        <div class="special-offer-timer__item">
+                                                                            <span data-offer="minutes"
+                                                                                class="special-offer-timer__value">15</span>
+                                                                            <span
+                                                                                class="special-offer-timer__key">мин.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-product__shipping">
+                                                            <span class="card-product__btn-shipping">
+                                                                <svg aria-hidden="true" width="23" height="16">
+                                                                    <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                                </svg>
+                                                                <span>Доставка 26 февраля</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="card-product__buttons">
+                                                            <a class="btn-fancy btn-fancy_1" href="#">
+                                                                <span>Подробнее</span>
+                                                                <svg aria-hidden="true" width="22" height="15">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </a>
+                                                            <button class="btn-fancy btn-fancy_2" type="button">
+                                                                <span>В корзину</span>
+                                                                <svg aria-hidden="true" width="19" height="19">
+                                                                    <use xlink:href="img/sprite.svg#cart1"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="compare-mobile__navs">
+                                            <button class="swiper-nav swiper-nav_prev" type="button">
+                                                <svg aria-hidden="true" width="42" height="22">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="swiper-compare-mobile__data">
+                                                <div class="swiper-compare-mobile__label"><span>1</span> из 3
+                                                </div>
+                                            </div>
+                                            <button class="swiper-nav swiper-nav_next" type="button">
+                                                <svg aria-hidden="true" width="42" height="22">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="checklist">
+                                <li class="checklist__item">
+                                    <label class="checkbox-text">
+                                        <span class="radio">
+                                            <input checked class="radio__input" type="radio" name="rad1">
+                                            <span class="radio__visual"></span>
+                                        </span>
+                                        <span class="checkbox-text__label">Все характеристики</span>
+                                    </label>
+                                </li>
+                                <li class="checklist__item">
+                                    <label class="checkbox-text">
+                                        <span class="radio">
+                                            <input class="radio__input" type="radio" name="rad1">
+                                            <span class="radio__visual"></span>
+                                        </span>
+                                        <span class="checkbox-text__label">Показывать только различия</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="compare-specs">
+                            <div class="compare-specs__inner">
+                                <div class="compare-specs__cols compare-cols_same">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Поле зрения
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">9.24° × 7.08°</div>
+                                    <div class="compare-specs__col">7.03° × 5.39°</div>
+                                    <div class="compare-specs__col">14.9° × 11.2°</div>
+                                    <div class="compare-specs__col">9.24° × 7.08°</div>
+                                    <div class="compare-specs__col">9.24° × 7.08°</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Оптическое увеличение
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">2.5x</div>
+                                    <div class="compare-specs__col">3.25x</div>
+                                    <div class="compare-specs__col">1.5x</div>
+                                    <div class="compare-specs__col">1.5x</div>
+                                    <div class="compare-specs__col">1.5x</div>
+                                </div>
+                                <div class="compare-specs__cols compare-cols_same">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Диаметр объектива
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">19 мм/F1.0</div>
+                                    <div class="compare-specs__col">25 мм/F1.0</div>
+                                    <div class="compare-specs__col">25 мм/F1.0</div>
+                                    <div class="compare-specs__col">19 мм/F1.0</div>
+                                    <div class="compare-specs__col">19 мм/F1.0</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Разрешение детектора
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">256×192</div>
+                                    <div class="compare-specs__col">256×192</div>
+                                    <div class="compare-specs__col">384×288</div>
+                                    <div class="compare-specs__col">384×288</div>
+                                    <div class="compare-specs__col">384×288</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Потребляемая мощность
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                    <div class="compare-specs__col">1.6w</div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Встроенная память
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">EMMC (16 GB)</div>
+                                    <div class="compare-specs__col">EMMC (16 GB)</div>
+                                    <div class="compare-specs__col">EMMC (64 GB)</div>
+                                    <div class="compare-specs__col">EMMC (64 GB)</div>
+                                    <div class="compare-specs__col">EMMC (64 GB)</div>
+                                </div>
+                                <div class="compare-specs__cols compare-cols_same">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Поле зрения
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">9.24° × 7.08°</div>
+                                    <div class="compare-specs__col">7.03° × 5.39°</div>
+                                    <div class="compare-specs__col">14.9° × 11.2°</div>
+                                    <div class="compare-specs__col">9.24° × 7.08°</div>
+                                    <div class="compare-specs__col">9.24° × 7.08°</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Оптическое увеличение
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">2.5x</div>
+                                    <div class="compare-specs__col">3.25x</div>
+                                    <div class="compare-specs__col">1.5x</div>
+                                    <div class="compare-specs__col">1.5x</div>
+                                    <div class="compare-specs__col">1.5x</div>
+                                </div>
+                                <div class="compare-specs__cols compare-cols_same">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Диаметр объектива
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">19 мм/F1.0</div>
+                                    <div class="compare-specs__col">25 мм/F1.0</div>
+                                    <div class="compare-specs__col">25 мм/F1.0</div>
+                                    <div class="compare-specs__col">19 мм/F1.0</div>
+                                    <div class="compare-specs__col">19 мм/F1.0</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Разрешение детектора
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">256×192</div>
+                                    <div class="compare-specs__col">256×192</div>
+                                    <div class="compare-specs__col">384×288</div>
+                                    <div class="compare-specs__col">384×288</div>
+                                    <div class="compare-specs__col">384×288</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Потребляемая мощность
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                    <div class="compare-specs__col">1.6w</div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                    <div class="compare-specs__col">1.5w</div>
+                                </div>
+                                <div class="compare-specs__cols">
+                                    <div class="compare-specs__col corners1">
+                                        <div class="corners1__inner">
+                                            Встроенная память
+                                        </div>
+                                    </div>
+                                    <div class="compare-specs__col">EMMC (16 GB)</div>
+                                    <div class="compare-specs__col">EMMC (16 GB)</div>
+                                    <div class="compare-specs__col">EMMC (64 GB)</div>
+                                    <div class="compare-specs__col">EMMC (64 GB)</div>
+                                    <div class="compare-specs__col">EMMC (64 GB)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compare-specs-mob">
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Поле зрения</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Оптическое увеличение</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Диаметр объектива</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Разрешение детектора</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Потребляемая мощность</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Поле зрения</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Оптическое увеличение</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Диаметр объектива</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Разрешение детектора</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-specs-mob__column">
+                                <div class="compare-specs-mob__title">Потребляемая мощность</div>
+                                <div class="compare-specs-mob__cols">
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_left">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                    <div class="compare-specs-mob__col compare-specs-mob__col_right">
+                                        <div>9.24° × 7.08°</div>
+                                        <div style="display: none;">2.24° × 7.08°</div>
+                                        <div style="display: none;">8.24° × 7.08°</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-tab-content="compare2"></div>
+                </div>
+            </div>
+
+            <div class="compare-float">
+                <div class="container">
+                    <div class="compare-items">
+                        <ul class="checklist">
+                            <li class="checklist__item">
+                                <label class="checkbox-text">
+                                    <span class="radio">
+                                        <input checked class="radio__input" type="radio" name="rad1">
+                                        <span class="radio__visual"></span>
+                                    </span>
+                                    <span class="checkbox-text__label">Все характеристики</span>
+                                </label>
+                            </li>
+                            <li class="checklist__item">
+                                <label class="checkbox-text">
+                                    <span class="radio">
+                                        <input class="radio__input" type="radio" name="rad1">
+                                        <span class="radio__visual"></span>
+                                    </span>
+                                    <span class="checkbox-text__label">Показывать только различия</span>
+                                </label>
+                            </li>
+                        </ul>
+                        <div class="compare-items__inner">
+                            <div class="compare-items__slider compare-float-slider swiper">
+                                <div class="compare-items__wrapper swiper-wrapper">
+                                    <div class="compare-items__slide swiper-slide">
+                                        {% include 'blocks/card-product-timer.njk' %}
+                                    </div>
+                                    <div class="compare-items__slide swiper-slide">
+                                        {% include 'blocks/card-product-noprice.njk' %}
+                                    </div>
+                                    <div class="compare-items__slide swiper-slide">
+                                        {% include 'blocks/card-product-timer.njk' %}
+                                    </div>
+                                    <div class="compare-items__slide swiper-slide">
+                                        {% include 'blocks/card-product-noprice.njk' %}
+                                    </div>
+                                    <div class="compare-items__slide swiper-slide">
+                                        {% include 'blocks/card-product-timer.njk' %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-items__top">
+                                <button type="button" class="btn-text btn-text_1">
+                                    <span>Очистить категорию</span>
+                                </button>
+                                <div class="swiper-navs">
+                                    <button class="swiper-nav swiper-nav_prev" type="button">
+                                        <svg aria-hidden="true" width="42" height="22">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
                                         </svg>
                                     </button>
-                                    <button type="button" class="swiper-nav swiper-nav_next">
-                                        <span class="v-h">Вперед</span>
-                                        <svg aria-hidden="true" width="12" height="21">
-                                            <use xlink:href="img/sprite.svg#chevron3"></use>
+                                    <button class="swiper-nav swiper-nav_next" type="button">
+                                        <svg aria-hidden="true" width="42" height="22">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
                                         </svg>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div data-tab-content="compare2"></div>
+                    <div class="compare-mobile">
+                        <div class="compare-items__top">
+                            <button type="button" class="btn-text btn-text_1">
+                                <span>Очистить категорию</span>
+                            </button>
+                        </div>
+                        <div class="compare-mobile__body">
+                            <div class="compare-mobile__column">
+                                <div class="compare-mobile__slider compare-mobile1 swiper">
+                                    <div class="compare-mobile__wrapper swiper-wrapper">
+                                        <div class="compare-mobile__slide swiper-slide">
+                                            <div class="card-product">
+                                                <div class="card-product__inner">
+                                                    <div class="card-product__actions">
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить к списку сравнения">
+                                                            <svg aria-hidden="true" width="17" height="20">
+                                                                <use xlink:href="img/sprite.svg#compare1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить к списку сравнения</span>
+                                                        </button>
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить в избранное">
+                                                            <svg aria-hidden="true" width="22" height="20">
+                                                                <use xlink:href="img/sprite.svg#heart1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить в избранное</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="card-product__photo">
+                                                        <div data-preview="container" class="photos-preview">
+                                                            <ul class="photos-preview__nav">
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                </li>
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item"></li>
+                                                            </ul>
+                                                            <div data-preview="stack" class="photos-preview__stack">
+                                                                <img loading="lazy" src="img/product1.webp" alt=""
+                                                                    style="visibility: visible;">
+                                                                <img loading="lazy" src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__badges">
+                                                        <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                        <span class="badge2 badge2_grey2">Акция</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">Коллиматорный прицел
+                                                                Holosun AEMS, красная марка</a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В
+                                                                наличии</span>
+                                                        </div>
+                                                        <div class="card-product__bottom">
+                                                            <div>
+                                                                <span class="card-product__price2">70 200 ₽</span>
+                                                                <span class="card-product__discount">-20%</span>
+                                                                <span class="card-product__price1">57 600 ₽</span>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="special-offer-timer special-offer-timer_small">
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="days"
+                                                                            class="special-offer-timer__value">03</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">дн.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="hours"
+                                                                            class="special-offer-timer__value">12</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">час.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="minutes"
+                                                                            class="special-offer-timer__value">15</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">мин.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__shipping">
+                                                        <span class="card-product__btn-shipping">
+                                                            <svg aria-hidden="true" width="23" height="16">
+                                                                <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                            </svg>
+                                                            <span>Доставка 26 февраля</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="card-product__buttons">
+                                                        <a class="btn-fancy btn-fancy_1" href="#">
+                                                            <span>Подробнее</span>
+                                                            <svg aria-hidden="true" width="22" height="15">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <button class="btn-fancy btn-fancy_2" type="button">
+                                                            <span>В корзину</span>
+                                                            <svg aria-hidden="true" width="19" height="19">
+                                                                <use xlink:href="img/sprite.svg#cart1"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="compare-mobile__slide swiper-slide">
+                                            <div class="card-product">
+                                                <div class="card-product__inner">
+                                                    <div class="card-product__actions">
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить к списку сравнения">
+                                                            <svg aria-hidden="true" width="17" height="20">
+                                                                <use xlink:href="img/sprite.svg#compare1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить к списку сравнения</span>
+                                                        </button>
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить в избранное">
+                                                            <svg aria-hidden="true" width="22" height="20">
+                                                                <use xlink:href="img/sprite.svg#heart1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить в избранное</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="card-product__photo">
+                                                        <div data-preview="container" class="photos-preview">
+                                                            <ul class="photos-preview__nav">
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                </li>
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item"></li>
+                                                            </ul>
+                                                            <div data-preview="stack" class="photos-preview__stack">
+                                                                <img loading="lazy" src="img/product1.webp" alt=""
+                                                                    style="visibility: visible;">
+                                                                <img loading="lazy" src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__badges">
+                                                        <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                        <span class="badge2 badge2_grey2">Акция</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">Коллиматорный прицел
+                                                                Holosun AEMS, красная марка</a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В
+                                                                наличии</span>
+                                                        </div>
+                                                        <div class="card-product__bottom">
+                                                            <div>
+                                                                <span class="card-product__price2">70 200 ₽</span>
+                                                                <span class="card-product__discount">-20%</span>
+                                                                <span class="card-product__price1">57 600 ₽</span>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="special-offer-timer special-offer-timer_small">
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="days"
+                                                                            class="special-offer-timer__value">03</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">дн.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="hours"
+                                                                            class="special-offer-timer__value">12</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">час.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="minutes"
+                                                                            class="special-offer-timer__value">15</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">мин.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__shipping">
+                                                        <span class="card-product__btn-shipping">
+                                                            <svg aria-hidden="true" width="23" height="16">
+                                                                <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                            </svg>
+                                                            <span>Доставка 26 февраля</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="card-product__buttons">
+                                                        <a class="btn-fancy btn-fancy_1" href="#">
+                                                            <span>Подробнее</span>
+                                                            <svg aria-hidden="true" width="22" height="15">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <button class="btn-fancy btn-fancy_2" type="button">
+                                                            <span>В корзину</span>
+                                                            <svg aria-hidden="true" width="19" height="19">
+                                                                <use xlink:href="img/sprite.svg#cart1"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="compare-mobile__slide swiper-slide">
+                                            <div class="card-product">
+                                                <div class="card-product__inner">
+                                                    <div class="card-product__actions">
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить к списку сравнения">
+                                                            <svg aria-hidden="true" width="17" height="20">
+                                                                <use xlink:href="img/sprite.svg#compare1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить к списку сравнения</span>
+                                                        </button>
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить в избранное">
+                                                            <svg aria-hidden="true" width="22" height="20">
+                                                                <use xlink:href="img/sprite.svg#heart1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить в избранное</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="card-product__photo">
+                                                        <div data-preview="container" class="photos-preview">
+                                                            <ul class="photos-preview__nav">
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                </li>
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item"></li>
+                                                            </ul>
+                                                            <div data-preview="stack" class="photos-preview__stack">
+                                                                <img loading="lazy" src="img/product1.webp" alt=""
+                                                                    style="visibility: visible;">
+                                                                <img loading="lazy" src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__badges">
+                                                        <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                        <span class="badge2 badge2_grey2">Акция</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">Коллиматорный прицел
+                                                                Holosun AEMS, красная марка</a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В
+                                                                наличии</span>
+                                                        </div>
+                                                        <div class="card-product__bottom">
+                                                            <div>
+                                                                <span class="card-product__price2">70 200 ₽</span>
+                                                                <span class="card-product__discount">-20%</span>
+                                                                <span class="card-product__price1">57 600 ₽</span>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="special-offer-timer special-offer-timer_small">
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="days"
+                                                                            class="special-offer-timer__value">03</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">дн.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="hours"
+                                                                            class="special-offer-timer__value">12</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">час.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="minutes"
+                                                                            class="special-offer-timer__value">15</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">мин.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__shipping">
+                                                        <span class="card-product__btn-shipping">
+                                                            <svg aria-hidden="true" width="23" height="16">
+                                                                <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                            </svg>
+                                                            <span>Доставка 26 февраля</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="card-product__buttons">
+                                                        <a class="btn-fancy btn-fancy_1" href="#">
+                                                            <span>Подробнее</span>
+                                                            <svg aria-hidden="true" width="22" height="15">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <button class="btn-fancy btn-fancy_2" type="button">
+                                                            <span>В корзину</span>
+                                                            <svg aria-hidden="true" width="19" height="19">
+                                                                <use xlink:href="img/sprite.svg#cart1"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="compare-mobile__navs">
+                                        <button class="swiper-nav swiper-nav_prev" type="button">
+                                            <svg aria-hidden="true" width="42" height="22">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="swiper-compare-mobile__data">
+                                            <div class="swiper-compare-mobile__label"><span>1</span> из 3
+                                            </div>
+                                        </div>
+                                        <button class="swiper-nav swiper-nav_next" type="button">
+                                            <svg aria-hidden="true" width="42" height="22">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-mobile__column">
+                                <div class="compare-mobile__slider compare-mobile2 swiper">
+                                    <div class="compare-mobile__wrapper swiper-wrapper">
+                                        <div class="compare-mobile__slide swiper-slide">
+                                            <div class="card-product">
+                                                <div class="card-product__inner">
+                                                    <div class="card-product__actions">
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить к списку сравнения">
+                                                            <svg aria-hidden="true" width="17" height="20">
+                                                                <use xlink:href="img/sprite.svg#compare1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить к списку сравнения</span>
+                                                        </button>
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить в избранное">
+                                                            <svg aria-hidden="true" width="22" height="20">
+                                                                <use xlink:href="img/sprite.svg#heart1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить в избранное</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="card-product__photo">
+                                                        <div data-preview="container" class="photos-preview">
+                                                            <ul class="photos-preview__nav">
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                </li>
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item"></li>
+                                                            </ul>
+                                                            <div data-preview="stack" class="photos-preview__stack">
+                                                                <img loading="lazy" src="img/product1.webp" alt=""
+                                                                    style="visibility: visible;">
+                                                                <img loading="lazy" src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__badges">
+                                                        <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                        <span class="badge2 badge2_grey2">Акция</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">Коллиматорный прицел
+                                                                Holosun AEMS, красная марка</a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В
+                                                                наличии</span>
+                                                        </div>
+                                                        <div class="card-product__bottom">
+                                                            <div>
+                                                                <span class="card-product__price2">70 200 ₽</span>
+                                                                <span class="card-product__discount">-20%</span>
+                                                                <span class="card-product__price1">57 600 ₽</span>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="special-offer-timer special-offer-timer_small">
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="days"
+                                                                            class="special-offer-timer__value">03</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">дн.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="hours"
+                                                                            class="special-offer-timer__value">12</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">час.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="minutes"
+                                                                            class="special-offer-timer__value">15</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">мин.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__shipping">
+                                                        <span class="card-product__btn-shipping">
+                                                            <svg aria-hidden="true" width="23" height="16">
+                                                                <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                            </svg>
+                                                            <span>Доставка 26 февраля</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="card-product__buttons">
+                                                        <a class="btn-fancy btn-fancy_1" href="#">
+                                                            <span>Подробнее</span>
+                                                            <svg aria-hidden="true" width="22" height="15">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <button class="btn-fancy btn-fancy_2" type="button">
+                                                            <span>В корзину</span>
+                                                            <svg aria-hidden="true" width="19" height="19">
+                                                                <use xlink:href="img/sprite.svg#cart1"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="compare-mobile__slide swiper-slide">
+                                            <div class="card-product">
+                                                <div class="card-product__inner">
+                                                    <div class="card-product__actions">
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить к списку сравнения">
+                                                            <svg aria-hidden="true" width="17" height="20">
+                                                                <use xlink:href="img/sprite.svg#compare1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить к списку сравнения</span>
+                                                        </button>
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить в избранное">
+                                                            <svg aria-hidden="true" width="22" height="20">
+                                                                <use xlink:href="img/sprite.svg#heart1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить в избранное</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="card-product__photo">
+                                                        <div data-preview="container" class="photos-preview">
+                                                            <ul class="photos-preview__nav">
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                </li>
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item"></li>
+                                                            </ul>
+                                                            <div data-preview="stack" class="photos-preview__stack">
+                                                                <img loading="lazy" src="img/product1.webp" alt=""
+                                                                    style="visibility: visible;">
+                                                                <img loading="lazy" src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__badges">
+                                                        <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                        <span class="badge2 badge2_grey2">Акция</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">Коллиматорный прицел
+                                                                Holosun AEMS, красная марка</a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В
+                                                                наличии</span>
+                                                        </div>
+                                                        <div class="card-product__bottom">
+                                                            <div>
+                                                                <span class="card-product__price2">70 200 ₽</span>
+                                                                <span class="card-product__discount">-20%</span>
+                                                                <span class="card-product__price1">57 600 ₽</span>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="special-offer-timer special-offer-timer_small">
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="days"
+                                                                            class="special-offer-timer__value">03</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">дн.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="hours"
+                                                                            class="special-offer-timer__value">12</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">час.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="minutes"
+                                                                            class="special-offer-timer__value">15</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">мин.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__shipping">
+                                                        <span class="card-product__btn-shipping">
+                                                            <svg aria-hidden="true" width="23" height="16">
+                                                                <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                            </svg>
+                                                            <span>Доставка 26 февраля</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="card-product__buttons">
+                                                        <a class="btn-fancy btn-fancy_1" href="#">
+                                                            <span>Подробнее</span>
+                                                            <svg aria-hidden="true" width="22" height="15">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <button class="btn-fancy btn-fancy_2" type="button">
+                                                            <span>В корзину</span>
+                                                            <svg aria-hidden="true" width="19" height="19">
+                                                                <use xlink:href="img/sprite.svg#cart1"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="compare-mobile__slide swiper-slide">
+                                            <div class="card-product">
+                                                <div class="card-product__inner">
+                                                    <div class="card-product__actions">
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить к списку сравнения">
+                                                            <svg aria-hidden="true" width="17" height="20">
+                                                                <use xlink:href="img/sprite.svg#compare1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить к списку сравнения</span>
+                                                        </button>
+                                                        <button class="card-product__action" type="button"
+                                                            title="Добавить в избранное">
+                                                            <svg aria-hidden="true" width="22" height="20">
+                                                                <use xlink:href="img/sprite.svg#heart1"></use>
+                                                            </svg>
+                                                            <span class="v-h">Добавить в избранное</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="card-product__photo">
+                                                        <div data-preview="container" class="photos-preview">
+                                                            <ul class="photos-preview__nav">
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item photos-preview__nav-item_active">
+                                                                </li>
+                                                                <li data-preview="item"
+                                                                    class="photos-preview__nav-item"></li>
+                                                            </ul>
+                                                            <div data-preview="stack" class="photos-preview__stack">
+                                                                <img loading="lazy" src="img/product1.webp" alt=""
+                                                                    style="visibility: visible;">
+                                                                <img loading="lazy" src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <span class="card-product__bonuses badge2">+ 2000 Б</span>
+                                                        <div class="card-product__brand">
+                                                            <img src="img/arkon-alfa.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__badges">
+                                                        <span class="badge2 badge2_grey1">Хит продаж</span>
+                                                        <span class="badge2 badge2_grey2">Акция</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__name">
+                                                            <a href="product-detail.html">Коллиматорный прицел
+                                                                Holosun AEMS, красная марка</a>
+                                                        </div>
+                                                        <div class="card-product__status">
+                                                            <span class="card-product__status_instock">В
+                                                                наличии</span>
+                                                        </div>
+                                                        <div class="card-product__bottom">
+                                                            <div>
+                                                                <span class="card-product__price2">70 200 ₽</span>
+                                                                <span class="card-product__discount">-20%</span>
+                                                                <span class="card-product__price1">57 600 ₽</span>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="special-offer-timer special-offer-timer_small">
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="days"
+                                                                            class="special-offer-timer__value">03</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">дн.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="hours"
+                                                                            class="special-offer-timer__value">12</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">час.</span>
+                                                                    </div>
+                                                                    <div class="special-offer-timer__item">
+                                                                        <span data-offer="minutes"
+                                                                            class="special-offer-timer__value">15</span>
+                                                                        <span
+                                                                            class="special-offer-timer__key">мин.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-product__shipping">
+                                                        <span class="card-product__btn-shipping">
+                                                            <svg aria-hidden="true" width="23" height="16">
+                                                                <use xlink:href="img/sprite.svg#shipping1"></use>
+                                                            </svg>
+                                                            <span>Доставка 26 февраля</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="card-product__buttons">
+                                                        <a class="btn-fancy btn-fancy_1" href="#">
+                                                            <span>Подробнее</span>
+                                                            <svg aria-hidden="true" width="22" height="15">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <button class="btn-fancy btn-fancy_2" type="button">
+                                                            <span>В корзину</span>
+                                                            <svg aria-hidden="true" width="19" height="19">
+                                                                <use xlink:href="img/sprite.svg#cart1"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="compare-mobile__navs">
+                                        <button class="swiper-nav swiper-nav_prev" type="button">
+                                            <svg aria-hidden="true" width="42" height="22">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="swiper-compare-mobile__data">
+                                            <div class="swiper-compare-mobile__label"><span>1</span> из 3
+                                            </div>
+                                        </div>
+                                        <button class="swiper-nav swiper-nav_next" type="button">
+                                            <svg aria-hidden="true" width="42" height="22">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="checklist">
+                            <li class="checklist__item">
+                                <label class="checkbox-text">
+                                    <span class="radio">
+                                        <input checked class="radio__input" type="radio" name="rad1">
+                                        <span class="radio__visual"></span>
+                                    </span>
+                                    <span class="checkbox-text__label">Все характеристики</span>
+                                </label>
+                            </li>
+                            <li class="checklist__item">
+                                <label class="checkbox-text">
+                                    <span class="radio">
+                                        <input class="radio__input" type="radio" name="rad1">
+                                        <span class="radio__visual"></span>
+                                    </span>
+                                    <span class="checkbox-text__label">Показывать только различия</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
