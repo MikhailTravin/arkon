@@ -390,15 +390,28 @@ AW.initSliderParners = function ($el) {
   new Swiper($el[0], {
     loop: false,
     spaceBetween: 15,
-    slidesPerView: 6,
+    slidesPerView: 6, 
     speed: 200,
     breakpoints: {
-      1400: {
+      1200: {
         spaceBetween: 30,
-        slidesPerView: 3,
+        slidesPerView: 3, 
         grid: {
-          rows: 2
+          rows: 2, 
+          fill: 'row' 
         }
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      576: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      },
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 10
       }
     },
     navigation: {
