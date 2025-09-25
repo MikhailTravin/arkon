@@ -390,15 +390,15 @@ AW.initSliderParners = function ($el) {
   new Swiper($el[0], {
     loop: false,
     spaceBetween: 15,
-    slidesPerView: 6, 
+    slidesPerView: 6,
     speed: 200,
     breakpoints: {
       1200: {
         spaceBetween: 30,
-        slidesPerView: 3, 
+        slidesPerView: 3,
         grid: {
-          rows: 2, 
-          fill: 'row' 
+          rows: 2,
+          fill: 'row'
         }
       },
       768: {
@@ -925,8 +925,6 @@ $(document).ready(() => {
   };
 
   Fancybox.bind('[data-fancybox]', AW.FANCYBOX_DEFAULTS);
-
-
 
   // Этот хак помогает избежать прыжков анимации при загрузке страницы
   $('body').removeClass('preload');
@@ -1779,21 +1777,25 @@ function initShopMapButtons() {
   });
 }
 // Яндекс карта
+// Функция для инициализации карт
 function initYandexMaps() {
   const map1 = document.querySelector('#map1');
   const map2 = document.querySelector('#map2');
   const map3 = document.querySelector('#map3');
   const map4 = document.querySelector('#map4');
 
+  // Если ни одной карты нет — выходим
   if (!map1 && !map2 && !map3 && !map4) {
     return;
   }
 
+  // Если API ещё не загружен — выходим
   if (typeof ymaps === 'undefined') {
     return;
   }
 
   ymaps.ready(function () {
+    // === Карта 1 ===
     if (map1) {
       var myMap1 = new ymaps.Map('map1', {
         center: [55.682920, 37.551447],
@@ -1807,21 +1809,12 @@ function initYandexMaps() {
       myMap1.options.set('theme', 'dark');
 
       const placemarks = [
-        {
-          coords: [55.682920, 37.551447],
-          shopId: 'shop-1'
-        },
-        {
-          coords: [55.674337, 37.564862],
-          shopId: 'shop-2'
-        },
-        {
-          coords: [55.809955, 37.568524],
-          shopId: 'shop-3'
-        }
+        { coords: [55.682920, 37.551447], shopId: 'shop-1' },
+        { coords: [55.674337, 37.564862], shopId: 'shop-2' },
+        { coords: [55.809955, 37.568524], shopId: 'shop-3' }
       ];
 
-      placemarks.forEach((placemark) => {
+      placemarks.forEach(placemark => {
         const mark = new ymaps.Placemark(placemark.coords, {
           shopId: placemark.shopId
         }, {
@@ -1834,16 +1827,13 @@ function initYandexMaps() {
         mark.events.add('click', function (e) {
           const targetPlacemark = e.get('target');
           const shopId = targetPlacemark.properties.get('shopId');
-
           if (shopId) {
             if (window.innerWidth <= 992) {
               activateShopColumn(shopId);
             } else {
               scrollToShopColumn(shopId);
             }
-            myMap1.panTo(targetPlacemark.geometry.getCoordinates(), {
-              duration: 300
-            });
+            myMap1.panTo(targetPlacemark.geometry.getCoordinates(), { duration: 300 });
           }
         });
 
@@ -1851,6 +1841,7 @@ function initYandexMaps() {
       });
     }
 
+    // === Карта 2 ===
     if (map2) {
       var myMap2 = new ymaps.Map('map2', {
         center: [55.694843, 37.435023],
@@ -1860,7 +1851,6 @@ function initYandexMaps() {
       }, {
         searchControlProvider: 'yandex#search'
       });
-
       myMap2.options.set('theme', 'dark');
 
       const mark = new ymaps.Placemark([55.694843, 37.435023], {
@@ -1873,9 +1863,7 @@ function initYandexMaps() {
       });
 
       mark.events.add('click', function (e) {
-        const targetPlacemark = e.get('target');
-        const shopId = targetPlacemark.properties.get('shopId');
-
+        const shopId = e.get('target').properties.get('shopId');
         if (shopId) {
           if (window.innerWidth <= 992) {
             activateShopColumn(shopId);
@@ -1888,6 +1876,7 @@ function initYandexMaps() {
       myMap2.geoObjects.add(mark);
     }
 
+    // === Карта 3 ===
     if (map3) {
       var myMap3 = new ymaps.Map('map3', {
         center: [55.738049, 37.543731],
@@ -1897,7 +1886,6 @@ function initYandexMaps() {
       }, {
         searchControlProvider: 'yandex#search'
       });
-
       myMap3.options.set('theme', 'dark');
 
       const mark = new ymaps.Placemark([55.738049, 37.543731], {}, {
@@ -1910,37 +1898,111 @@ function initYandexMaps() {
       myMap3.geoObjects.add(mark);
     }
 
+    // === Карта 4 (самовывоз) ===
     if (map4) {
-      var myMap4 = new ymaps.Map('map4', {
-        center: [55.738049, 37.543731],
-        zoom: 14,
-        controls: ['zoomControl'],
-        behaviors: ['drag']
-      }, {
-        searchControlProvider: 'yandex#search'
-      });
-
-      window.myMap4 = myMap4;
-      myMap4.options.set('theme', 'dark');
-
-      const mark = new ymaps.Placemark([55.738049, 37.543731], {}, {
-        iconLayout: 'default#image',
-        iconImageHref: 'img/map2.svg',
-        iconImageSize: [40, 40],
-        iconImageOffset: [-20, -20],
-      });
-
-      myMap4.geoObjects.add(mark);
-
-      myMap4.container.fitToViewport();
+      // Проверяем, виден ли блок — инициализируем только если нужно
+      const deliveryBlock = map4.closest('.self-delivery-block');
+      if (deliveryBlock && deliveryBlock.classList.contains('_active')) {
+        initMap4();
+      } else {
+        // Отложим инициализацию до первого показа
+        window._shouldInitMap4 = true;
+      }
     }
   });
 }
+
+// Отдельная функция для карты 4 — чтобы можно было вызвать повторно
+function initMap4() {
+  if (window.myMap4 || typeof ymaps === 'undefined' || !document.querySelector('#map4')) return;
+
+  const map4 = document.querySelector('#map4');
+  if (!map4) return;
+
+  window.myMap4 = new ymaps.Map('map4', {
+    center: [55.738049, 37.543731],
+    zoom: 14,
+    controls: ['zoomControl'],
+    behaviors: ['drag']
+  }, {
+    searchControlProvider: 'yandex#search'
+  });
+
+  window.myMap4.options.set('theme', 'dark');
+
+  const mark = new ymaps.Placemark([55.738049, 37.543731], {}, {
+    iconLayout: 'default#image',
+    iconImageHref: 'img/map2.svg',
+    iconImageSize: [40, 40],
+    iconImageOffset: [-20, -20],
+  });
+
+  window.myMap4.geoObjects.add(mark);
+  window.myMap4.container.fitToViewport();
+}
+
+// Обновление размера карты 4
 function updateMapSize() {
-  if (typeof window.myMap4 !== 'undefined') {
-    window.myMap4.container.fitToViewport();
+  if (window.myMap4) {
+    // Даем браузеру время применить новые стили
+    requestAnimationFrame(() => {
+      window.myMap4.container.fitToViewport();
+    });
   }
 }
+
+// Переключение способа доставки
+document.querySelectorAll('[data-target]').forEach(label => {
+  label.addEventListener('click', function () {
+    const targetSelector = this.dataset.target;
+    if (!targetSelector) return;
+
+    // Скрыть все delivery-block
+    document.querySelectorAll('.delivery-block').forEach(block => {
+      block.classList.remove('_active');
+    });
+
+    // Показать нужный
+    const targetBlock = document.querySelector(targetSelector);
+    if (targetBlock) {
+      targetBlock.classList.add('_active');
+
+      // Если показали блок с картой — инициализировать или обновить
+      if (targetSelector === '.self-delivery-block') {
+        if (!window.myMap4) {
+          // API может быть не готов — ждём
+          if (typeof ymaps !== 'undefined') {
+            initMap4();
+          } else {
+            window._shouldInitMap4 = true;
+          }
+        } else {
+          setTimeout(updateMapSize, 50); // дать время на анимацию/показ
+        }
+      }
+    }
+  });
+});
+
+// Если API загрузился позже — инициализируем карту 4
+if (typeof ymaps !== 'undefined') {
+  ymaps.ready(() => {
+    if (window._shouldInitMap4) {
+      initMap4();
+      window._shouldInitMap4 = false;
+    }
+  });
+}
+
+// Debounced resize для карты
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(updateMapSize, 150);
+});
+
+// Запуск инициализации при загрузке
+document.addEventListener('DOMContentLoaded', initYandexMaps);
 function initShopMap() {
   function initAll() {
     initYandexMaps();
@@ -2074,20 +2136,16 @@ function spollers() {
         const showMoreContent = showMoreBlock.querySelector('[data-showmore-content]');
         const showMoreButton = showMoreBlock.querySelector('[data-showmore-button]');
         const items = showMoreContent.children;
-        const limit = 6; // Показываем 6 элементов
+        const limit = 6;
 
         if (items.length > limit) {
-          // 1. Сначала сбросим ограничения, чтобы измерить реальные размеры
           showMoreContent.style.maxHeight = '';
           showMoreContent.style.overflow = '';
 
-          // 2. Ждем следующего фрейма для применения стилей
           setTimeout(() => {
-            // 3. Рассчитываем высоту для 6 элементов
             let height = 0;
             const itemHeight = [];
 
-            // Измеряем высоту каждого из первых 6 элементов
             for (let i = 0; i < limit; i++) {
               const item = items[i];
               const styles = getComputedStyle(item);
@@ -2421,334 +2479,6 @@ function initCompareSliders() {
   let mobileSwiper2 = null;
   let floatMobileSwiper1 = null;
   let floatMobileSwiper2 = null;
-
-  function syncDesktopSliders(activeIndex, sourceSwiper) {
-    if (mainSwiper && mainSwiper !== sourceSwiper) {
-      mainSwiper.slideTo(activeIndex);
-    }
-
-    if (floatSwiper && floatSwiper !== sourceSwiper) {
-      floatSwiper.slideTo(activeIndex);
-    }
-
-    syncSpecsPosition(activeIndex);
-  }
-
-  function syncMobileSliders(activeIndex, sourceSwiper, isLeftSlider = true) {
-    if (isLeftSlider) {
-      if (mobileSwiper1 && mobileSwiper1 !== sourceSwiper) {
-        mobileSwiper1.slideTo(activeIndex);
-      }
-      if (floatMobileSwiper1 && floatMobileSwiper1 !== sourceSwiper) {
-        floatMobileSwiper1.slideTo(activeIndex);
-      }
-
-      updateMobileSpecs(activeIndex, true, false);
-    } else {
-      if (mobileSwiper2 && mobileSwiper2 !== sourceSwiper) {
-        mobileSwiper2.slideTo(activeIndex);
-      }
-      if (floatMobileSwiper2 && floatMobileSwiper2 !== sourceSwiper) {
-        floatMobileSwiper2.slideTo(activeIndex);
-      }
-
-      updateMobileSpecs(activeIndex, false, true);
-    }
-  }
-
-  function syncSpecsPosition(activeIndex) {
-    const $specsCols = $('.compare-specs__cols');
-    let visibleSlides = 3;
-
-    if (mainSwiper) {
-      visibleSlides = mainSwiper.params.slidesPerView;
-    } else if (floatSwiper) {
-      visibleSlides = floatSwiper.params.slidesPerView;
-    }
-
-    $specsCols.each(function () {
-      const $cols = $(this).find('.compare-specs__col').not(':first');
-
-      $cols.each(function (index) {
-        if (index >= activeIndex && index < activeIndex + visibleSlides) {
-          $(this).show();
-        } else {
-          $(this).hide();
-        }
-      });
-    });
-  }
-
-  function updateMobileSpecs(activeIndex, updateLeft = false, updateRight = false) {
-    if (updateLeft) {
-      const $leftCols = $('.compare-specs-mob__col_left');
-      $leftCols.each(function () {
-        const $divs = $(this).find('div');
-        $divs.hide();
-        if ($divs.length > activeIndex) {
-          $divs.eq(activeIndex).show();
-        }
-      });
-    }
-
-    if (updateRight) {
-      const $rightCols = $('.compare-specs-mob__col_right');
-      $rightCols.each(function () {
-        const $divs = $(this).find('div');
-        $divs.hide();
-        if ($divs.length > activeIndex) {
-          $divs.eq(activeIndex).show();
-        }
-      });
-    }
-  }
-
-  if (itemsSlider.length) {
-    const $navNext = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_next');
-    const $navPrev = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
-
-    mainSwiper = new Swiper(itemsSlider[0], {
-      spaceBetween: 30,
-      slidesPerView: 3,
-      speed: 200,
-      navigation: {
-        nextEl: $navNext[0],
-        prevEl: $navPrev[0],
-      },
-      breakpoints: {
-        992: {
-          slidesPerView: 3,
-          spaceBetween: 20
-        },
-        1400: {
-          slidesPerView: 3,
-          spaceBetween: 30
-        }
-      },
-      on: {
-        init: function () {
-          this.slides.forEach((slide, index) => {
-            if (index < this.params.slidesPerView) {
-              $(slide).addClass('swiper-slide-visible');
-            }
-          });
-          syncSpecsPosition(this.activeIndex);
-        },
-        slideChangeTransitionEnd: function () {
-          this.slides.forEach(slide => {
-            $(slide).removeClass('swiper-slide-visible');
-          });
-
-          this.slides.forEach((slide, index) => {
-            if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
-              $(slide).addClass('swiper-slide-visible');
-            }
-          });
-
-          syncDesktopSliders(this.activeIndex, this);
-        }
-      }
-    });
-  }
-
-  if (floatSlider.length) {
-    const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
-    const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
-
-    floatSwiper = new Swiper(floatSlider[0], {
-      spaceBetween: 30,
-      slidesPerView: 3,
-      speed: 200,
-      navigation: {
-        nextEl: $navNext[0],
-        prevEl: $navPrev[0],
-      },
-      breakpoints: {
-        992: {
-          slidesPerView: 3,
-          spaceBetween: 20
-        },
-        1400: {
-          slidesPerView: 3,
-          spaceBetween: 30
-        }
-      },
-      on: {
-        init: function () {
-          this.slides.forEach((slide, index) => {
-            if (index < this.params.slidesPerView) {
-              $(slide).addClass('swiper-slide-visible');
-            }
-          });
-          syncSpecsPosition(this.activeIndex);
-        },
-        slideChangeTransitionEnd: function () {
-          this.slides.forEach(slide => {
-            $(slide).removeClass('swiper-slide-visible');
-          });
-
-          this.slides.forEach((slide, index) => {
-            if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
-              $(slide).addClass('swiper-slide-visible');
-            }
-          });
-
-          syncDesktopSliders(this.activeIndex, this);
-        }
-      }
-    });
-  }
-
-  const itemsSliderMobile1 = $('.compare-mobile1').not('.compare-float .compare-mobile1');
-  if (itemsSliderMobile1.length) {
-    const $navNext1 = itemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_next');
-    const $navPrev1 = itemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_prev');
-    const $label1 = itemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
-
-    mobileSwiper1 = new Swiper(itemsSliderMobile1[0], {
-      spaceBetween: 0,
-      slidesPerView: 1,
-      speed: 200,
-      navigation: {
-        nextEl: $navNext1[0],
-        prevEl: $navPrev1[0],
-      },
-      on: {
-        init: function () {
-          $label1.find('span').text(this.activeIndex + 1);
-          updateMobileSpecs(this.activeIndex, true, false);
-        },
-        slideChange: function (s) {
-          $label1.find('span').text(s.realIndex + 1);
-          syncMobileSliders(s.realIndex, this, true);
-        },
-      },
-    });
-  }
-
-  const itemsSliderMobile2 = $('.compare-mobile2').not('.compare-float .compare-mobile2');
-  if (itemsSliderMobile2.length) {
-    const $navNext2 = itemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_next');
-    const $navPrev2 = itemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_prev');
-    const $label2 = itemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
-
-    mobileSwiper2 = new Swiper(itemsSliderMobile2[0], {
-      spaceBetween: 0,
-      slidesPerView: 1,
-      speed: 200,
-      navigation: {
-        nextEl: $navNext2[0],
-        prevEl: $navPrev2[0],
-      },
-      on: {
-        init: function () {
-          $label2.find('span').text(this.activeIndex + 1);
-          updateMobileSpecs(this.activeIndex, false, true);
-        },
-        slideChange: function (s) {
-          $label2.find('span').text(s.realIndex + 1);
-          syncMobileSliders(s.realIndex, this, false);
-        },
-      },
-    });
-  }
-
-  const floatItemsSliderMobile1 = $('.compare-float .compare-mobile1');
-  if (floatItemsSliderMobile1.length) {
-    const $navNext1 = floatItemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_next');
-    const $navPrev1 = floatItemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-nav_prev');
-    const $label1 = floatItemsSliderMobile1.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
-
-    floatMobileSwiper1 = new Swiper(floatItemsSliderMobile1[0], {
-      spaceBetween: 0,
-      slidesPerView: 1,
-      speed: 200,
-      navigation: {
-        nextEl: $navNext1[0],
-        prevEl: $navPrev1[0],
-      },
-      on: {
-        init: function () {
-          $label1.find('span').text(this.activeIndex + 1);
-          updateMobileSpecs(this.activeIndex, true, false);
-        },
-        slideChange: function (s) {
-          $label1.find('span').text(s.realIndex + 1);
-          syncMobileSliders(s.realIndex, this, true);
-        },
-      },
-    });
-  }
-
-  const floatItemsSliderMobile2 = $('.compare-float .compare-mobile2');
-  if (floatItemsSliderMobile2.length) {
-    const $navNext2 = floatItemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_next');
-    const $navPrev2 = floatItemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-nav_prev');
-    const $label2 = floatItemsSliderMobile2.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
-
-    floatMobileSwiper2 = new Swiper(floatItemsSliderMobile2[0], {
-      spaceBetween: 0,
-      slidesPerView: 1,
-      speed: 200,
-      navigation: {
-        nextEl: $navNext2[0],
-        prevEl: $navPrev2[0],
-      },
-      on: {
-        init: function () {
-          $label2.find('span').text(this.activeIndex + 1);
-          updateMobileSpecs(this.activeIndex, false, true);
-        },
-        slideChange: function (s) {
-          $label2.find('span').text(s.realIndex + 1);
-          syncMobileSliders(s.realIndex, this, false);
-        },
-      },
-    });
-  }
-
-  function initSpecsSync() {
-    const $specsContainer = $('.compare-specs__inner');
-    const $specsCols = $('.compare-specs__cols');
-
-    $specsContainer.on('scroll', function () {
-      const scrollLeft = $specsContainer.scrollLeft();
-      const colWidth = $specsCols.first().outerWidth();
-      const activeIndex = Math.round(scrollLeft / colWidth);
-
-      syncDesktopSliders(activeIndex, null);
-    });
-  }
-
-  initSpecsSync();
-
-  if (mainSwiper) {
-    syncSpecsPosition(mainSwiper.activeIndex);
-  } else if (floatSwiper) {
-    syncSpecsPosition(floatSwiper.activeIndex);
-  }
-
-  $(window).on('resize', function () {
-    if (mainSwiper) {
-      syncSpecsPosition(mainSwiper.activeIndex);
-    } else if (floatSwiper) {
-      syncSpecsPosition(floatSwiper.activeIndex);
-    }
-  });
-}
-initCompareSliders();
-*/
-function initCompareSliders() {
-  const itemsSlider = $('.compare-items__slider');
-  const floatSlider = $('.compare-float-slider');
-  if (!itemsSlider.length && !floatSlider.length) return;
-
-  let mainSwiper = null;
-  let floatSwiper = null;
-  let mobileSwiper1 = null;
-  let mobileSwiper2 = null;
-  let floatMobileSwiper1 = null;
-  let floatMobileSwiper2 = null;
   let specsSwiper = null;
   let specsMobSwiper = null;
 
@@ -2908,7 +2638,6 @@ function initCompareSliders() {
     }
   }
 
-  // Инициализация основного слайдера
   if (itemsSlider.length && itemsSlider[0]) {
     const $navNext = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_next');
     const $navPrev = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
@@ -2967,15 +2696,14 @@ function initCompareSliders() {
     }
   }
 
-  // Инициализация плавающего слайдера
   if (floatSlider.length && floatSlider[0]) {
     const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
     const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
 
     try {
       floatSwiper = new Swiper(floatSlider[0], {
-        spaceBetween: 30,
-        slidesPerView: 3,
+        spaceBetween: 8,
+        slidesPerView: 2,
         speed: 200,
         navigation: {
           nextEl: $navNext.length ? $navNext[0] : null,
@@ -3026,7 +2754,6 @@ function initCompareSliders() {
     }
   }
 
-  // Инициализация мобильных слайдеров
   function initMobileSwiper(selector, isFirst = true) {
     const $slider = $(selector);
     if ($slider.length && $slider[0]) {
@@ -3172,8 +2899,507 @@ function initCompareSliders() {
       }
     }, 100);
   });
+
+
 }
 initCompareSliders()
+*/
+
+function initCompareSliders() {
+  const itemsSlider = $('.compare-items__slider');
+  const floatSlider = $('.compare-float-slider');
+  if (!itemsSlider.length && !floatSlider.length) return;
+
+  let mainSwiper = null;
+  let floatSwiper = null;
+  let mobileSwiper1 = null;
+  let mobileSwiper2 = null;
+  let floatMobileSwiper1 = null;
+  let floatMobileSwiper2 = null;
+  let specsSwiper = null;
+  let specsMobSwiper = null;
+
+  function syncDesktopSliders(activeIndex, sourceSwiper) {
+    if (mainSwiper && mainSwiper.initialized && mainSwiper !== sourceSwiper) {
+      mainSwiper.slideTo(activeIndex);
+    }
+
+    if (floatSwiper && floatSwiper.initialized && floatSwiper !== sourceSwiper) {
+      floatSwiper.slideTo(activeIndex);
+    }
+
+    if (specsSwiper && specsSwiper.initialized && specsSwiper !== sourceSwiper) {
+      specsSwiper.slideTo(activeIndex);
+    }
+
+    syncSpecsPosition(activeIndex);
+  }
+
+  function syncMobileSliders(activeIndex, sourceSwiper, isLeftSlider = true) {
+    if (isLeftSlider) {
+      if (mobileSwiper1 && mobileSwiper1.initialized && mobileSwiper1 !== sourceSwiper) {
+        mobileSwiper1.slideTo(activeIndex);
+      }
+      if (floatMobileSwiper1 && floatMobileSwiper1.initialized && floatMobileSwiper1 !== sourceSwiper) {
+        floatMobileSwiper1.slideTo(activeIndex);
+      }
+    } else {
+      if (mobileSwiper2 && mobileSwiper2.initialized && mobileSwiper2 !== sourceSwiper) {
+        mobileSwiper2.slideTo(activeIndex);
+      }
+      if (floatMobileSwiper2 && floatMobileSwiper2.initialized && floatMobileSwiper2 !== sourceSwiper) {
+        floatMobileSwiper2.slideTo(activeIndex);
+      }
+    }
+
+    if (specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper !== sourceSwiper) {
+      specsMobSwiper.slideTo(activeIndex);
+    }
+
+    updateMobileSpecs(activeIndex, isLeftSlider, !isLeftSlider);
+  }
+
+  function syncSpecsPosition(activeIndex) {
+    const $specsCols = $('.compare-specs__cols');
+    if (!$specsCols.length) return;
+
+    let visibleSlides = 3;
+
+    if (mainSwiper && mainSwiper.initialized) {
+      visibleSlides = mainSwiper.params.slidesPerView;
+    } else if (floatSwiper && floatSwiper.initialized) {
+      visibleSlides = floatSwiper.params.slidesPerView;
+    }
+
+    $specsCols.each(function () {
+      const $cols = $(this).find('.compare-specs__col').not(':first');
+
+      $cols.each(function (index) {
+        if (index >= activeIndex && index < activeIndex + visibleSlides) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+  }
+
+  function updateMobileSpecs(activeIndex, updateLeft = false, updateRight = false) {
+    if (updateLeft) {
+      const $leftCols = $('.compare-specs-mob__col_left');
+      $leftCols.each(function () {
+        const $divs = $(this).find('div');
+        $divs.hide();
+        if ($divs.length > activeIndex) {
+          $divs.eq(activeIndex).show();
+        }
+      });
+    }
+
+    if (updateRight) {
+      const $rightCols = $('.compare-specs-mob__col_right');
+      $rightCols.each(function () {
+        const $divs = $(this).find('div');
+        $divs.hide();
+        if ($divs.length > activeIndex) {
+          $divs.eq(activeIndex).show();
+        }
+      });
+    }
+  }
+
+  // Инициализация свайпера для desktop таблицы характеристик
+  function initSpecsSwiper() {
+    const $specsContainer = $('.compare-specs__inner');
+    const el = $specsContainer[0];
+
+    // Убедимся, что элемент существует и является DOM-элементом
+    if (!el || !(el instanceof Element) || $specsContainer.length === 0) {
+      console.log('Specs container not found, skipping initialization');
+      return;
+    }
+
+    try {
+      specsSwiper = new Swiper(el, {
+        freeMode: true,
+        slidesPerView: 'auto',
+        resistanceRatio: 0,
+        slideToClickedSlide: false,
+        observer: true,
+        observeSlideChildren: true,
+        observeParents: true,
+        on: {
+          init: function () {
+            this.initialized = true;
+            console.log('Specs swiper initialized');
+          },
+          slideChange: function () {
+            if (!this.initialized) return;
+            const scrollLeft = $specsContainer.scrollLeft();
+            const $firstCol = $('.compare-specs__cols').first();
+            if (!$firstCol.length) return;
+
+            const colWidth = $firstCol.outerWidth();
+            const activeIndex = Math.round(scrollLeft / colWidth);
+
+            syncDesktopSliders(activeIndex, this);
+          }
+        }
+      });
+      specsSwiper.initialized = true;
+    } catch (error) {
+      console.error('Error initializing specs swiper:', error);
+    }
+  }
+
+  // Инициализация свайпера для mobile таблицы характеристик
+  function initSpecsMobSwiper() {
+    const $specsMobContainer = $('.compare-specs-mob');
+    const el = $specsMobContainer[0];
+
+    // Проверка существования элемента
+    if (!el || !(el instanceof Element) || $specsMobContainer.length === 0) {
+      console.log('Mobile specs container not found, skipping initialization');
+      return;
+    }
+
+    try {
+      specsMobSwiper = new Swiper(el, {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        spaceBetween: 20,
+        resistanceRatio: 0,
+        observer: true,
+        observeSlideChildren: true,
+        observeParents: true,
+        on: {
+          init: function () {
+            this.initialized = true;
+            console.log('Mobile specs swiper initialized');
+          },
+          slideChange: function () {
+            if (!this.initialized) return;
+            syncMobileSliders(this.activeIndex, this, true);
+          }
+        }
+      });
+      specsMobSwiper.initialized = true;
+    } catch (error) {
+      console.error('Error initializing mobile specs swiper:', error);
+    }
+  }
+
+  // === Инициализация основных слайдеров ===
+
+  if (itemsSlider.length && itemsSlider[0] instanceof Element) {
+    const $navNext = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_next');
+    const $navPrev = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
+
+    try {
+      mainSwiper = new Swiper(itemsSlider[0], {
+        spaceBetween: 30,
+        slidesPerView: 3,
+        speed: 200,
+        navigation: {
+          nextEl: $navNext.length ? $navNext[0] : null,
+          prevEl: $navPrev.length ? $navPrev[0] : null,
+        },
+        observer: true,
+        observeSlideChildren: true,
+        observeParents: true,
+        breakpoints: {
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          1400: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          }
+        },
+        on: {
+          init: function () {
+            this.initialized = true;
+            this.slides.forEach((slide, index) => {
+              if (index < this.params.slidesPerView) {
+                $(slide).addClass('swiper-slide-visible');
+              }
+            });
+            syncSpecsPosition(this.activeIndex);
+          },
+          slideChangeTransitionEnd: function () {
+            if (!this.initialized) return;
+            this.slides.forEach(slide => {
+              $(slide).removeClass('swiper-slide-visible');
+            });
+
+            this.slides.forEach((slide, index) => {
+              if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
+                $(slide).addClass('swiper-slide-visible');
+              }
+            });
+
+            syncDesktopSliders(this.activeIndex, this);
+          }
+        }
+      });
+      mainSwiper.initialized = true;
+    } catch (error) {
+      console.error('Error initializing main swiper:', error);
+    }
+  }
+
+  if (floatSlider.length && floatSlider[0] instanceof Element) {
+    const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
+    const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
+
+    try {
+      floatSwiper = new Swiper(floatSlider[0], {
+        spaceBetween: 8,
+        slidesPerView: 2,
+        speed: 200,
+        navigation: {
+          nextEl: $navNext.length ? $navNext[0] : null,
+          prevEl: $navPrev.length ? $navPrev[0] : null,
+        },
+        observer: true,
+        observeSlideChildren: true,
+        observeParents: true,
+        breakpoints: {
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          1400: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          }
+        },
+        on: {
+          init: function () {
+            this.initialized = true;
+            this.slides.forEach((slide, index) => {
+              if (index < this.params.slidesPerView) {
+                $(slide).addClass('swiper-slide-visible');
+              }
+            });
+            syncSpecsPosition(this.activeIndex);
+          },
+          slideChangeTransitionEnd: function () {
+            if (!this.initialized) return;
+            this.slides.forEach(slide => {
+              $(slide).removeClass('swiper-slide-visible');
+            });
+
+            this.slides.forEach((slide, index) => {
+              if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
+                $(slide).addClass('swiper-slide-visible');
+              }
+            });
+
+            syncDesktopSliders(this.activeIndex, this);
+          }
+        }
+      });
+      floatSwiper.initialized = true;
+    } catch (error) {
+      console.error('Error initializing float swiper:', error);
+    }
+  }
+
+  function initMobileSwiper(selector, isFirst = true) {
+    const $slider = $(selector);
+    const el = $slider[0];
+
+    // Проверка существования элемента
+    if (!el || !(el instanceof Element) || $slider.length === 0) {
+      console.log(`Mobile swiper ${selector} not found, skipping initialization`);
+      return null;
+    }
+
+    const $navNext = $slider.closest('.compare-mobile__slider').find('.swiper-nav_next');
+    const $navPrev = $slider.closest('.compare-mobile__slider').find('.swiper-nav_prev');
+    const $label = $slider.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
+
+    try {
+      const swiper = new Swiper(el, {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        speed: 200,
+        navigation: {
+          nextEl: $navNext.length ? $navNext[0] : null,
+          prevEl: $navPrev.length ? $navPrev[0] : null,
+        },
+        observer: true,
+        observeSlideChildren: true,
+        observeParents: true,
+        on: {
+          init: function () {
+            this.initialized = true;
+            if ($label.length) {
+              $label.find('span').text(this.activeIndex + 1);
+            }
+            updateMobileSpecs(this.activeIndex, isFirst, !isFirst);
+          },
+          slideChange: function (s) {
+            if (!this.initialized) return;
+            if ($label.length) {
+              $label.find('span').text(s.realIndex + 1);
+            }
+            syncMobileSliders(s.realIndex, this, isFirst);
+          },
+        },
+      });
+      swiper.initialized = true;
+      return swiper;
+    } catch (error) {
+      console.error('Error initializing mobile swiper:', error);
+      return null;
+    }
+  }
+
+  // Инициализация всех мобильных слайдеров
+  mobileSwiper1 = initMobileSwiper('.compare-mobile1:not(.compare-float .compare-mobile1)', true);
+  mobileSwiper2 = initMobileSwiper('.compare-mobile2:not(.compare-float .compare-mobile2)', false);
+  floatMobileSwiper1 = initMobileSwiper('.compare-float .compare-mobile1', true);
+  floatMobileSwiper2 = initMobileSwiper('.compare-float .compare-mobile2', false);
+
+  // Инициализация свайперов для таблиц характеристик
+  initSpecsSwiper();
+  initSpecsMobSwiper();
+
+  // Функция для обработки свайпа на таблицах
+  function initManualSwipe() {
+    const $specsInner = $('.compare-specs__inner');
+    if ($specsInner.length && $specsInner[0] instanceof Element) {
+      let isScrolling = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      $specsInner.on('mousedown touchstart', function (e) {
+        isScrolling = true;
+        startX = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
+        scrollLeft = $specsInner.scrollLeft();
+      });
+
+      $specsInner.on('mousemove touchmove', function (e) {
+        if (!isScrolling) return;
+        e.preventDefault();
+        const x = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
+        const walk = (x - startX) * 2;
+        $specsInner.scrollLeft(scrollLeft - walk);
+      });
+
+      $specsInner.on('mouseup touchend mouseleave', function () {
+        isScrolling = false;
+      });
+    }
+
+    const $specsMob = $('.compare-specs-mob');
+    if ($specsMob.length && $specsMob[0] instanceof Element) {
+      let startXMob = 0;
+      let startYMob = 0;
+      let isHorizontalMob = false;
+
+      $specsMob.on('touchstart', function (e) {
+        startXMob = e.originalEvent.touches[0].pageX;
+        startYMob = e.originalEvent.touches[0].pageY;
+        isHorizontalMob = false;
+      });
+
+      $specsMob.on('touchmove', function (e) {
+        if (!isHorizontalMob) {
+          const xMove = e.originalEvent.touches[0].pageX - startXMob;
+          const yMove = e.originalEvent.touches[0].pageY - startYMob;
+
+          if (Math.abs(xMove) > Math.abs(yMove)) {
+            isHorizontalMob = true;
+            e.preventDefault();
+          }
+        } else {
+          e.preventDefault();
+          const xMove = e.originalEvent.touches[0].pageX - startXMob;
+
+          if (xMove > 50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex > 0) {
+            specsMobSwiper.slidePrev();
+            startXMob = e.originalEvent.touches[0].pageX;
+          } else if (xMove < -50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex < specsMobSwiper.slides.length - 1) {
+            specsMobSwiper.slideNext();
+            startXMob = e.originalEvent.touches[0].pageX;
+          }
+        }
+      });
+    }
+  }
+
+  setTimeout(() => {
+    initManualSwipe();
+  }, 100);
+
+  setTimeout(() => {
+    if (mainSwiper && mainSwiper.initialized) {
+      syncSpecsPosition(mainSwiper.activeIndex);
+    } else if (floatSwiper && floatSwiper.initialized) {
+      syncSpecsPosition(floatSwiper.activeIndex);
+    }
+  }, 200);
+
+  $(window).on('resize', function () {
+    setTimeout(() => {
+      if (mainSwiper && mainSwiper.initialized) {
+        syncSpecsPosition(mainSwiper.activeIndex);
+      } else if (floatSwiper && floatSwiper.initialized) {
+        syncSpecsPosition(floatSwiper.activeIndex);
+      }
+    }, 100);
+  });
+}
+
+// Запуск только после полной загрузки DOM
+$(document).ready(function () {
+  initCompareSliders();
+});
+
+
+const allRadios = document.querySelectorAll('.checklist input[type="radio"][data-mode]');
+
+if (allRadios) {
+
+  const desktopRows = document.querySelectorAll('.compare-specs .compare-specs__cols');
+  const mobileRows = document.querySelectorAll('.compare-specs-mob .compare-specs-mob__column');
+
+  function applyFilter(mode) {
+    desktopRows.forEach((row, index) => {
+      const isSame = row.classList.contains('compare-cols_same');
+      const mobileRow = mobileRows[index];
+
+      if (mode === 'differences') {
+        row.style.display = isSame ? 'none' : '';
+        if (mobileRow) mobileRow.style.display = isSame ? 'none' : '';
+      } else {
+        row.style.display = '';
+        if (mobileRow) mobileRow.style.display = '';
+      }
+    });
+
+    // 2. Синхронизируем ВСЕ радиокнопки: ставим checked на нужные
+    allRadios.forEach(radio => {
+      radio.checked = radio.dataset.mode === mode;
+    });
+  }
+
+  const initiallyChecked = Array.from(allRadios).find(radio => radio.checked);
+  const initialMode = initiallyChecked ? initiallyChecked.dataset.mode : 'all';
+  applyFilter(initialMode);
+
+  allRadios.forEach(radio => {
+    radio.addEventListener('change', function () {
+      if (this.checked) {
+        applyFilter(this.dataset.mode);
+      }
+    });
+  });
+}
 
 const compareFloat = document.querySelector('.compare-float');
 if (compareFloat) {

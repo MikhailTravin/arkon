@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="css/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="css/hystmodal.min.css" />
 		<link rel="stylesheet" href="css/fancybox.min.css" />
-		<link rel="stylesheet" href="css/styles.css?v=1758700442396" />
+		<link rel="stylesheet" href="css/styles.css?v=1758811282844" />
 
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -327,7 +327,7 @@
 									<li class="checklist__item">
 										<label class="checkbox-text">
 											<span class="radio">
-												<input checked class="radio__input" type="radio" name="rad1">
+												<input checked class="radio__input" type="radio" name="rad1" data-mode="all">
 												<span class="radio__visual"></span>
 											</span>
 											<span class="checkbox-text__label">Все характеристики</span>
@@ -336,7 +336,7 @@
 									<li class="checklist__item">
 										<label class="checkbox-text">
 											<span class="radio">
-												<input class="radio__input" type="radio" name="rad1">
+												<input class="radio__input" type="radio" name="rad1" data-mode="differences">
 												<span class="radio__visual"></span>
 											</span>
 											<span class="checkbox-text__label">Показывать только различия</span>
@@ -1403,7 +1403,7 @@
 									<li class="checklist__item">
 										<label class="checkbox-text">
 											<span class="radio">
-												<input checked class="radio__input" type="radio" name="rad1">
+												<input checked class="radio__input" type="radio" name="rad2" data-mode="all">
 												<span class="radio__visual"></span>
 											</span>
 											<span class="checkbox-text__label">Все характеристики</span>
@@ -1412,7 +1412,7 @@
 									<li class="checklist__item">
 										<label class="checkbox-text">
 											<span class="radio">
-												<input class="radio__input" type="radio" name="rad1">
+												<input class="radio__input" type="radio" name="rad2" data-mode="differences">
 												<span class="radio__visual"></span>
 											</span>
 											<span class="checkbox-text__label">Показывать только различия</span>
@@ -1434,7 +1434,7 @@
 										<div class="compare-specs__col">9.24° × 7.08°</div>
 										<div class="compare-specs__col">9.24° × 7.08°</div>
 									</div>
-									<div class="compare-specs__cols">
+									<div class="compare-specs__cols compare-cols_same">
 										<div class="compare-specs__col corners1">
 											<div class="corners1__inner">
 												Оптическое увеличение
@@ -1446,7 +1446,7 @@
 										<div class="compare-specs__col">1.5x</div>
 										<div class="compare-specs__col">1.5x</div>
 									</div>
-									<div class="compare-specs__cols compare-cols_same">
+									<div class="compare-specs__cols">
 										<div class="compare-specs__col corners1">
 											<div class="corners1__inner">
 												Диаметр объектива
@@ -1494,7 +1494,7 @@
 										<div class="compare-specs__col">EMMC (64 GB)</div>
 										<div class="compare-specs__col">EMMC (64 GB)</div>
 									</div>
-									<div class="compare-specs__cols compare-cols_same">
+									<div class="compare-specs__cols">
 										<div class="compare-specs__col corners1">
 											<div class="corners1__inner">
 												Поле зрения
@@ -1569,7 +1569,7 @@
 								</div>
 							</div>
 							<div class="compare-specs-mob">
-								<div class="compare-specs-mob__column">
+								<div class="compare-specs-mob__column  compare-cols_same">
 									<div class="compare-specs-mob__title">Поле зрения</div>
 									<div class="compare-specs-mob__cols">
 										<div class="compare-specs-mob__col compare-specs-mob__col_left">
@@ -1584,7 +1584,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="compare-specs-mob__column">
+								<div class="compare-specs-mob__column  compare-cols_same">
 									<div class="compare-specs-mob__title">Оптическое увеличение</div>
 									<div class="compare-specs-mob__cols">
 										<div class="compare-specs-mob__col compare-specs-mob__col_left">
@@ -1732,7 +1732,7 @@
 								<li class="checklist__item">
 									<label class="checkbox-text">
 										<span class="radio">
-											<input checked class="radio__input" type="radio" name="rad1">
+											<input checked class="radio__input" type="radio" name="rad3" data-mode="all">
 											<span class="radio__visual"></span>
 										</span>
 										<span class="checkbox-text__label">Все характеристики</span>
@@ -1741,7 +1741,7 @@
 								<li class="checklist__item">
 									<label class="checkbox-text">
 										<span class="radio">
-											<input class="radio__input" type="radio" name="rad1">
+											<input class="radio__input" type="radio" name="rad3" data-mode="differences">
 											<span class="radio__visual"></span>
 										</span>
 										<span class="checkbox-text__label">Показывать только различия</span>
@@ -2808,7 +2808,7 @@
 								<li class="checklist__item">
 									<label class="checkbox-text">
 										<span class="radio">
-											<input checked class="radio__input" type="radio" name="rad1">
+											<input checked class="radio__input" type="radio" name="rad4" data-mode="all">
 											<span class="radio__visual"></span>
 										</span>
 										<span class="checkbox-text__label">Все характеристики</span>
@@ -2817,7 +2817,7 @@
 								<li class="checklist__item">
 									<label class="checkbox-text">
 										<span class="radio">
-											<input class="radio__input" type="radio" name="rad1">
+											<input class="radio__input" type="radio" name="rad4" data-mode="differences">
 											<span class="radio__visual"></span>
 										</span>
 										<span class="checkbox-text__label">Показывать только различия</span>
@@ -3405,7 +3405,7 @@
 		<script src="js/dragscroll.min.js"></script>
 		<script src="js/hystmodal.min.js"></script>
 		<script src="js/simplebar.min.js"></script>
-		<script src="js/scripts.js?v=1758700442396"></script>
+		<script src="js/scripts.js?v=1758811282844"></script>
 	</body>
 
 </html>
