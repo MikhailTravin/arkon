@@ -875,6 +875,15 @@ textarea.field-input1 {
   justify-content: flex-start;
   align-items: flex-start;
   cursor: pointer;
+  &.checked {
+    .radio__input + .radio__visual {
+      border: 1px solid var(--theme-color-accent);
+      &::before {
+        content: "";
+        opacity: 1;
+      }
+    }
+  }
 
   .checkbox,
   .radio {
