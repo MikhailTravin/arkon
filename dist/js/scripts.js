@@ -2467,7 +2467,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/*
+
 function initCompareSliders() {
   const itemsSlider = $('.compare-items__slider');
   const floatSlider = $('.compare-float-slider');
@@ -2571,198 +2571,159 @@ function initCompareSliders() {
     }
   }
 
-  // Инициализация свайпера для desktop таблицы характеристик
-  function initSpecsSwiper() {
-    const $specsContainer = $('.compare-specs__inner');
-    if ($specsContainer.length && $specsContainer[0]) {
-      try {
-        specsSwiper = new Swiper($specsContainer[0], {
-          freeMode: true,
-          slidesPerView: 'auto',
-          resistanceRatio: 0,
-          slideToClickedSlide: false,
-          observer: true,
-          observeSlideChildren: true,
-          observeParents: true,
-          on: {
-            init: function () {
-              this.initialized = true;
-            },
-            slideChange: function () {
-              if (!this.initialized) return;
-              const scrollLeft = $specsContainer.scrollLeft();
-              const $firstCol = $('.compare-specs__cols').first();
-              if (!$firstCol.length) return;
-
-              const colWidth = $firstCol.outerWidth();
-              const activeIndex = Math.round(scrollLeft / colWidth);
-
-              syncDesktopSliders(activeIndex, this);
-            }
-          }
-        });
-        specsSwiper.initialized = true;
-      } catch (error) {
-        console.error('Error initializing specs swiper:', error);
-      }
-    }
+  function isValidElement(element) {
+    return element &&
+      element instanceof Element &&
+      element.nodeType === Node.ELEMENT_NODE &&
+      document.body.contains(element);
   }
 
-  // Инициализация свайпера для mobile таблицы характеристик
-  function initSpecsMobSwiper() {
-    const $specsMobContainer = $('.compare-specs-mob');
-    if ($specsMobContainer.length && $specsMobContainer[0]) {
-      try {
-        specsMobSwiper = new Swiper($specsMobContainer[0], {
-          direction: 'horizontal',
-          slidesPerView: 1,
-          spaceBetween: 20,
-          resistanceRatio: 0,
-          observer: true,
-          observeSlideChildren: true,
-          observeParents: true,
-          on: {
-            init: function () {
-              this.initialized = true;
-            },
-            slideChange: function () {
-              if (!this.initialized) return;
-              syncMobileSliders(this.activeIndex, this, true);
-            }
-          }
-        });
-        specsMobSwiper.initialized = true;
-      } catch (error) {
-        console.error('Error initializing mobile specs swiper:', error);
-      }
-    }
-  }
+  // === Инициализация основных слайдеров ===
 
-  if (itemsSlider.length && itemsSlider[0]) {
+  if (itemsSlider.length && isValidElement(itemsSlider[0])) {
     const $navNext = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_next');
     const $navPrev = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
 
-    try {
-      mainSwiper = new Swiper(itemsSlider[0], {
-        spaceBetween: 30,
-        slidesPerView: 3,
-        speed: 200,
-        navigation: {
-          nextEl: $navNext.length ? $navNext[0] : null,
-          prevEl: $navPrev.length ? $navPrev[0] : null,
-        },
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        breakpoints: {
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 20
+    if (!itemsSlider.find('.swiper-slide').length) {
+    } else {
+      try {
+        mainSwiper = new Swiper(itemsSlider[0], {
+          spaceBetween: 30,
+          slidesPerView: 3,
+          speed: 200,
+          navigation: {
+            nextEl: $navNext.length ? $navNext[0] : null,
+            prevEl: $navPrev.length ? $navPrev[0] : null,
           },
-          1400: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          }
-        },
-        on: {
-          init: function () {
-            this.initialized = true;
-            this.slides.forEach((slide, index) => {
-              if (index < this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
-              }
-            });
-            syncSpecsPosition(this.activeIndex);
+          observer: true,
+          observeSlideChildren: true,
+          observeParents: true,
+          breakpoints: {
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 20
+            },
+            1400: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
           },
-          slideChangeTransitionEnd: function () {
-            if (!this.initialized) return;
-            this.slides.forEach(slide => {
-              $(slide).removeClass('swiper-slide-visible');
-            });
+          on: {
+            init: function () {
+              this.initialized = true;
+              this.slides.forEach((slide, index) => {
+                if (index < this.params.slidesPerView) {
+                  $(slide).addClass('swiper-slide-visible');
+                }
+              });
+              syncSpecsPosition(this.activeIndex);
+            },
+            slideChangeTransitionEnd: function () {
+              if (!this.initialized) return;
+              this.slides.forEach(slide => {
+                $(slide).removeClass('swiper-slide-visible');
+              });
 
-            this.slides.forEach((slide, index) => {
-              if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
-              }
-            });
+              this.slides.forEach((slide, index) => {
+                if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
+                  $(slide).addClass('swiper-slide-visible');
+                }
+              });
 
-            syncDesktopSliders(this.activeIndex, this);
+              syncDesktopSliders(this.activeIndex, this);
+            }
           }
-        }
-      });
-      mainSwiper.initialized = true;
-    } catch (error) {
-      console.error('Error initializing main swiper:', error);
+        });
+        mainSwiper.initialized = true;
+      } catch{
+        
+      }
     }
   }
 
-  if (floatSlider.length && floatSlider[0]) {
-    const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
-    const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
+    if (floatSlider.length && isValidElement(floatSlider[0])) {
+      const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
+      const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
 
-    try {
-      floatSwiper = new Swiper(floatSlider[0], {
-        spaceBetween: 8,
-        slidesPerView: 2,
-        speed: 200,
-        navigation: {
-          nextEl: $navNext.length ? $navNext[0] : null,
-          prevEl: $navPrev.length ? $navPrev[0] : null,
-        },
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        breakpoints: {
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          1400: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          }
-        },
-        on: {
-          init: function () {
-            this.initialized = true;
-            this.slides.forEach((slide, index) => {
-              if (index < this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
+      // Проверка наличия слайдов
+      if (!floatSlider.find('.swiper-slide').length) {
+      } else {
+        try {
+          floatSwiper = new Swiper(floatSlider[0], {
+            spaceBetween: 8,
+            slidesPerView: 2,
+            speed: 200,
+            navigation: {
+              nextEl: $navNext.length ? $navNext[0] : null,
+              prevEl: $navPrev.length ? $navPrev[0] : null,
+            },
+            observer: true,
+            observeSlideChildren: true,
+            observeParents: true,
+            breakpoints: {
+              992: {
+                slidesPerView: 3,
+                spaceBetween: 20
+              },
+              1400: {
+                slidesPerView: 3,
+                spaceBetween: 30
               }
-            });
-            syncSpecsPosition(this.activeIndex);
-          },
-          slideChangeTransitionEnd: function () {
-            if (!this.initialized) return;
-            this.slides.forEach(slide => {
-              $(slide).removeClass('swiper-slide-visible');
-            });
+            },
+            on: {
+              init: function () {
+                this.initialized = true;
+                this.slides.forEach((slide, index) => {
+                  if (index < this.params.slidesPerView) {
+                    $(slide).addClass('swiper-slide-visible');
+                  }
+                });
+                syncSpecsPosition(this.activeIndex);
+              },
+              slideChangeTransitionEnd: function () {
+                if (!this.initialized) return;
+                this.slides.forEach(slide => {
+                  $(slide).removeClass('swiper-slide-visible');
+                });
 
-            this.slides.forEach((slide, index) => {
-              if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
+                this.slides.forEach((slide, index) => {
+                  if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
+                    $(slide).addClass('swiper-slide-visible');
+                  }
+                });
+
+                syncDesktopSliders(this.activeIndex, this);
               }
-            });
-
-            syncDesktopSliders(this.activeIndex, this);
-          }
+            }
+          });
+          floatSwiper.initialized = true;
+        } catch (error) {
+          console.error('Error initializing float swiper:', error);
         }
-      });
-      floatSwiper.initialized = true;
-    } catch (error) {
-      console.error('Error initializing float swiper:', error);
+      }
     }
-  }
 
-  function initMobileSwiper(selector, isFirst = true) {
-    const $slider = $(selector);
-    if ($slider.length && $slider[0]) {
+    function initMobileSwiper(selector, isFirst = true) {
+      const $slider = $(selector);
+      const el = $slider[0];
+
+      if (!isValidElement(el) || $slider.length === 0) {
+        console.log(`Mobile swiper ${selector} not found or invalid, skipping initialization`);
+        return null;
+      }
+
+      // Проверка наличия слайдов
+      if (!$slider.find('.swiper-slide').length) {
+        console.log(`No slides found in mobile swiper ${selector}, skipping initialization`);
+        return null;
+      }
+
       const $navNext = $slider.closest('.compare-mobile__slider').find('.swiper-nav_next');
       const $navPrev = $slider.closest('.compare-mobile__slider').find('.swiper-nav_prev');
       const $label = $slider.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
 
       try {
-        const swiper = new Swiper($slider[0], {
+        const swiper = new Swiper(el, {
           spaceBetween: 0,
           slidesPerView: 1,
           speed: 200,
@@ -2797,645 +2758,174 @@ function initCompareSliders() {
         return null;
       }
     }
-    return null;
-  }
 
-  // Инициализация всех мобильных слайдеров
-  mobileSwiper1 = initMobileSwiper('.compare-mobile1:not(.compare-float .compare-mobile1)', true);
-  mobileSwiper2 = initMobileSwiper('.compare-mobile2:not(.compare-float .compare-mobile2)', false);
-  floatMobileSwiper1 = initMobileSwiper('.compare-float .compare-mobile1', true);
-  floatMobileSwiper2 = initMobileSwiper('.compare-float .compare-mobile2', false);
+    // Инициализация всех мобильных слайдеров
+    mobileSwiper1 = initMobileSwiper('.compare-mobile1:not(.compare-float .compare-mobile1)', true);
+    mobileSwiper2 = initMobileSwiper('.compare-mobile2:not(.compare-float .compare-mobile2)', false);
+    floatMobileSwiper1 = initMobileSwiper('.compare-float .compare-mobile1', true);
+    floatMobileSwiper2 = initMobileSwiper('.compare-float .compare-mobile2', false);
 
-  // Инициализация свайперов для таблиц характеристик
-  initSpecsSwiper();
-  initSpecsMobSwiper();
+    // Функция для обработки свайпа на таблицах
+    function initManualSwipe() {
+      const $specsInner = $('.compare-specs__inner');
+      if ($specsInner.length && isValidElement($specsInner[0])) {
+        let isScrolling = false;
+        let startX = 0;
+        let scrollLeft = 0;
 
-  // Функция для обработки свайпа на таблицах
-  function initManualSwipe() {
-    // Для desktop таблицы
-    const $specsInner = $('.compare-specs__inner');
-    if ($specsInner.length) {
-      let isScrolling = false;
-      let startX = 0;
-      let scrollLeft = 0;
+        $specsInner.on('mousedown touchstart', function (e) {
+          isScrolling = true;
+          startX = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
+          scrollLeft = $specsInner.scrollLeft();
+        });
 
-      $specsInner.on('mousedown touchstart', function (e) {
-        isScrolling = true;
-        startX = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
-        scrollLeft = $specsInner.scrollLeft();
-      });
-
-      $specsInner.on('mousemove touchmove', function (e) {
-        if (!isScrolling) return;
-        e.preventDefault();
-        const x = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
-        const walk = (x - startX) * 2;
-        $specsInner.scrollLeft(scrollLeft - walk);
-      });
-
-      $specsInner.on('mouseup touchend mouseleave', function () {
-        isScrolling = false;
-      });
-    }
-
-    // Для mobile таблицы
-    const $specsMob = $('.compare-specs-mob');
-    if ($specsMob.length) {
-      let startXMob = 0;
-      let startYMob = 0;
-      let isHorizontalMob = false;
-
-      $specsMob.on('touchstart', function (e) {
-        startXMob = e.originalEvent.touches[0].pageX;
-        startYMob = e.originalEvent.touches[0].pageY;
-        isHorizontalMob = false;
-      });
-
-      $specsMob.on('touchmove', function (e) {
-        if (!isHorizontalMob) {
-          const xMove = e.originalEvent.touches[0].pageX - startXMob;
-          const yMove = e.originalEvent.touches[0].pageY - startYMob;
-
-          if (Math.abs(xMove) > Math.abs(yMove)) {
-            isHorizontalMob = true;
-            e.preventDefault();
-          }
-        } else {
+        $specsInner.on('mousemove touchmove', function (e) {
+          if (!isScrolling) return;
           e.preventDefault();
-          const xMove = e.originalEvent.touches[0].pageX - startXMob;
+          const x = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
+          const walk = (x - startX) * 2;
+          $specsInner.scrollLeft(scrollLeft - walk);
+        });
 
-          if (xMove > 50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex > 0) {
-            specsMobSwiper.slidePrev();
-            startXMob = e.originalEvent.touches[0].pageX;
-          } else if (xMove < -50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex < specsMobSwiper.slides.length - 1) {
-            specsMobSwiper.slideNext();
-            startXMob = e.originalEvent.touches[0].pageX;
+        $specsInner.on('mouseup touchend mouseleave', function () {
+          isScrolling = false;
+        });
+      }
+
+      const $specsMob = $('.compare-specs-mob');
+      if ($specsMob.length && isValidElement($specsMob[0])) {
+        let startXMob = 0;
+        let startYMob = 0;
+        let isHorizontalMob = false;
+
+        $specsMob.on('touchstart', function (e) {
+          startXMob = e.originalEvent.touches[0].pageX;
+          startYMob = e.originalEvent.touches[0].pageY;
+          isHorizontalMob = false;
+        });
+
+        $specsMob.on('touchmove', function (e) {
+          if (!isHorizontalMob) {
+            const xMove = e.originalEvent.touches[0].pageX - startXMob;
+            const yMove = e.originalEvent.touches[0].pageY - startYMob;
+
+            if (Math.abs(xMove) > Math.abs(yMove)) {
+              isHorizontalMob = true;
+              e.preventDefault();
+            }
+          } else {
+            e.preventDefault();
+            const xMove = e.originalEvent.touches[0].pageX - startXMob;
+
+            if (xMove > 50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex > 0) {
+              specsMobSwiper.slidePrev();
+              startXMob = e.originalEvent.touches[0].pageX;
+            } else if (xMove < -50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex < specsMobSwiper.slides.length - 1) {
+              specsMobSwiper.slideNext();
+              startXMob = e.originalEvent.touches[0].pageX;
+            }
           }
-        }
-      });
+        });
+      }
     }
-  }
 
-  // Задержка инициализации свайпа для обеспечения готовности DOM
-  setTimeout(() => {
     initManualSwipe();
-  }, 100);
 
-  // Инициализация позиции при загрузке
-  setTimeout(() => {
     if (mainSwiper && mainSwiper.initialized) {
       syncSpecsPosition(mainSwiper.activeIndex);
     } else if (floatSwiper && floatSwiper.initialized) {
       syncSpecsPosition(floatSwiper.activeIndex);
     }
-  }, 200);
 
-  $(window).on('resize', function () {
-    setTimeout(() => {
+    $(window).on('resize', function () {
       if (mainSwiper && mainSwiper.initialized) {
         syncSpecsPosition(mainSwiper.activeIndex);
       } else if (floatSwiper && floatSwiper.initialized) {
         syncSpecsPosition(floatSwiper.activeIndex);
       }
-    }, 100);
-  });
-
-
-}
-initCompareSliders()
-*/
-
-function initCompareSliders() {
-  const itemsSlider = $('.compare-items__slider');
-  const floatSlider = $('.compare-float-slider');
-  if (!itemsSlider.length && !floatSlider.length) return;
-
-  let mainSwiper = null;
-  let floatSwiper = null;
-  let mobileSwiper1 = null;
-  let mobileSwiper2 = null;
-  let floatMobileSwiper1 = null;
-  let floatMobileSwiper2 = null;
-  let specsSwiper = null;
-  let specsMobSwiper = null;
-
-  function syncDesktopSliders(activeIndex, sourceSwiper) {
-    if (mainSwiper && mainSwiper.initialized && mainSwiper !== sourceSwiper) {
-      mainSwiper.slideTo(activeIndex);
-    }
-
-    if (floatSwiper && floatSwiper.initialized && floatSwiper !== sourceSwiper) {
-      floatSwiper.slideTo(activeIndex);
-    }
-
-    if (specsSwiper && specsSwiper.initialized && specsSwiper !== sourceSwiper) {
-      specsSwiper.slideTo(activeIndex);
-    }
-
-    syncSpecsPosition(activeIndex);
-  }
-
-  function syncMobileSliders(activeIndex, sourceSwiper, isLeftSlider = true) {
-    if (isLeftSlider) {
-      if (mobileSwiper1 && mobileSwiper1.initialized && mobileSwiper1 !== sourceSwiper) {
-        mobileSwiper1.slideTo(activeIndex);
-      }
-      if (floatMobileSwiper1 && floatMobileSwiper1.initialized && floatMobileSwiper1 !== sourceSwiper) {
-        floatMobileSwiper1.slideTo(activeIndex);
-      }
-    } else {
-      if (mobileSwiper2 && mobileSwiper2.initialized && mobileSwiper2 !== sourceSwiper) {
-        mobileSwiper2.slideTo(activeIndex);
-      }
-      if (floatMobileSwiper2 && floatMobileSwiper2.initialized && floatMobileSwiper2 !== sourceSwiper) {
-        floatMobileSwiper2.slideTo(activeIndex);
-      }
-    }
-
-    if (specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper !== sourceSwiper) {
-      specsMobSwiper.slideTo(activeIndex);
-    }
-
-    updateMobileSpecs(activeIndex, isLeftSlider, !isLeftSlider);
-  }
-
-  function syncSpecsPosition(activeIndex) {
-    const $specsCols = $('.compare-specs__cols');
-    if (!$specsCols.length) return;
-
-    let visibleSlides = 3;
-
-    if (mainSwiper && mainSwiper.initialized) {
-      visibleSlides = mainSwiper.params.slidesPerView;
-    } else if (floatSwiper && floatSwiper.initialized) {
-      visibleSlides = floatSwiper.params.slidesPerView;
-    }
-
-    $specsCols.each(function () {
-      const $cols = $(this).find('.compare-specs__col').not(':first');
-
-      $cols.each(function (index) {
-        if (index >= activeIndex && index < activeIndex + visibleSlides) {
-          $(this).show();
-        } else {
-          $(this).hide();
-        }
-      });
     });
   }
 
-  function updateMobileSpecs(activeIndex, updateLeft = false, updateRight = false) {
-    if (updateLeft) {
-      const $leftCols = $('.compare-specs-mob__col_left');
-      $leftCols.each(function () {
-        const $divs = $(this).find('div');
-        $divs.hide();
-        if ($divs.length > activeIndex) {
-          $divs.eq(activeIndex).show();
-        }
-      });
-    }
-
-    if (updateRight) {
-      const $rightCols = $('.compare-specs-mob__col_right');
-      $rightCols.each(function () {
-        const $divs = $(this).find('div');
-        $divs.hide();
-        if ($divs.length > activeIndex) {
-          $divs.eq(activeIndex).show();
-        }
-      });
-    }
-  }
-
-  // Инициализация свайпера для desktop таблицы характеристик
-  function initSpecsSwiper() {
-    const $specsContainer = $('.compare-specs__inner');
-    const el = $specsContainer[0];
-
-    // Убедимся, что элемент существует и является DOM-элементом
-    if (!el || !(el instanceof Element) || $specsContainer.length === 0) {
-      console.log('Specs container not found, skipping initialization');
-      return;
-    }
-
-    try {
-      specsSwiper = new Swiper(el, {
-        freeMode: true,
-        slidesPerView: 'auto',
-        resistanceRatio: 0,
-        slideToClickedSlide: false,
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        on: {
-          init: function () {
-            this.initialized = true;
-            console.log('Specs swiper initialized');
-          },
-          slideChange: function () {
-            if (!this.initialized) return;
-            const scrollLeft = $specsContainer.scrollLeft();
-            const $firstCol = $('.compare-specs__cols').first();
-            if (!$firstCol.length) return;
-
-            const colWidth = $firstCol.outerWidth();
-            const activeIndex = Math.round(scrollLeft / colWidth);
-
-            syncDesktopSliders(activeIndex, this);
-          }
-        }
-      });
-      specsSwiper.initialized = true;
-    } catch (error) {
-      console.error('Error initializing specs swiper:', error);
-    }
-  }
-
-  // Инициализация свайпера для mobile таблицы характеристик
-  function initSpecsMobSwiper() {
-    const $specsMobContainer = $('.compare-specs-mob');
-    const el = $specsMobContainer[0];
-
-    // Проверка существования элемента
-    if (!el || !(el instanceof Element) || $specsMobContainer.length === 0) {
-      console.log('Mobile specs container not found, skipping initialization');
-      return;
-    }
-
-    try {
-      specsMobSwiper = new Swiper(el, {
-        direction: 'horizontal',
-        slidesPerView: 1,
-        spaceBetween: 20,
-        resistanceRatio: 0,
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        on: {
-          init: function () {
-            this.initialized = true;
-            console.log('Mobile specs swiper initialized');
-          },
-          slideChange: function () {
-            if (!this.initialized) return;
-            syncMobileSliders(this.activeIndex, this, true);
-          }
-        }
-      });
-      specsMobSwiper.initialized = true;
-    } catch (error) {
-      console.error('Error initializing mobile specs swiper:', error);
-    }
-  }
-
-  // === Инициализация основных слайдеров ===
-
-  if (itemsSlider.length && itemsSlider[0] instanceof Element) {
-    const $navNext = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_next');
-    const $navPrev = itemsSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
-
-    try {
-      mainSwiper = new Swiper(itemsSlider[0], {
-        spaceBetween: 30,
-        slidesPerView: 3,
-        speed: 200,
-        navigation: {
-          nextEl: $navNext.length ? $navNext[0] : null,
-          prevEl: $navPrev.length ? $navPrev[0] : null,
-        },
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        breakpoints: {
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          1400: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          }
-        },
-        on: {
-          init: function () {
-            this.initialized = true;
-            this.slides.forEach((slide, index) => {
-              if (index < this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
-              }
-            });
-            syncSpecsPosition(this.activeIndex);
-          },
-          slideChangeTransitionEnd: function () {
-            if (!this.initialized) return;
-            this.slides.forEach(slide => {
-              $(slide).removeClass('swiper-slide-visible');
-            });
-
-            this.slides.forEach((slide, index) => {
-              if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
-              }
-            });
-
-            syncDesktopSliders(this.activeIndex, this);
-          }
-        }
-      });
-      mainSwiper.initialized = true;
-    } catch (error) {
-      console.error('Error initializing main swiper:', error);
-    }
-  }
-
-  if (floatSlider.length && floatSlider[0] instanceof Element) {
-    const $navNext = floatSlider.closest('.compare-items__inner').find('.swiper-nav_next');
-    const $navPrev = floatSlider.closest('.compare-items__inner').find('.swiper-nav_prev');
-
-    try {
-      floatSwiper = new Swiper(floatSlider[0], {
-        spaceBetween: 8,
-        slidesPerView: 2,
-        speed: 200,
-        navigation: {
-          nextEl: $navNext.length ? $navNext[0] : null,
-          prevEl: $navPrev.length ? $navPrev[0] : null,
-        },
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        breakpoints: {
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 20
-          },
-          1400: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          }
-        },
-        on: {
-          init: function () {
-            this.initialized = true;
-            this.slides.forEach((slide, index) => {
-              if (index < this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
-              }
-            });
-            syncSpecsPosition(this.activeIndex);
-          },
-          slideChangeTransitionEnd: function () {
-            if (!this.initialized) return;
-            this.slides.forEach(slide => {
-              $(slide).removeClass('swiper-slide-visible');
-            });
-
-            this.slides.forEach((slide, index) => {
-              if (index >= this.activeIndex && index < this.activeIndex + this.params.slidesPerView) {
-                $(slide).addClass('swiper-slide-visible');
-              }
-            });
-
-            syncDesktopSliders(this.activeIndex, this);
-          }
-        }
-      });
-      floatSwiper.initialized = true;
-    } catch (error) {
-      console.error('Error initializing float swiper:', error);
-    }
-  }
-
-  function initMobileSwiper(selector, isFirst = true) {
-    const $slider = $(selector);
-    const el = $slider[0];
-
-    // Проверка существования элемента
-    if (!el || !(el instanceof Element) || $slider.length === 0) {
-      console.log(`Mobile swiper ${selector} not found, skipping initialization`);
-      return null;
-    }
-
-    const $navNext = $slider.closest('.compare-mobile__slider').find('.swiper-nav_next');
-    const $navPrev = $slider.closest('.compare-mobile__slider').find('.swiper-nav_prev');
-    const $label = $slider.closest('.compare-mobile__slider').find('.swiper-compare-mobile__label');
-
-    try {
-      const swiper = new Swiper(el, {
-        spaceBetween: 0,
-        slidesPerView: 1,
-        speed: 200,
-        navigation: {
-          nextEl: $navNext.length ? $navNext[0] : null,
-          prevEl: $navPrev.length ? $navPrev[0] : null,
-        },
-        observer: true,
-        observeSlideChildren: true,
-        observeParents: true,
-        on: {
-          init: function () {
-            this.initialized = true;
-            if ($label.length) {
-              $label.find('span').text(this.activeIndex + 1);
-            }
-            updateMobileSpecs(this.activeIndex, isFirst, !isFirst);
-          },
-          slideChange: function (s) {
-            if (!this.initialized) return;
-            if ($label.length) {
-              $label.find('span').text(s.realIndex + 1);
-            }
-            syncMobileSliders(s.realIndex, this, isFirst);
-          },
-        },
-      });
-      swiper.initialized = true;
-      return swiper;
-    } catch (error) {
-      console.error('Error initializing mobile swiper:', error);
-      return null;
-    }
-  }
-
-  // Инициализация всех мобильных слайдеров
-  mobileSwiper1 = initMobileSwiper('.compare-mobile1:not(.compare-float .compare-mobile1)', true);
-  mobileSwiper2 = initMobileSwiper('.compare-mobile2:not(.compare-float .compare-mobile2)', false);
-  floatMobileSwiper1 = initMobileSwiper('.compare-float .compare-mobile1', true);
-  floatMobileSwiper2 = initMobileSwiper('.compare-float .compare-mobile2', false);
-
-  // Инициализация свайперов для таблиц характеристик
-  initSpecsSwiper();
-  initSpecsMobSwiper();
-
-  // Функция для обработки свайпа на таблицах
-  function initManualSwipe() {
-    const $specsInner = $('.compare-specs__inner');
-    if ($specsInner.length && $specsInner[0] instanceof Element) {
-      let isScrolling = false;
-      let startX = 0;
-      let scrollLeft = 0;
-
-      $specsInner.on('mousedown touchstart', function (e) {
-        isScrolling = true;
-        startX = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
-        scrollLeft = $specsInner.scrollLeft();
-      });
-
-      $specsInner.on('mousemove touchmove', function (e) {
-        if (!isScrolling) return;
-        e.preventDefault();
-        const x = (e.pageX || e.originalEvent.touches[0].pageX) - $specsInner.offset().left;
-        const walk = (x - startX) * 2;
-        $specsInner.scrollLeft(scrollLeft - walk);
-      });
-
-      $specsInner.on('mouseup touchend mouseleave', function () {
-        isScrolling = false;
-      });
-    }
-
-    const $specsMob = $('.compare-specs-mob');
-    if ($specsMob.length && $specsMob[0] instanceof Element) {
-      let startXMob = 0;
-      let startYMob = 0;
-      let isHorizontalMob = false;
-
-      $specsMob.on('touchstart', function (e) {
-        startXMob = e.originalEvent.touches[0].pageX;
-        startYMob = e.originalEvent.touches[0].pageY;
-        isHorizontalMob = false;
-      });
-
-      $specsMob.on('touchmove', function (e) {
-        if (!isHorizontalMob) {
-          const xMove = e.originalEvent.touches[0].pageX - startXMob;
-          const yMove = e.originalEvent.touches[0].pageY - startYMob;
-
-          if (Math.abs(xMove) > Math.abs(yMove)) {
-            isHorizontalMob = true;
-            e.preventDefault();
-          }
-        } else {
-          e.preventDefault();
-          const xMove = e.originalEvent.touches[0].pageX - startXMob;
-
-          if (xMove > 50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex > 0) {
-            specsMobSwiper.slidePrev();
-            startXMob = e.originalEvent.touches[0].pageX;
-          } else if (xMove < -50 && specsMobSwiper && specsMobSwiper.initialized && specsMobSwiper.activeIndex < specsMobSwiper.slides.length - 1) {
-            specsMobSwiper.slideNext();
-            startXMob = e.originalEvent.touches[0].pageX;
-          }
-        }
-      });
-    }
-  }
-
-  setTimeout(() => {
-    initManualSwipe();
-  }, 100);
-
-  setTimeout(() => {
-    if (mainSwiper && mainSwiper.initialized) {
-      syncSpecsPosition(mainSwiper.activeIndex);
-    } else if (floatSwiper && floatSwiper.initialized) {
-      syncSpecsPosition(floatSwiper.activeIndex);
-    }
-  }, 200);
-
-  $(window).on('resize', function () {
-    setTimeout(() => {
-      if (mainSwiper && mainSwiper.initialized) {
-        syncSpecsPosition(mainSwiper.activeIndex);
-      } else if (floatSwiper && floatSwiper.initialized) {
-        syncSpecsPosition(floatSwiper.activeIndex);
-      }
-    }, 100);
+  $(document).ready(function () {
+    initCompareSliders();
   });
-}
-
-// Запуск только после полной загрузки DOM
-$(document).ready(function () {
-  initCompareSliders();
-});
 
 
-const allRadios = document.querySelectorAll('.checklist input[type="radio"][data-mode]');
+  const allRadios = document.querySelectorAll('.checklist input[type="radio"][data-mode]');
 
-if (allRadios) {
+  if (allRadios) {
 
-  const desktopRows = document.querySelectorAll('.compare-specs .compare-specs__cols');
-  const mobileRows = document.querySelectorAll('.compare-specs-mob .compare-specs-mob__column');
+    const desktopRows = document.querySelectorAll('.compare-specs .compare-specs__cols');
+    const mobileRows = document.querySelectorAll('.compare-specs-mob .compare-specs-mob__column');
 
-  function applyFilter(mode) {
-    desktopRows.forEach((row, index) => {
-      const isSame = row.classList.contains('compare-cols_same');
-      const mobileRow = mobileRows[index];
+    function applyFilter(mode) {
+      desktopRows.forEach((row, index) => {
+        const isSame = row.classList.contains('compare-cols_same');
+        const mobileRow = mobileRows[index];
 
-      if (mode === 'differences') {
-        row.style.display = isSame ? 'none' : '';
-        if (mobileRow) mobileRow.style.display = isSame ? 'none' : '';
-      } else {
-        row.style.display = '';
-        if (mobileRow) mobileRow.style.display = '';
-      }
-    });
+        if (mode === 'differences') {
+          row.style.display = isSame ? 'none' : '';
+          if (mobileRow) mobileRow.style.display = isSame ? 'none' : '';
+        } else {
+          row.style.display = '';
+          if (mobileRow) mobileRow.style.display = '';
+        }
+      });
 
-    // 2. Синхронизируем ВСЕ радиокнопки: ставим checked на нужные
+      // 2. Синхронизируем ВСЕ радиокнопки: ставим checked на нужные
+      allRadios.forEach(radio => {
+        radio.checked = radio.dataset.mode === mode;
+      });
+    }
+
+    const initiallyChecked = Array.from(allRadios).find(radio => radio.checked);
+    const initialMode = initiallyChecked ? initiallyChecked.dataset.mode : 'all';
+    applyFilter(initialMode);
+
     allRadios.forEach(radio => {
-      radio.checked = radio.dataset.mode === mode;
+      radio.addEventListener('change', function () {
+        if (this.checked) {
+          applyFilter(this.dataset.mode);
+        }
+      });
     });
   }
 
-  const initiallyChecked = Array.from(allRadios).find(radio => radio.checked);
-  const initialMode = initiallyChecked ? initiallyChecked.dataset.mode : 'all';
-  applyFilter(initialMode);
+  const compareFloat = document.querySelector('.compare-float');
+  if (compareFloat) {
+    function toggleCompareFloatClass() {
+      if (window.scrollY > 700) {
+        compareFloat.classList.add('_active');
+      } else {
+        compareFloat.classList.remove('_active');
+      }
+    }
+    window.addEventListener('scroll', toggleCompareFloatClass);
+    toggleCompareFloatClass();
+  }
 
-  allRadios.forEach(radio => {
-    radio.addEventListener('change', function () {
-      if (this.checked) {
-        applyFilter(this.dataset.mode);
+  const productFloat = document.querySelector('.fixed-product');
+  if (productFloat) {
+    function toggleproductFloat() {
+      if (window.scrollY > 700) {
+        productFloat.classList.add('_active');
+      } else {
+        productFloat.classList.remove('_active');
+      }
+    }
+    window.addEventListener('scroll', toggleproductFloat);
+    toggleproductFloat();
+  }
+
+  //Изменить магазин
+  const changeStoreButton = document.querySelector('.change-store');
+
+  if (changeStoreButton) {
+    changeStoreButton.addEventListener('click', function () {
+      const parentBlock = this.closest('.self-delivery-block__body');
+
+      if (parentBlock) {
+        parentBlock.classList.add('_active');
       }
     });
-  });
-}
-
-const compareFloat = document.querySelector('.compare-float');
-if (compareFloat) {
-  function toggleCompareFloatClass() {
-    if (window.scrollY > 700) {
-      compareFloat.classList.add('_active');
-    } else {
-      compareFloat.classList.remove('_active');
-    }
   }
-  window.addEventListener('scroll', toggleCompareFloatClass);
-  toggleCompareFloatClass();
-}
-
-const productFloat = document.querySelector('.fixed-product');
-if (productFloat) {
-  function toggleproductFloat() {
-    if (window.scrollY > 700) {
-      productFloat.classList.add('_active');
-    } else {
-      productFloat.classList.remove('_active');
-    }
-  }
-  window.addEventListener('scroll', toggleproductFloat);
-  toggleproductFloat();
-}
-
-//Изменить магазин
-const changeStoreButton = document.querySelector('.change-store');
-
-if (changeStoreButton) {
-  changeStoreButton.addEventListener('click', function () {
-    const parentBlock = this.closest('.self-delivery-block__body');
-
-    if (parentBlock) {
-      parentBlock.classList.add('_active');
-    }
-  });
-}
